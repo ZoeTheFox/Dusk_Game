@@ -59,8 +59,8 @@ func _physics_process(delta):
 		velocity.x = lerp(velocity.x, target_velocity.x, delta * (acceleration if input_dir != Vector2.ZERO else decceleration))
 		velocity.z = lerp(velocity.z, target_velocity.z, delta * (acceleration if input_dir != Vector2.ZERO else decceleration))
 	
-	if (is_on_floor() and velocity.length() > 0):
-		camera.head_bobbing(10)
+	#if (is_on_floor() and velocity.length() > 0):
+		#camera.head_bobbing(10)
 	
 	print(target_velocity)
 	print(velocity)
