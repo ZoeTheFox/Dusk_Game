@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://brh07riyg1qv0"]
+
+[ext_resource type="Script" path="res://FirstPersonController/PlayerController.gd" id="1_gxowu"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sy628"]
+radius = 0.354975
+height = 1.8019
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("twist_pivot", "pitch_pivot")]
+script = ExtResource("1_gxowu")
+twist_pivot = NodePath("Head/TwistPivot")
+pitch_pivot = NodePath("Head/TwistPivot/PitchPivot")
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_sy628")
+
+[node name="Head" type="Node3D" parent="."]
+
+[node name="TwistPivot" type="Node3D" parent="Head"]
+
+[node name="PitchPivot" type="Node3D" parent="Head/TwistPivot"]
+
+[node name="PlayerCamera" type="Camera3D" parent="Head/TwistPivot/PitchPivot"]
