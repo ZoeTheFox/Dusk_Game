@@ -1,18 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://brh07riyg1qv0"]
+[gd_scene load_steps=4 format=3 uid="uid://brh07riyg1qv0"]
 
 [ext_resource type="Script" path="res://FirstPersonController/PlayerController.gd" id="1_gxowu"]
+[ext_resource type="Script" path="res://FirstPersonController/PlayerCamera.gd" id="2_3llqn"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sy628"]
 radius = 0.354975
 height = 1.8019
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("twist_pivot", "pitch_pivot")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("twist_pivot", "pitch_pivot", "camera")]
 script = ExtResource("1_gxowu")
 twist_pivot = NodePath("Head/TwistPivot")
 pitch_pivot = NodePath("Head/TwistPivot/PitchPivot")
-speed = 3.0
 acceleration = 12.0
 decceleration = 8.0
+camera = NodePath("Head/TwistPivot/PitchPivot/PlayerCamera")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_sy628")
@@ -24,3 +25,4 @@ shape = SubResource("CapsuleShape3D_sy628")
 [node name="PitchPivot" type="Node3D" parent="Head/TwistPivot"]
 
 [node name="PlayerCamera" type="Camera3D" parent="Head/TwistPivot/PitchPivot"]
+script = ExtResource("2_3llqn")
