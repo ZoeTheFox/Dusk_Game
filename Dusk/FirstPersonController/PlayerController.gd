@@ -6,11 +6,7 @@ var mouse_sensivity := 0.001
 var twist_input := 0.0
 var pitch_input := 0.0
 
-@export
-var twist_pivot : Node3D
 
-@export
-var pitch_pivot : Node3D
 
 @export
 var walking_speed = 3.0
@@ -26,6 +22,12 @@ var acceleration = 5.0
 
 @export
 var decceleration = 5.0
+
+@export
+var twist_pivot : Node3D
+
+@export
+var pitch_pivot : Node3D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
