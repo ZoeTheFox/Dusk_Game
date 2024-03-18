@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+@export_category("Mouse Settings")
 @export
 var mouse_sensivity := 0.001
 
@@ -7,6 +8,7 @@ var twist_input := 0.0
 var pitch_input := 0.0
 
 
+@export_category("Speed")
 
 @export
 var walking_speed = 3.0
@@ -17,11 +19,15 @@ var running_speed = 5.0
 @export
 var jump_velocity = 4.5
 
-@export
-var acceleration = 5.0
+@export_category("Acceleration")
 
 @export
-var decceleration = 5.0
+var acceleration = 12
+
+@export
+var decceleration = 8.0
+
+@export_category("Camera Pivots")
 
 @export
 var twist_pivot : Node3D
@@ -60,14 +66,6 @@ func _physics_process(delta):
 	if (is_on_floor()):
 		velocity.x = lerp(velocity.x, target_velocity.x, delta * (acceleration if input_dir != Vector2.ZERO else decceleration))
 		velocity.z = lerp(velocity.z, target_velocity.z, delta * (acceleration if input_dir != Vector2.ZERO else decceleration))
-	
-	#if (is_on_floor() and velocity.length() > 0):
-		#camera.head_bobbing(10)
-	
-	# print(target_velocity)
-	# print(velocity)
-	
-	# print(is_on_floor())
 	
 	move_and_slide()
 	
