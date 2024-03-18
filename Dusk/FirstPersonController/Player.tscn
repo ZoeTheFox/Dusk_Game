@@ -18,14 +18,12 @@ camera = NodePath("Head/TwistPivot/PitchPivot/PlayerCamera")
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_sy628")
 
-[node name="Head" type="Node3D" parent="." node_paths=PackedStringArray("camera", "head", "twist_pivot", "player")]
+[node name="Head" type="Node3D" parent="." node_paths=PackedStringArray("camera", "player")]
 script = ExtResource("2_3llqn")
 enable = true
+toggle_speed = 0.2
 camera = NodePath("TwistPivot/PitchPivot/PlayerCamera")
-head = NodePath(".")
-twist_pivot = NodePath("TwistPivot")
 player = NodePath("..")
-toggle_speed = 1.0
 
 [node name="TwistPivot" type="Node3D" parent="Head"]
 
