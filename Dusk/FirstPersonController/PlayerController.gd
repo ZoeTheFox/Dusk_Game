@@ -64,10 +64,10 @@ func _physics_process(delta):
 	#if (is_on_floor() and velocity.length() > 0):
 		#camera.head_bobbing(10)
 	
-	print(target_velocity)
-	print(velocity)
+	# print(target_velocity)
+	# print(velocity)
 	
-	print(is_on_floor())
+	# print(is_on_floor())
 	
 	move_and_slide()
 	

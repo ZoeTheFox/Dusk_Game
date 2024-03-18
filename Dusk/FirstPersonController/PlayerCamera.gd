@@ -1,28 +1,84 @@
+extends Node3D
 
-extends Camera3D
+@export
+var enable : bool
 
-# Bobbing parameters
-var bobbing_speed = 4.0 # Speed of the bobbing. Adjust based on player speed.
-var bobbing_amount = 0.05 # How much the camera moves up and down.
+@export
+var amplitude : float = 0.015
 
-# Tracking variables
-var timer = 0.0 # Keep track of the time to calculate the bobbing position.
-var target_position_y = 0.0 # Target y position of the camera.
-var original_position_y = 0.0 # Original y position of the camera to return to.
+@export
+var frequency : float = 10.0
 
+@export
+var camera : Camera3D
+
+@export
+var head : Node3D
+
+@export
+var twist_pivot : Node3D
+
+@export
+var player : CharacterBody3D
+
+@export
+var toggle_speed : float = 3.0
+
+
+var start_pos : Vector3
+
+# https://www.youtube.com/watch?v=5MbR2qJK8Tc
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	start_pos = camera.position
+	reset_position()
+	
+func _process(delta):
+	if (!enable):
+		return
+	
+	check_motion()
+	reset_position()
+	#camera.look_at(focus_target())
+	
+	#print(focus_target())
 
-func head_bobbing(strength : float):
-	timer += get_process_delta_time() * bobbing_speed
-	var bobbing_offset = sin(timer) * bobbing_amount
-	target_position_y = original_position_y + bobbing_offset
+func focus_target() -> Vector3:
+	var pos = Vector3(global_position.x, global_position.y * head.position.y, global_position.z)
+	pos += twist_pivot.transform.basis.z * 15.0
+	
+	return pos
 
-	# Smoothly interpolate the camera's position to create a smooth bobbing effect
-	var camera_position = transform.origin
-	camera_position.y = lerp(camera_position.y, target_position_y, get_process_delta_time() * bobbing_speed)
-	transform.origin = camera_position
+func foot_step_motion() -> Vector3:
+	var pos = Vector3.ZERO
+	
+	pos.y += sin(Time.get_ticks_msec() * frequency) * amplitude
+	pos.x += cos(Time.get_ticks_msec() * frequency / 2.0) * amplitude * 2
+	
+	print(pos)
+	
+	return pos
+	
+func check_motion() -> void:
+	var speed = Vector3(player.velocity.x, 0, player.velocity.z).length()
+	
+	if (speed < toggle_speed):
+		return
+	
+	if (!player.is_on_floor()):
+		return
+		
+	play_motion(foot_step_motion())
 
+func reset_position() -> void:
+	if (camera.position == start_pos):
+		return
+		
+	camera.position = lerp(camera.position, start_pos, 1 * get_process_delta_time())
+	
+	
 
+func play_motion(motion : Vector3) -> void:
+	camera.position += motion * 0.5
+	#camera.position = lerp(camera.position, motion, 1 * get_process_delta_time())
