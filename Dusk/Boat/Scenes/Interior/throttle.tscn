@@ -9,4 +9,5 @@
 surface_material_override/0 = ExtResource("2_du014")
 
 [node name="ThrottleStick" parent="ThrottleBase" index="0"]
+transform = Transform3D(0, -1, 4.37114e-08, -1, 0, 4.37114e-08, -4.37114e-08, -4.37114e-08, -1, -0.231132, -0.185414, 0.000289947)
 surface_material_override/0 = ExtResource("2_du014")
