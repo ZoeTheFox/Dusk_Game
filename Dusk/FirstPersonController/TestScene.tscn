@@ -59,6 +59,16 @@ shape = SubResource("ConcavePolygonShape3D_gmc2q")
 
 [node name="TestingObjects" type="Node3D" parent="."]
 
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="TestingObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.589456, -5.59318)
+mesh = SubResource("BoxMesh_q8slv")
+surface_material_override/0 = SubResource("StandardMaterial3D_vigoe")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="TestingObjects/MeshInstance3D9"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestingObjects/MeshInstance3D9/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_catsn")
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="TestingObjects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.499233, -3.53744)
 mesh = SubResource("BoxMesh_q8slv")
