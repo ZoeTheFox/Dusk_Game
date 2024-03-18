@@ -1,10 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmacr6agbv47a"]
+[gd_scene load_steps=8 format=3 uid="uid://bmacr6agbv47a"]
 
 [ext_resource type="PackedScene" uid="uid://bj6mu0xjx85gb" path="res://Boat/Scenes/Boat_hull.tscn" id="1_14b2p"]
 [ext_resource type="PackedScene" uid="uid://dkgkyo8elywor" path="res://Boat/Scenes/propeller_rudder.tscn" id="2_0vbn7"]
+[ext_resource type="PackedScene" uid="uid://dkxfevxe5b4f1" path="res://Boat/Scenes/cabin.tscn" id="3_w7q7s"]
+[ext_resource type="PackedScene" uid="uid://byrwviljgstg" path="res://Boat/Scenes/windows.tscn" id="4_rmvyc"]
+[ext_resource type="PackedScene" uid="uid://cgcwuidlm66nx" path="res://Boat/Scenes/door.tscn" id="5_21bp5"]
+[ext_resource type="PackedScene" uid="uid://cxhu5ce82mei6" path="res://Boat/Scenes/radar.tscn" id="6_v4rid"]
+[ext_resource type="PackedScene" uid="uid://cbcuvh0fykcjk" path="res://Boat/Scenes/guard_rail.tscn" id="7_30y8c"]
 
 [node name="Boat" type="Node3D"]
 
 [node name="Hull" parent="." instance=ExtResource("1_14b2p")]
 
 [node name="propeller_rudder" parent="." instance=ExtResource("2_0vbn7")]
+
+[node name="cabin" parent="." instance=ExtResource("3_w7q7s")]
+
+[node name="windows" parent="." instance=ExtResource("4_rmvyc")]
+
+[node name="door" parent="." instance=ExtResource("5_21bp5")]
+
+[node name="radar" parent="." instance=ExtResource("6_v4rid")]
+
+[node name="guard_rail" parent="." instance=ExtResource("7_30y8c")]

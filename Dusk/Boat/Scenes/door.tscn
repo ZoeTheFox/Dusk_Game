@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgcwuidlm66nx"]
+
+[ext_resource type="PackedScene" uid="uid://bv416dkmr8kkh" path="res://Boat/GLB_Exports/Door/door.glb" id="1_1w8ll"]
+[ext_resource type="Material" uid="uid://mvkocgcisxd1" path="res://Boat/Scenes/Materials/door_mat.tres" id="2_135lh"]
+[ext_resource type="Material" uid="uid://y7nskv64io8j" path="res://Boat/Scenes/Materials/door_metal_parts.tres" id="3_mesnx"]
+[ext_resource type="Material" uid="uid://cumyd1eymbym" path="res://Boat/Scenes/Materials/glass_mat.tres" id="7_un6qr"]
+
+[node name="door" instance=ExtResource("1_1w8ll")]
+
+[node name="Door" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_135lh")
+
+[node name="HandleOutside" parent="Door" index="0"]
+surface_material_override/0 = ExtResource("3_mesnx")
+
+[node name="HandleInside" parent="Door/HandleOutside" index="0"]
+surface_material_override/0 = ExtResource("3_mesnx")
+
+[node name="Porthole" parent="Door" index="1"]
+surface_material_override/0 = ExtResource("3_mesnx")
+
+[node name="PortholeWindow" parent="Door" index="2"]
+surface_material_override/0 = ExtResource("7_un6qr")

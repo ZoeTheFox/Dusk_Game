@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxhu5ce82mei6"]
+
+[ext_resource type="PackedScene" uid="uid://njqavumm3dyn" path="res://Boat/GLB_Exports/Radar/radar.glb" id="1_q0fnb"]
+[ext_resource type="Material" uid="uid://ca0ms711kray3" path="res://Boat/Scenes/Materials/radar_mat.tres" id="2_wdq60"]
+
+[node name="radar" instance=ExtResource("1_q0fnb")]
+
+[node name="Radar" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_wdq60")
+
+[node name="RadarStick" parent="Radar" index="0"]
+surface_material_override/0 = ExtResource("2_wdq60")
