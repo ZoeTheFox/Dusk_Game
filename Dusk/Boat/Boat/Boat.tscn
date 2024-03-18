@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bmacr6agbv47a"]
 
-[ext_resource type="PackedScene" uid="uid://bj6mu0xjx85gb" path="res://Scenes/Boat_hull.tscn" id="1_14b2p"]
-[ext_resource type="PackedScene" uid="uid://dkgkyo8elywor" path="res://Scenes/propeller_rudder.tscn" id="2_0vbn7"]
+[ext_resource type="PackedScene" uid="uid://bj6mu0xjx85gb" path="res://Boat/Scenes/Boat_hull.tscn" id="1_14b2p"]
+[ext_resource type="PackedScene" uid="uid://dkgkyo8elywor" path="res://Boat/Scenes/propeller_rudder.tscn" id="2_0vbn7"]
 
 [node name="Boat" type="Node3D"]
 
