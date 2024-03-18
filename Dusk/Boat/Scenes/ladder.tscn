@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi12w0j8jspsu"]
+
+[ext_resource type="PackedScene" uid="uid://uljmqicgbeae" path="res://Boat/GLB_Exports/Ladder/ladder.glb" id="1_dk04c"]
+[ext_resource type="Material" uid="uid://1ay88au6b41c" path="res://Boat/Scenes/Materials/ladder_mat.tres" id="2_4ekfu"]
+
+[node name="ladder" instance=ExtResource("1_dk04c")]
+
+[node name="Ladder" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_4ekfu")
