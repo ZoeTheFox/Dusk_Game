@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bmacr6agbv47a"]
+[gd_scene load_steps=15 format=3 uid="uid://bmacr6agbv47a"]
 
 [ext_resource type="PackedScene" uid="uid://bj6mu0xjx85gb" path="res://Boat/Scenes/Boat_hull.tscn" id="1_14b2p"]
 [ext_resource type="PackedScene" uid="uid://dkgkyo8elywor" path="res://Boat/Scenes/propeller_rudder.tscn" id="2_0vbn7"]
@@ -10,6 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://brg3plbnp78sg" path="res://Boat/Scenes/Interior/dash.tscn" id="8_8wove"]
 [ext_resource type="PackedScene" uid="uid://bi12w0j8jspsu" path="res://Boat/Scenes/ladder.tscn" id="9_he28f"]
 [ext_resource type="PackedScene" uid="uid://dooh8vphs25yd" path="res://Boat/Scenes/Interior/seats.tscn" id="9_yl6kn"]
+[ext_resource type="PackedScene" uid="uid://kaaubfbeqmnc" path="res://Boat/Scenes/Interior/throttle.tscn" id="10_w5cvo"]
+[ext_resource type="PackedScene" uid="uid://mlhtvo30n317" path="res://Boat/Scenes/Interior/wheel.tscn" id="11_854qu"]
+[ext_resource type="PackedScene" uid="uid://b04ok54dx0ntj" path="res://Boat/Scenes/Interior/buttons.tscn" id="12_sq2bh"]
+[ext_resource type="PackedScene" uid="uid://bd21k2gp46pfn" path="res://Boat/Scenes/Interior/gauge.tscn" id="13_3u16s"]
 
 [node name="Boat" type="Node3D"]
 
@@ -32,5 +36,16 @@
 [node name="dash" parent="Interior" instance=ExtResource("8_8wove")]
 
 [node name="seats" parent="Interior" instance=ExtResource("9_yl6kn")]
+
+[node name="throttle" parent="Interior" instance=ExtResource("10_w5cvo")]
+
+[node name="Wheel" type="Node3D" parent="Interior"]
+transform = Transform3D(0.866243, 0.499622, 0, -0.499622, 0.866243, 0, 0, 0, 1, -0.0544958, 5.02987, -0.218814)
+
+[node name="wheel" parent="Interior/Wheel" instance=ExtResource("11_854qu")]
+
+[node name="buttons" parent="Interior" instance=ExtResource("12_sq2bh")]
+
+[node name="gauge" parent="Interior" instance=ExtResource("13_3u16s")]
 
 [node name="ladder" parent="." instance=ExtResource("9_he28f")]

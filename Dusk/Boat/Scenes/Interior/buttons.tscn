@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b04ok54dx0ntj"]
+
+[ext_resource type="PackedScene" uid="uid://beybg2n0orqeh" path="res://Boat/GLB_Exports/Interior/Button/buttons.glb" id="1_7hs6k"]
+[ext_resource type="Material" uid="uid://chnqeuiyuobfh" path="res://Boat/Scenes/Materials/Interior Mats/button_mat.tres" id="2_3ods3"]
+
+[node name="buttons" instance=ExtResource("1_7hs6k")]
+
+[node name="ButtonBase" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_3ods3")
+
+[node name="Button" parent="ButtonBase" index="0"]
+surface_material_override/0 = ExtResource("2_3ods3")
+
+[node name="ButtonBase_001" parent="." index="1"]
+surface_material_override/0 = ExtResource("2_3ods3")
+
+[node name="Button_002" parent="ButtonBase_001" index="0"]
+surface_material_override/0 = ExtResource("2_3ods3")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://mlhtvo30n317"]
+
+[ext_resource type="PackedScene" uid="uid://yrain7momj2w" path="res://Boat/GLB_Exports/Interior/Wheel/wheel.glb" id="1_0vkb6"]
+[ext_resource type="Material" uid="uid://bl8cwdbuy6fjm" path="res://Boat/Scenes/Materials/Interior Mats/wheel_mat.tres" id="2_0nd1i"]
+
+[node name="wheel" instance=ExtResource("1_0vkb6")]
+
+[node name="SteeringWheel" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_0nd1i")

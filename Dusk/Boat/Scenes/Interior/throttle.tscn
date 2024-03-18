@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://kaaubfbeqmnc"]
+
+[ext_resource type="PackedScene" uid="uid://dvj03c3qn7il2" path="res://Boat/GLB_Exports/Interior/Throttle/throttle.glb" id="1_rytsx"]
+[ext_resource type="Material" uid="uid://cmepw11g6ryiq" path="res://Boat/Scenes/Materials/Interior Mats/throttle_mat.tres" id="2_du014"]
+
+[node name="throttle" instance=ExtResource("1_rytsx")]
+
+[node name="ThrottleBase" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_du014")
+
+[node name="ThrottleStick" parent="ThrottleBase" index="0"]
+surface_material_override/0 = ExtResource("2_du014")
