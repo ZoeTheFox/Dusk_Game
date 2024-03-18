@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkxfevxe5b4f1"]
+
+[ext_resource type="PackedScene" uid="uid://c606tpdom8aga" path="res://Boat/GLB_Exports/Cabin/cabin.glb" id="1_dl4hi"]
+[ext_resource type="Material" uid="uid://cyg2cjmg1j7ch" path="res://Boat/Scenes/Materials/cabin_mat.tres" id="2_uxfri"]
+
+[node name="cabin" instance=ExtResource("1_dl4hi")]
+
+[node name="Cabin" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_uxfri")
