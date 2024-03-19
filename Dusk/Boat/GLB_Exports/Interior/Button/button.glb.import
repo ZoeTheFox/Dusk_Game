@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://beybg2n0orqeh"
-path="res://.godot/imported/buttons.glb-94bbb3e830edf6dd9aa1d9640fa37300.scn"
+uid="uid://dt1pn72f65flf"
+path="res://.godot/imported/button.glb-ef08206639e01278871fb483f22440d7.scn"
 
 [deps]
 
-source_file="res://Boat/GLB_Exports/Interior/Button/buttons.glb"
-dest_files=["res://.godot/imported/buttons.glb-94bbb3e830edf6dd9aa1d9640fa37300.scn"]
+source_file="res://Boat/GLB_Exports/Interior/Button/button.glb"
+dest_files=["res://.godot/imported/button.glb-ef08206639e01278871fb483f22440d7.scn"]
 
 [params]
 

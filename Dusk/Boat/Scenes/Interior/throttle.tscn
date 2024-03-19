@@ -1,13 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://kaaubfbeqmnc"]
+[gd_scene load_steps=4 format=3 uid="uid://kaaubfbeqmnc"]
 
 [ext_resource type="PackedScene" uid="uid://dvj03c3qn7il2" path="res://Boat/GLB_Exports/Interior/Throttle/throttle.glb" id="1_rytsx"]
+[ext_resource type="Script" path="res://Boat/InteractiveScenes/Animations/ThrottleAnimation.gd" id="2_1d810"]
 [ext_resource type="Material" uid="uid://cmepw11g6ryiq" path="res://Boat/Scenes/Materials/Interior Mats/throttle_mat.tres" id="2_du014"]
 
 [node name="throttle" instance=ExtResource("1_rytsx")]
+script = ExtResource("2_1d810")
 
 [node name="ThrottleBase" parent="." index="0"]
 surface_material_override/0 = ExtResource("2_du014")
 
 [node name="ThrottleStick" parent="ThrottleBase" index="0"]
-transform = Transform3D(0, -1, 4.37114e-08, -1, 0, 4.37114e-08, -4.37114e-08, -4.37114e-08, -1, -0.231132, -0.185414, 0.000289947)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.231132, -0.185414, 0.000290096)
 surface_material_override/0 = ExtResource("2_du014")
