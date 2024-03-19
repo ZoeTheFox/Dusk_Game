@@ -11,6 +11,8 @@ func _process(delta):
 	if (Input.is_key_pressed(KEY_T)):
 		$AnimationController.wheel_turn = 1
 		$AnimationController.throttle = 1
+		$ShipHull/Mesh/Interior/button.on_press()
+		$ShipHull/Mesh/cabin/door.use_door()
 	else:
 		$AnimationController.wheel_turn = 0
 		$AnimationController.throttle = -1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://bmacr6agbv47a"]
+[gd_scene load_steps=48 format=3 uid="uid://bmacr6agbv47a"]
 
 [ext_resource type="PackedScene" uid="uid://bj6mu0xjx85gb" path="res://Boat/Scenes/Boat_hull.tscn" id="1_14b2p"]
 [ext_resource type="Script" path="res://Boat/Boat/Boat_test.gd" id="1_qyb5w"]
@@ -14,10 +14,11 @@
 [ext_resource type="PackedScene" uid="uid://dooh8vphs25yd" path="res://Boat/Scenes/Interior/seats.tscn" id="9_yl6kn"]
 [ext_resource type="PackedScene" uid="uid://kaaubfbeqmnc" path="res://Boat/Scenes/Interior/throttle.tscn" id="10_w5cvo"]
 [ext_resource type="PackedScene" uid="uid://mlhtvo30n317" path="res://Boat/Scenes/Interior/wheel.tscn" id="11_854qu"]
-[ext_resource type="PackedScene" uid="uid://bd21k2gp46pfn" path="res://Boat/Scenes/Interior/gauge.tscn" id="13_3u16s"]
 [ext_resource type="PackedScene" uid="uid://b2o8owd406khv" path="res://Boat/Scenes/Interior/radar_screen.tscn" id="15_gi3it"]
 [ext_resource type="PackedScene" uid="uid://cgfi2m6l2qasa" path="res://Boat/Scenes/Interior/boxes.tscn" id="16_0unde"]
 [ext_resource type="PackedScene" uid="uid://chcu3k4lk1d5i" path="res://Boat/Scenes/Interior/lamp.tscn" id="17_oarsp"]
+[ext_resource type="PackedScene" uid="uid://wg7iy2tsusqi" path="res://Boat/Scenes/Interior/button.tscn" id="18_6qaue"]
+[ext_resource type="PackedScene" uid="uid://cg5uc6505dq5i" path="res://Boat/Scenes/Interior/gauge.tscn" id="18_r5cse"]
 [ext_resource type="Script" path="res://Boat/Boat/AnimationController.gd" id="20_3h7vo"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_a62bm"]
@@ -92,21 +93,6 @@ size = Vector3(0.690918, 0.453613, 0.828674)
 [sub_resource type="BoxShape3D" id="BoxShape3D_dpvfi"]
 size = Vector3(0.353806, 0.483398, 1.9032)
 
-[sub_resource type="Animation" id="Animation_3cyxg"]
-resource_name = "turn_wheel_right"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ShipHull/Mesh/Interior/Wheel/wheel:wheel_rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.5, 1.0]
-}
-
 [sub_resource type="Animation" id="Animation_22qna"]
 resource_name = "turn_wheel_left"
 tracks/0/type = "value"
@@ -120,6 +106,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.5, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_3cyxg"]
+resource_name = "turn_wheel_right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShipHull/Mesh/Interior/Wheel/wheel:wheel_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.5, 1.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2n6p8"]
@@ -170,14 +171,31 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 transform = Transform3D(0.866243, 0.499622, 0, -0.499622, 0.866243, 0, 0, 0, 1, -0.0544958, 5.02987, -0.218814)
 
 [node name="wheel" parent="ShipHull/Mesh/Interior/Wheel" instance=ExtResource("11_854qu")]
-
-[node name="gauge" parent="ShipHull/Mesh/Interior" instance=ExtResource("13_3u16s")]
+transform = Transform3D(1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="radar_screen" parent="ShipHull/Mesh/Interior" instance=ExtResource("15_gi3it")]
 
 [node name="boxes" parent="ShipHull/Mesh/Interior" instance=ExtResource("16_0unde")]
 
 [node name="lamp" parent="ShipHull/Mesh/Interior" instance=ExtResource("17_oarsp")]
+
+[node name="button" parent="ShipHull/Mesh/Interior" instance=ExtResource("18_6qaue")]
+transform = Transform3D(0.805111, 0.593124, 0, -0.593124, 0.805111, 0, 0, 0, 1, 9.27123, 1.67723, -3.18746)
+
+[node name="button2" parent="ShipHull/Mesh/Interior" instance=ExtResource("18_6qaue")]
+transform = Transform3D(0.838756, 0.544507, 0, -0.544507, 0.838756, 0, 0, 0, 1, 9.529, 1.486, -3.54969)
+
+[node name="Speed_Gauge" parent="ShipHull/Mesh/Interior" instance=ExtResource("18_r5cse")]
+transform = Transform3D(0.817406, 0.576061, 0, -0.576061, 0.817406, 0, 0, 0, 1, 8.74895, 2.02319, 0)
+
+[node name="Fuel_Gauge" parent="ShipHull/Mesh/Interior" instance=ExtResource("18_r5cse")]
+transform = Transform3D(0.817406, 0.576061, 0, -0.576061, 0.817406, 0, 0, 0, 1, 8.74895, 2.02319, 0.621237)
+
+[node name="RPM_Gauge" parent="ShipHull/Mesh/Interior" instance=ExtResource("18_r5cse")]
+transform = Transform3D(0.817406, 0.576061, 0, -0.576061, 0.817406, 0, 0, 0, 1, 8.74895, 2.02319, -0.624578)
+
+[node name="Compass" parent="ShipHull/Mesh/Interior" instance=ExtResource("18_r5cse")]
+transform = Transform3D(0.817406, 0.576061, 0, -0.576061, 0.817406, 0, 0, 0, 1, 8.74895, 2.02319, -3.42151)
 
 [node name="TyreWithAttachment" parent="ShipHull" instance=ExtResource("5_qem7n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.278192, 0, 1.82494)
@@ -314,10 +332,14 @@ libraries = {
 "": SubResource("AnimationLibrary_2n6p8")
 }
 
-[node name="AnimationController" type="Node3D" parent="." node_paths=PackedStringArray("wheel", "throttle_node")]
+[node name="AnimationController" type="Node3D" parent="." node_paths=PackedStringArray("wheel", "throttle_node", "speed_gauge", "rpm_gauge", "fuel_gauge", "compass")]
 script = ExtResource("20_3h7vo")
 wheel = NodePath("../ShipHull/Mesh/Interior/Wheel/wheel")
 throttle_node = NodePath("../ShipHull/Mesh/Interior/throttle")
+speed_gauge = NodePath("../ShipHull/Mesh/Interior/Speed_Gauge")
+rpm_gauge = NodePath("../ShipHull/Mesh/Interior/RPM_Gauge")
+fuel_gauge = NodePath("../ShipHull/Mesh/Interior/Fuel_Gauge")
+compass = NodePath("../ShipHull/Mesh/Interior/Compass")
 
 [editable path="ShipHull/Mesh/Hull"]
 [editable path="ShipHull/Mesh/Hull/guard_rail"]
