@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://FirstPersonController/ViewBob.gd" id="2_3llqn"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sy628"]
-radius = 0.354975
-height = 1.8019
+radius = 0.09
+height = 1.19131
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("twist_pivot", "pitch_pivot", "camera")]
 script = ExtResource("1_gxowu")
@@ -14,6 +14,7 @@ pitch_pivot = NodePath("Head/TwistPivot/PitchPivot")
 camera = NodePath("Head/TwistPivot/PitchPivot/PlayerCamera")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.440132, 0)
 shape = SubResource("CapsuleShape3D_sy628")
 
 [node name="Head" type="Node3D" parent="." node_paths=PackedStringArray("camera", "player")]

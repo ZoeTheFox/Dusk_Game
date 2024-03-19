@@ -169,9 +169,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_s3oar")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TestingObjects/MeshInstance3D8/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_22cd7")
 
-[node name="Player" parent="." instance=ExtResource("1_jw81i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.31773, 0)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_qflmm")
 camera_attributes = SubResource("CameraAttributesPhysical_rupye")
@@ -184,3 +181,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.727376, -12.6838)
 
 [node name="TyreWithAttachment" parent="." instance=ExtResource("3_jbh78")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+
+[node name="Player" parent="." instance=ExtResource("1_jw81i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.18725, -12.2975)
