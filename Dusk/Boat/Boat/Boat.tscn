@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://byrwviljgstg" path="res://Boat/Scenes/windows.tscn" id="4_rmvyc"]
 [ext_resource type="PackedScene" uid="uid://cgcwuidlm66nx" path="res://Boat/Scenes/door.tscn" id="5_21bp5"]
 [ext_resource type="PackedScene" uid="uid://bcvei67tq1050" path="res://Boat/InteractiveScenes/tyre_with_attachment.tscn" id="5_qem7n"]
-[ext_resource type="PackedScene" uid="uid://cxhu5ce82mei6" path="res://Boat/Scenes/radar.tscn" id="6_v4rid"]
+[ext_resource type="PackedScene" uid="uid://c8v1xgugpny7s" path="res://Boat/Scenes/radar.tscn" id="6_v4rid"]
 [ext_resource type="PackedScene" uid="uid://cbcuvh0fykcjk" path="res://Boat/Scenes/guard_rail.tscn" id="7_30y8c"]
 [ext_resource type="PackedScene" uid="uid://brg3plbnp78sg" path="res://Boat/Scenes/Interior/dash.tscn" id="8_8wove"]
 [ext_resource type="PackedScene" uid="uid://bi12w0j8jspsu" path="res://Boat/Scenes/ladder.tscn" id="9_he28f"]
@@ -213,7 +213,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.68336, 0, 1.85367)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.67221, 0, 1.90691)
 
 [node name="TyreWithAttachment6" parent="ShipHull" instance=ExtResource("5_qem7n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.71181, 0, 1.82494)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.71069, -5.96046e-08, 1.9463)
 
 [node name="TyreWithAttachment7" parent="ShipHull" instance=ExtResource("5_qem7n")]
 transform = Transform3D(0.971661, 0, -0.23638, 0, 1, 0, 0.23638, 0, 0.971661, -3.50087, 0, 1.73475)

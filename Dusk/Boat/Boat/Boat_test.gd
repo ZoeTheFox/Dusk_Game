@@ -13,6 +13,14 @@ func _process(delta):
 		$AnimationController.throttle = 1
 		$ShipHull/Mesh/Interior/button.on_press()
 		$ShipHull/Mesh/cabin/door.use_door()
+		
+		$ShipHull/Mesh/Hull/propeller_rudder.engine_rpm += 100
+		
+		$ShipHull/Mesh/cabin/radar.radar_on = true
+		
 	else:
 		$AnimationController.wheel_turn = 0
 		$AnimationController.throttle = -1
+
+	if (Input.is_key_pressed(KEY_R)):
+		$ShipHull/Mesh/cabin/radar.radar_on = false
