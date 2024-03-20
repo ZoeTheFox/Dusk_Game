@@ -2,7 +2,7 @@ extends Node3D
 
 @export_category("Wheel")
 
-@export
+@export_range(-1, 1, 0.1)
 var wheel_turn : float
 
 @export
@@ -11,11 +11,16 @@ var wheel : Node3D
 
 @export_category("Throttle")
 
-@export
+@export_range(-1, 1, 0.1)
 var throttle : float
 
 @export
 var throttle_node : Node3D
+
+@export_category("Rudder and Props")
+
+@export
+var rudder_and_props : Node3D
 
 @export_category("Speed")
 
@@ -53,6 +58,9 @@ func _ready():
 func _process(delta):
 	wheel.wheel_rotation = wheel_turn
 	throttle_node.throttle = throttle
+	
+	rudder_and_props.turn = wheel_turn
+	rudder_and_props.engine_rpm = rpm
 	
 	speed_gauge.value = speed
 	rpm_gauge.value = rpm
