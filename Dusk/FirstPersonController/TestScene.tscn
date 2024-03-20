@@ -1,6 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://7im5py6qv337"]
+[gd_scene load_steps=17 format=3 uid="uid://7im5py6qv337"]
 
 [ext_resource type="PackedScene" uid="uid://brh07riyg1qv0" path="res://FirstPersonController/Player.tscn" id="1_jw81i"]
+[ext_resource type="PackedScene" uid="uid://bcvei67tq1050" path="res://Boat/InteractiveScenes/tyre_with_attachment.tscn" id="3_jbh78"]
+[ext_resource type="PackedScene" uid="uid://bmacr6agbv47a" path="res://Boat/Boat/Boat.tscn" id="3_xpweb"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_o26vn"]
 size = Vector2(20, 20)
@@ -167,12 +169,18 @@ surface_material_override/0 = SubResource("StandardMaterial3D_s3oar")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TestingObjects/MeshInstance3D8/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_22cd7")
 
-[node name="Player" parent="." instance=ExtResource("1_jw81i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.31773, 0)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_qflmm")
 camera_attributes = SubResource("CameraAttributesPhysical_rupye")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.345495, -0.93833, 0.0130532, 0, 0.0139098, 0.999903, -0.938421, 0.345461, -0.00480576, 523.629, 8.89441, -269.865)
+
+[node name="TyreWithAttachment" parent="." instance=ExtResource("3_jbh78")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+
+[node name="Player" parent="." instance=ExtResource("1_jw81i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.75084, -12.2975)
+
+[node name="Boat" parent="." instance=ExtResource("3_xpweb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.95921, -12.5285)

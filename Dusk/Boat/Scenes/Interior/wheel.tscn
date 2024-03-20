@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://mlhtvo30n317"]
+
+[ext_resource type="PackedScene" uid="uid://yrain7momj2w" path="res://Boat/GLB_Exports/Interior/Wheel/wheel.glb" id="1_0vkb6"]
+[ext_resource type="Material" uid="uid://bl8cwdbuy6fjm" path="res://Boat/Scenes/Materials/Interior Mats/wheel_mat.tres" id="2_0nd1i"]
+[ext_resource type="Script" path="res://Boat/InteractiveScenes/Animations/WheelAnimation.gd" id="2_g4efd"]
+
+[node name="wheel" instance=ExtResource("1_0vkb6")]
+script = ExtResource("2_g4efd")
+
+[node name="SteeringWheel" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.89732, 2.57157, -1.82289)
+surface_material_override/0 = ExtResource("2_0nd1i")

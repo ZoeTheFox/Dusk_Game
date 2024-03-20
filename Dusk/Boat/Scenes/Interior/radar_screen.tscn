@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2o8owd406khv"]
+
+[ext_resource type="PackedScene" uid="uid://ccpvn4orqqtio" path="res://Boat/GLB_Exports/Interior/Radar_Screen/radar_screen.glb" id="1_gjri6"]
+[ext_resource type="Material" uid="uid://b0kwhyn08i2oo" path="res://Boat/Scenes/Materials/Interior Mats/radar_screen_mat.tres" id="2_jmuej"]
+[ext_resource type="Material" uid="uid://1kiowcm0jd36" path="res://Boat/Scenes/Materials/Interior Mats/radar_screen_display_mat.tres" id="3_c84k5"]
+
+[node name="radar_screen" instance=ExtResource("1_gjri6")]
+
+[node name="RadarScreen" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_jmuej")
+surface_material_override/1 = ExtResource("3_c84k5")

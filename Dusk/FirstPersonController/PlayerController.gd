@@ -59,7 +59,7 @@ func _physics_process(delta):
 	if (Input.is_action_pressed("run")):
 		speed = running_speed
 	
-	var direction = (transform.basis * camera.global_transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var direction = (transform.basis * twist_pivot.global_transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	var target_velocity = direction * speed
 	
@@ -80,7 +80,9 @@ func _process(delta):
 	
 	twist_pivot.rotate_y(twist_input)
 	pitch_pivot.rotate_x(pitch_input)
-		
+	
+	pitch_pivot.rotation.x = clamp(pitch_pivot.rotation.x, deg_to_rad(-90.0), deg_to_rad(90.0))
+	
 	twist_input = 0
 	pitch_input = 0
 	
