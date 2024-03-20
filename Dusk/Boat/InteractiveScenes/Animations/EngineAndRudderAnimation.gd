@@ -16,7 +16,10 @@ func _process(delta):
 	if $Propeller.rotation.z > 360:
 		$Propeller.rotation.z -= 360
 		
-	$Propeller.rotation.z += deg_to_rad(engine_rpm / 60 / 4)
+	$Propeller_001.rotation.z += deg_to_rad(engine_rpm / 60 / 4)
 	
 	if $Propeller_001.rotation.z > 360:
 		$Propeller_001.rotation.z -= 360
+		
+	$Rudder.rotation.y = deg_to_rad(45 * turn)
+	$Rudder_001.rotation.y = deg_to_rad(45 * turn)

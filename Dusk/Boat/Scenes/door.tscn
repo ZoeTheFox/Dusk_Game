@@ -9,24 +9,6 @@
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ql1e2"]
 points = PackedVector3Array(0.0331434, -0.0557733, 0.1097, -3.40853, -5.30023, -0.136134, -3.34454, -5.20273, 0.1097, -3.40853, 0.0417342, -0.136134, 0.0971327, -5.30023, -0.136134, 0.0971327, 0.0417342, -0.136134, 0.0331434, -5.20273, 0.1097, -3.34454, -0.0557733, 0.1097)
 
-[sub_resource type="Animation" id="Animation_mdm6t"]
-resource_name = "open_door"
-length = 1.5
-tracks/0/type = "rotation_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Door")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0.4, 1, 0, 0, 0, 1, 1.1, 1, 0, -0.766044, 0, 0.642788, 1.5, 1, 0, -0.737277, 0, 0.67559)
-tracks/1/type = "rotation_3d"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Door/HandleOutside")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 1, 2.8213e-07, 0.2, 1, 0, 0, 0.993879, 0.110472, 0.4, 1, 0, 0, 1, -4.37114e-08)
-
 [sub_resource type="Animation" id="Animation_ov28a"]
 resource_name = "close_door"
 length = 1.5
@@ -44,6 +26,24 @@ tracks/1/path = NodePath("Door")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = PackedFloat32Array(0, 1, 0, -0.737277, 0, 0.67559, 0.2, 1, 0, -0.737277, 0, 0.67559, 1.4, 1, 0, 0.0436194, 0, 0.999048, 1.5, 1, 0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_mdm6t"]
+resource_name = "open_door"
+length = 1.5
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0.4, 1, 0, 0, 0, 1, 1.1, 1, 0, -0.766044, 0, 0.642788, 1.5, 1, 0, -0.737277, 0, 0.67559)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Door/HandleOutside")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 1, 2.8213e-07, 0.2, 1, 0, 0, 0.993879, 0.110472, 0.4, 1, 0, 0, 1, -4.37114e-08)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8qrrr"]
 _data = {

@@ -180,7 +180,7 @@ transform = Transform3D(-0.345495, -0.93833, 0.0130532, 0, 0.0139098, 0.999903, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_jw81i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.18725, -12.2975)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.75084, -12.2975)
 
 [node name="Boat" parent="." instance=ExtResource("3_xpweb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.781075, -12.5285)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.95921, -12.5285)

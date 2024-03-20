@@ -24,3 +24,10 @@ func _process(delta):
 
 	if (Input.is_key_pressed(KEY_R)):
 		$ShipHull/Mesh/cabin/radar.radar_on = false
+
+	if (Input.is_key_pressed(KEY_A)):
+		$ShipHull/Mesh/Hull/propeller_rudder.turn = 1
+	elif (Input.is_key_pressed(KEY_D)):
+		$ShipHull/Mesh/Hull/propeller_rudder.turn = -1
+	else:
+		$ShipHull/Mesh/Hull/propeller_rudder.turn = 0
