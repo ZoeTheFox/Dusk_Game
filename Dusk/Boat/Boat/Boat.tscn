@@ -1,7 +1,6 @@
-[gd_scene load_steps=45 format=3 uid="uid://bmacr6agbv47a"]
+[gd_scene load_steps=44 format=3 uid="uid://bmacr6agbv47a"]
 
 [ext_resource type="PackedScene" uid="uid://bj6mu0xjx85gb" path="res://Boat/Scenes/Boat_hull.tscn" id="1_14b2p"]
-[ext_resource type="Script" path="res://Boat/Boat/Boat_test.gd" id="1_qyb5w"]
 [ext_resource type="PackedScene" uid="uid://dkgkyo8elywor" path="res://Boat/Scenes/propeller_rudder.tscn" id="2_0vbn7"]
 [ext_resource type="PackedScene" uid="uid://dkxfevxe5b4f1" path="res://Boat/Scenes/cabin.tscn" id="3_w7q7s"]
 [ext_resource type="PackedScene" uid="uid://byrwviljgstg" path="res://Boat/Scenes/windows.tscn" id="4_rmvyc"]
@@ -94,7 +93,6 @@ size = Vector3(0.690918, 0.453613, 0.828674)
 size = Vector3(0.353806, 0.483398, 1.9032)
 
 [node name="Boat" type="Node3D"]
-script = ExtResource("1_qyb5w")
 
 [node name="ShipHull" type="RigidBody3D" parent="."]
 mass = 138.95
