@@ -16,7 +16,7 @@ var engine_rpm : float
 var idle_rpm : float = 1000
 
 @export
-var max_engine_force : float = 250
+var max_engine_force : float = 1000
 
 @export
 var throttle_change_sensitivity : float = 0.5
@@ -44,7 +44,7 @@ var wheel_deadzone : float = 0.1
 var engine_force : Curve
 
 @export
-var turning_force : float = 50
+var turning_force : float = 80
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -53,6 +53,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+	print("Engine Status: " + str(engine_rpm))
+	print("Engine on?" + str(engine_on))
+	print("Engine off?" + str(engine_off))
+	print("clutch? " + str(clutch_on))
+	
 	var throttle_input : float
 	
 	throttle_input = Input.get_axis("throttle_backwards", "throttle_forwards");
@@ -74,6 +80,9 @@ func _process(delta):
 	
 	if (Input.is_key_pressed(KEY_R) and engine_off == true):
 		start_engine()
+	
+	if (Input.is_key_pressed(KEY_T) and engine_off == false and engine_on == true):
+		stop_engine()
 	
 	if (engine_on == true and engine_off == false):
 		engine_rpm = lerpf(engine_rpm, calculate_rpm_from_throttle(throttle), delta / 4)
@@ -104,6 +113,7 @@ func update_animations() -> void:
 	animation_controller.rpm = engine_rpm
 	animation_controller.wheel_turn = wheel_turn
 	animation_controller.speed = boat_rigidbody.linear_velocity.length()
+	animation_controller.fuel = 80
 
 func calculate_rpm_from_throttle(throttle : float) -> float:
 	return lerpf(idle_rpm, max_engine_rpm, abs(throttle))
@@ -112,6 +122,7 @@ func start_engine() -> void:
 	var start_engine_thread : Thread = Thread.new()
 	engine_on = true
 	start_engine_thread.start(start_engine_animation_thread)
+	$ShipHull/Mesh/cabin/radar.radar_on = true
 
 func start_engine_animation_thread() -> void:
 	while engine_rpm < idle_rpm - 50.0:
@@ -121,6 +132,19 @@ func start_engine_animation_thread() -> void:
 	engine_rpm = 1000
 	engine_off = false
 
+func stop_engine() -> void:
+	var stop_engine_thread : Thread = Thread.new()
+	engine_on = false
+	stop_engine_thread.start(stop_engine_animation_thread)
+	$ShipHull/Mesh/cabin/radar.radar_on = false
+
+func stop_engine_animation_thread() -> void:
+	while engine_rpm > 100:
+		engine_rpm = lerpf(engine_rpm, 0, get_process_delta_time())
+		await get_tree().create_timer(0.02).timeout
+	
+	engine_rpm = 0
+	engine_off = true
 
 func _on_throttle_deadzone_timer_timeout():
 	if (throttle <= throttle_deadzone and throttle >= -throttle_deadzone):
