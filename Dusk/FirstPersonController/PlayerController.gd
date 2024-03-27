@@ -41,7 +41,17 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export
 var camera : Camera3D
 
+@export_category("Player Boat")
+
+@export
+var boat : Node3D
+
+var is_in_ship : bool = false
+
 func _physics_process(delta):
+	if (is_in_ship):
+		return
+	
 	var speed = walking_speed
 	
 	# Add the gravity.
@@ -72,6 +82,11 @@ func _physics_process(delta):
 # Called when the node enters the scene tree for tshe first time.
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+func enter_ship():
+	camera.current = false
+	is_in_ship = true
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

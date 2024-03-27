@@ -16,7 +16,7 @@ var engine_rpm : float
 var idle_rpm : float = 1000
 
 @export
-var max_engine_force : float = 1000
+var max_engine_force : float = 3000
 
 @export
 var throttle_change_sensitivity : float = 0.5
@@ -44,7 +44,7 @@ var wheel_deadzone : float = 0.1
 var engine_force : Curve
 
 @export
-var turning_force : float = 80
+var turning_force : float = 250
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -53,12 +53,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
-	print("Engine Status: " + str(engine_rpm))
-	print("Engine on?" + str(engine_on))
-	print("Engine off?" + str(engine_off))
-	print("clutch? " + str(clutch_on))
-	
 	var throttle_input : float
 	
 	throttle_input = Input.get_axis("throttle_backwards", "throttle_forwards");
@@ -101,6 +95,8 @@ func _physics_process(delta):
 		
 		var force = max_engine_force * engine_force.sample(engine_rpm_normalized)
 		
+		print("force: " + str(force) + " N")
+		
 		if (throttle > 0):
 			boat_rigidbody.apply_central_force(-boat_rigidbody.transform.basis.x * force)
 		else:
@@ -113,6 +109,7 @@ func update_animations() -> void:
 	animation_controller.rpm = engine_rpm
 	animation_controller.wheel_turn = wheel_turn
 	animation_controller.speed = boat_rigidbody.linear_velocity.length()
+	print(boat_rigidbody.linear_velocity.length())
 	animation_controller.fuel = 80
 
 func calculate_rpm_from_throttle(throttle : float) -> float:

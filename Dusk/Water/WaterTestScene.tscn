@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://62fvwrc7sch3"]
+[gd_scene load_steps=22 format=3 uid="uid://62fvwrc7sch3"]
 
 [ext_resource type="Material" uid="uid://bwratgro0x321" path="res://Water/water_mat.tres" id="1_mdwat"]
 [ext_resource type="Script" path="res://Water/Water.gd" id="2_onn1x"]
 [ext_resource type="PackedScene" uid="uid://bmacr6agbv47a" path="res://Boat/Boat/Boat.tscn" id="3_a8to5"]
+[ext_resource type="PackedScene" uid="uid://brh07riyg1qv0" path="res://FirstPersonController/Player.tscn" id="5_mgs2n"]
 [ext_resource type="PackedScene" uid="uid://bcvei67tq1050" path="res://Boat/InteractiveScenes/tyre_with_attachment.tscn" id="5_qvsjk"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_pgnm1"]
@@ -54,6 +55,9 @@ metallic_specular = 0.78
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_kdgg3"]
 data = PackedVector3Array(4.205, 0, 1, -4.205, 0, 1, 4.205, 0, -1, -4.205, 0, 1, -4.205, 0, -1, 4.205, 0, -1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dk7fw"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [node name="WaterTestScene" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0298843, 0, -0.00428009)
@@ -205,8 +209,13 @@ shape = SubResource("ConcavePolygonShape3D_kdgg3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -95.3817, 6.95972, 0)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(5.96, 0, 0, 0, 5.96, 0, 0, 0, 5.96, -15.8653, 2.92479, 13.0589)
+transform = Transform3D(5.96, 0, 0, 0, 5.96, 0, 0, 0, 5.96, 0.96828, -0.322653, 6.27968)
 mesh = SubResource("BoxMesh_t8m8g")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_dk7fw")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
 transform = Transform3D(5.96, 0, 0, 0, 5.96, 0, 0, 0, 5.96, -29.4206, 2.92479, 1.37459)
@@ -216,8 +225,9 @@ mesh = SubResource("BoxMesh_t8m8g")
 transform = Transform3D(5.96, 0, 0, 0, 5.96, 0, 0, 0, 5.96, -46.6871, 2.92479, -11.3751)
 mesh = SubResource("BoxMesh_t8m8g")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.987827, 0.155555, 0, -0.155555, 0.987827, 0, 4.66526, 11.0123)
+[node name="Player" parent="." node_paths=PackedStringArray("boat") instance=ExtResource("5_mgs2n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.54501, 4.68291)
+boat = NodePath("../Boat")
 
 [editable path="Boat"]
 [editable path="Boat/ShipHull/Mesh/Hull"]

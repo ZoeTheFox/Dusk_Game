@@ -31,3 +31,4 @@ player = NodePath("..")
 [node name="PitchPivot" type="Node3D" parent="Head/TwistPivot"]
 
 [node name="PlayerCamera" type="Camera3D" parent="Head/TwistPivot/PitchPivot"]
+current = true
