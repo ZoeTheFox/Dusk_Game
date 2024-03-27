@@ -46,6 +46,11 @@ var engine_force : Curve
 @export
 var turning_force : float = 250
 
+var is_player_in_seat : bool = false
+
+@export
+var player_spawn_location : Node3D
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -53,9 +58,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var throttle_input : float
+	var throttle_input : float = 0
 	
-	throttle_input = Input.get_axis("throttle_backwards", "throttle_forwards");
+	if (is_player_in_seat):
+		throttle_input = Input.get_axis("throttle_backwards", "throttle_forwards");
 	
 	throttle += throttle_input * delta * throttle_change_sensitivity
 
@@ -72,18 +78,19 @@ func _process(delta):
 	throttle = clampf(throttle, -1, 1)
 	
 	
-	if (Input.is_key_pressed(KEY_R) and engine_off == true):
+	if (Input.is_key_pressed(KEY_R) and engine_off == true and is_player_in_seat):
 		start_engine()
 	
-	if (Input.is_key_pressed(KEY_T) and engine_off == false and engine_on == true):
+	if (Input.is_key_pressed(KEY_T) and engine_off == false and engine_on == true and is_player_in_seat):
 		stop_engine()
 	
 	if (engine_on == true and engine_off == false):
 		engine_rpm = lerpf(engine_rpm, calculate_rpm_from_throttle(throttle), delta / 4)
 		
-	var turn_input : float
+	var turn_input : float = 0
 	
-	turn_input = Input.get_axis("turn_left", "turn_right")
+	if (is_player_in_seat):
+		turn_input = Input.get_axis("turn_left", "turn_right")
 	
 	wheel_turn = lerpf(wheel_turn, turn_input, delta * 2)
 	
@@ -94,8 +101,6 @@ func _physics_process(delta):
 		var engine_rpm_normalized = engine_rpm / max_engine_rpm
 		
 		var force = max_engine_force * engine_force.sample(engine_rpm_normalized)
-		
-		print("force: " + str(force) + " N")
 		
 		if (throttle > 0):
 			boat_rigidbody.apply_central_force(-boat_rigidbody.transform.basis.x * force)
@@ -109,7 +114,6 @@ func update_animations() -> void:
 	animation_controller.rpm = engine_rpm
 	animation_controller.wheel_turn = wheel_turn
 	animation_controller.speed = boat_rigidbody.linear_velocity.length()
-	print(boat_rigidbody.linear_velocity.length())
 	animation_controller.fuel = 80
 
 func calculate_rpm_from_throttle(throttle : float) -> float:
@@ -148,6 +152,13 @@ func _on_throttle_deadzone_timer_timeout():
 		throttle = 0
 
 
+func enter_boat():
+	$ShipHull/Camera/TwistPivot/PitchPivot/BoatCamera.current = true
+	is_player_in_seat = true
+
+func exit_boat():
+	$ShipHull/Camera/TwistPivot/PitchPivot/BoatCamera.current = false
+	is_player_in_seat = false
 
 func _on_wheel_deadzone_timer_timeout():
 	pass # Replace with function body.

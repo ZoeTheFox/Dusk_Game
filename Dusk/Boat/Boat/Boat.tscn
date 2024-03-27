@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://bmacr6agbv47a"]
+[gd_scene load_steps=50 format=3 uid="uid://bmacr6agbv47a"]
 
 [ext_resource type="PackedScene" uid="uid://bj6mu0xjx85gb" path="res://Boat/Scenes/Boat_hull.tscn" id="1_14b2p"]
 [ext_resource type="Script" path="res://Boat/Boat/boat_controller.gd" id="1_ihrm8"]
@@ -102,18 +102,23 @@ size = Vector3(0.690918, 0.453613, 0.828674)
 [sub_resource type="BoxShape3D" id="BoxShape3D_dpvfi"]
 size = Vector3(0.353806, 0.483398, 1.9032)
 
-[node name="Boat" type="Node3D" node_paths=PackedStringArray("animation_controller", "boat_rigidbody")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ej6wl"]
+size = Vector3(15.2863, 2.66028, 3.82922)
+
+[node name="Boat" type="Node3D" node_paths=PackedStringArray("animation_controller", "boat_rigidbody", "player_spawn_location")]
 script = ExtResource("1_ihrm8")
 animation_controller = NodePath("AnimationController")
 boat_rigidbody = NodePath("ShipHull")
+max_engine_rpm = 8000.0
+max_engine_force = 150000.0
 engine_force = SubResource("Curve_ell1n")
+turning_force = 5000.0
+player_spawn_location = NodePath("ShipHull/PlayerSpawn")
 
 [node name="ShipHull" type="RigidBody3D" parent="."]
-mass = 600.0
+mass = 10000.0
 script = ExtResource("1_pdhd7")
-float_force = 33.333
-water_drag = 0.01
-water_angular_drag = 0.02
+float_force = 500.0
 
 [node name="HullCollider" type="CollisionShape3D" parent="ShipHull"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.23151, -0.6264, -1.66893e-06)
@@ -297,7 +302,7 @@ transform = Transform3D(0.817406, 0.576061, 0, -0.576061, 0.817406, 0, 0, 0, 1, 
 
 [node name="RPM_Gauge" parent="ShipHull/Mesh/Interior" instance=ExtResource("18_r5cse")]
 transform = Transform3D(0.817406, 0.576061, 0, -0.576061, 0.817406, 0, 0, 0, 1, 8.74895, 2.02319, -0.624578)
-max_value = 6000.0
+max_value = 10000.0
 
 [node name="Compass" parent="ShipHull/Mesh/Interior" instance=ExtResource("18_r5cse")]
 transform = Transform3D(0.817406, 0.576061, 0, -0.576061, 0.817406, 0, 0, 0, 1, 8.74895, 2.02319, -3.42151)
@@ -422,6 +427,17 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.0065
 script = ExtResource("21_5s5if")
 twist_pivot = NodePath("../..")
 pitch_pivot = NodePath("..")
+
+[node name="PlayerSpawn" type="Marker3D" parent="ShipHull"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.798852, 0)
+
+[node name="BoatArea" type="Area3D" parent="ShipHull"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ShipHull/BoatArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.662659, 0.830139, 0.0293579)
+shape = SubResource("BoxShape3D_ej6wl")
 
 [node name="AnimationController" type="Node3D" parent="." node_paths=PackedStringArray("wheel", "throttle_node", "rudder_and_props", "speed_gauge", "rpm_gauge", "fuel_gauge", "compass")]
 script = ExtResource("20_3h7vo")

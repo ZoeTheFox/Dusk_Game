@@ -48,7 +48,17 @@ var boat : Node3D
 
 var is_in_ship : bool = false
 
+var is_on_ship : bool = false
+
 func _physics_process(delta):
+	if (Input.is_action_just_released("interact")):
+		if (is_in_ship):
+			exit_ship()
+			boat.exit_boat()
+		else:
+			enter_ship()
+			boat.enter_boat()
+	
 	if (is_in_ship):
 		return
 	
@@ -76,17 +86,38 @@ func _physics_process(delta):
 	if (is_on_floor()):
 		velocity.x = lerp(velocity.x, target_velocity.x, delta * (acceleration if input_dir != Vector2.ZERO else decceleration))
 		velocity.z = lerp(velocity.z, target_velocity.z, delta * (acceleration if input_dir != Vector2.ZERO else decceleration))
+
+	if (is_on_ship):
+		pass
 	
 	move_and_slide()
 	
 # Called when the node enters the scene tree for tshe first time.
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	var boat_area = boat.get_node("ShipHull/BoatArea")
+	
+	boat_area.connect("body_entered", _on_body_entered)
+	boat_area.connect("body_exited", _on_body_exited)
+
+func _on_body_entered(body):
+	is_on_ship = true
+	
+func _on_body_exited(body):
+	is_on_ship = false
 
 func enter_ship():
 	camera.current = false
 	is_in_ship = true
 	
+	global_position = Vector3(-10000, 0, 10000000)
+
+func exit_ship():
+	camera.current = true
+	is_in_ship = false
+	
+	global_position = boat.player_spawn_location.global_position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
