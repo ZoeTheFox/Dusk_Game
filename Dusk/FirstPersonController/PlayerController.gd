@@ -50,6 +50,20 @@ var is_in_ship : bool = false
 
 var is_on_ship : bool = false
 
+@export_category("Water Physics")
+@export var float_force := 1.0
+@export var water_drag := 0.05
+@export var water_angular_drag := 0.05
+
+@export
+var water : MeshInstance3D
+
+@onready var probes = $BuyoancyProbes.get_children()
+
+var submerged := false
+
+var last_boat_pos : Vector3
+
 func _physics_process(delta):
 	if (Input.is_action_just_released("interact")):
 		if (is_in_ship):
@@ -61,7 +75,8 @@ func _physics_process(delta):
 	
 	if (is_in_ship):
 		return
-	
+		
+		
 	var speed = walking_speed
 	
 	# Add the gravity.
@@ -83,12 +98,29 @@ func _physics_process(delta):
 	
 	var target_velocity = direction * speed
 	
-	if (is_on_floor()):
+	if (is_on_floor() or submerged):
 		velocity.x = lerp(velocity.x, target_velocity.x, delta * (acceleration if input_dir != Vector2.ZERO else decceleration))
 		velocity.z = lerp(velocity.z, target_velocity.z, delta * (acceleration if input_dir != Vector2.ZERO else decceleration))
 
-	if (is_on_ship):
-		pass
+	if (is_on_ship and is_on_floor() and direction == Vector3.ZERO):
+		global_position.x = boat.get_node("ShipHull").global_position.x + last_boat_pos.x
+		global_position.z = boat.get_node("ShipHull").global_position.z + last_boat_pos.z
+		print(get_position_relative_to_boat())
+		print(global_position)
+	elif (is_on_ship):
+		last_boat_pos = get_position_relative_to_boat()
+		
+	submerged = false
+	for p in probes:
+		var depth = water.get_height(p.global_position) - p.global_position.y 
+		if depth > 0:
+			submerged = true
+			velocity += Vector3.UP * float_force * gravity * depth
+	
+	if submerged:
+		velocity *=  1 - water_drag
+	
+
 	
 	move_and_slide()
 	
@@ -119,6 +151,9 @@ func exit_ship():
 	
 	global_position = boat.player_spawn_location.global_position
 
+func get_position_relative_to_boat():
+	return global_position - boat.get_node("ShipHull").global_position
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_pressed("ui_cancel"):
@@ -137,3 +172,6 @@ func _input(event):
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			twist_input = - event.relative.x * mouse_sensivity
 			pitch_input = - event.relative.y * mouse_sensivity
+
+
+
