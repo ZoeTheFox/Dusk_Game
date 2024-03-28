@@ -22,7 +22,7 @@ jump_velocity = 3.0
 twist_pivot = NodePath("Head/TwistPivot")
 pitch_pivot = NodePath("Head/TwistPivot/PitchPivot")
 camera = NodePath("Head/TwistPivot/PitchPivot/PlayerCamera")
-float_force = 0.04
+float_force = 0.015
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.440132, 0)

@@ -108,6 +108,8 @@ func _physics_process(delta):
 			boat_rigidbody.apply_central_force(boat_rigidbody.transform.basis.x * force)
 	
 	boat_rigidbody.apply_torque_impulse(boat_rigidbody.transform.basis.y * -wheel_turn * turning_force * boat_rigidbody.linear_velocity.length())
+	
+	boat_rigidbody.rotation_degrees.x = lerpf(boat_rigidbody.rotation_degrees.x, wheel_turn * turning_force * 0.0005 * boat_rigidbody.linear_velocity.length(), delta / 2)
 
 func update_animations() -> void:
 	animation_controller.throttle = throttle

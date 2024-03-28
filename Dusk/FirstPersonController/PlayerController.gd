@@ -114,16 +114,14 @@ func _physics_process(delta):
 	submerged = false
 	for p in probes:
 		var depth = water.get_height(p.global_position) - p.global_position.y 
-		if depth > 0:
+		if depth > 0 and is_on_ship == false:
 			submerged = true
 			velocity += Vector3.UP * float_force * gravity * depth
 	
 	if submerged:
 		velocity *=  1 - water_drag
 	
-	print(water.get_height(camera.global_position) - camera.global_position.y)
-	
-	if water.get_height(camera.global_position) - camera.global_position.y > -0.3:
+	if (water.get_height(camera.global_position) - camera.global_position.y) >= -0.1:
 		$Head/TwistPivot/PitchPivot/PlayerCamera/WaterEffect.visible = true
 	else:
 		$Head/TwistPivot/PitchPivot/PlayerCamera/WaterEffect.visible = false

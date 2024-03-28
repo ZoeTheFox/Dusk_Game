@@ -23,6 +23,8 @@ sky_material = SubResource("PhysicalSkyMaterial_yc4m6")
 [sub_resource type="Environment" id="Environment_7e1gl"]
 background_mode = 2
 sky = SubResource("Sky_6rhby")
+fog_enabled = true
+fog_light_color = Color(0.517647, 0.564706, 0.607843, 1)
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_rdlc4"]
 
