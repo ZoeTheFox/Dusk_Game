@@ -79,6 +79,9 @@ func _physics_process(delta):
 		
 	var speed = walking_speed
 	
+	if submerged:
+		speed *= 0.4
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -105,8 +108,6 @@ func _physics_process(delta):
 	if (is_on_ship and is_on_floor() and direction == Vector3.ZERO):
 		global_position.x = boat.get_node("ShipHull").global_position.x + last_boat_pos.x
 		global_position.z = boat.get_node("ShipHull").global_position.z + last_boat_pos.z
-		print(get_position_relative_to_boat())
-		print(global_position)
 	elif (is_on_ship):
 		last_boat_pos = get_position_relative_to_boat()
 		
@@ -120,6 +121,12 @@ func _physics_process(delta):
 	if submerged:
 		velocity *=  1 - water_drag
 	
+	print(water.get_height(camera.global_position) - camera.global_position.y)
+	
+	if water.get_height(camera.global_position) - camera.global_position.y > -0.3:
+		$Head/TwistPivot/PitchPivot/PlayerCamera/WaterEffect.visible = true
+	else:
+		$Head/TwistPivot/PitchPivot/PlayerCamera/WaterEffect.visible = false
 
 	
 	move_and_slide()
@@ -143,7 +150,7 @@ func enter_ship():
 	camera.current = false
 	is_in_ship = true
 	
-	global_position = Vector3(-10000, 0, 10000000)
+	hide()
 
 func exit_ship():
 	camera.current = true

@@ -429,7 +429,7 @@ twist_pivot = NodePath("../..")
 pitch_pivot = NodePath("..")
 
 [node name="PlayerSpawn" type="Marker3D" parent="ShipHull"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.798852, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26296, 0)
 
 [node name="BoatArea" type="Area3D" parent="ShipHull"]
 collision_layer = 8
