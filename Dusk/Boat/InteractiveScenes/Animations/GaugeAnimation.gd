@@ -9,7 +9,10 @@ var min_value : float = 0
 @export
 var max_value : float = 100
 
+@export
 var zero_y_rotation : float = 240
+
+@export
 var full_y_rotation : float = -50
 
 @onready

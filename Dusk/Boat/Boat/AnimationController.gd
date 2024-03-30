@@ -51,6 +51,8 @@ var fuel_gauge : Node3D
 @export
 var compass : Node3D
 
+var heading : float
+
 var clutch_on : bool = true
 
 # Called when the node enters the scene tree for the first time.
@@ -72,4 +74,4 @@ func _process(delta):
 	speed_gauge.value = speed
 	rpm_gauge.value = rpm
 	fuel_gauge.value = fuel
-	compass.value = 50
+	compass.value = heading

@@ -13,7 +13,7 @@ void fragment() {
     vec3 color = texture(SCREEN_TEXTURE, distorted_uv).rgb;
     
     // Apply a blue tint to simulate underwater color
-    color = mix(color, vec3(0.0, 0.3, 0.6), 0.7);
+    color = mix(color, vec3(0.0, 0.3, 0.6), 0.5);
     
     // Output the final color
     ALBEDO = color;

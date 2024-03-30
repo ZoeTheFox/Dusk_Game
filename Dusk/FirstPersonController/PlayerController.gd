@@ -41,10 +41,8 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export
 var camera : Camera3D
 
-@export_category("Player Boat")
-
-@export
-var boat : Node3D
+@onready
+var boat = get_parent_node_3d().get_node("Boat")
 
 var is_in_ship : bool = false
 
@@ -55,8 +53,8 @@ var is_on_ship : bool = false
 @export var water_drag := 0.05
 @export var water_angular_drag := 0.05
 
-@export
-var water : MeshInstance3D
+@onready
+var water = get_parent_node_3d().get_node("Water")
 
 @onready var probes = $BuyoancyProbes.get_children()
 
@@ -126,7 +124,8 @@ func _physics_process(delta):
 	else:
 		$Head/TwistPivot/PitchPivot/PlayerCamera/WaterEffect.visible = false
 
-	
+	print($Head/TwistPivot/PitchPivot/PlayerCamera/WaterEffect.visible)
+
 	move_and_slide()
 	
 # Called when the node enters the scene tree for tshe first time.
@@ -155,6 +154,8 @@ func exit_ship():
 	is_in_ship = false
 	
 	global_position = boat.player_spawn_location.global_position
+	
+	show()
 
 func get_position_relative_to_boat():
 	return global_position - boat.get_node("ShipHull").global_position

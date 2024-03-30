@@ -1,20 +1,18 @@
 extends RigidBody3D
 
+@export_category("Water Physics")
 @export var float_force := 1.0
 @export var water_drag := 0.05
 @export var water_angular_drag := 0.05
 
 @onready var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
-@export
-var water : MeshInstance3D
+
+@onready
+var water = get_parent_node_3d().get_parent_node_3d().get_node("Water")
 
 @onready var probes = $BuyoancyProbes.get_children()
 
 var submerged := false
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
 func _physics_process(delta):
 	submerged = false

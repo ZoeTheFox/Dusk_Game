@@ -71,9 +71,8 @@ script = ExtResource("2_onn1x")
 [node name="Boat" parent="." instance=ExtResource("3_a8to5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.065, 0)
 
-[node name="ShipHull" parent="Boat" index="0" node_paths=PackedStringArray("water")]
+[node name="ShipHull" parent="Boat" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0225558, 4.76837e-07, 0.00171566)
-water = NodePath("../../Water")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_7e1gl")
@@ -227,10 +226,8 @@ mesh = SubResource("BoxMesh_t8m8g")
 transform = Transform3D(5.96, 0, 0, 0, 5.96, 0, 0, 0, 5.96, -46.6871, 2.92479, -11.3751)
 mesh = SubResource("BoxMesh_t8m8g")
 
-[node name="Player" parent="." node_paths=PackedStringArray("boat", "water") instance=ExtResource("5_mgs2n")]
+[node name="Player" parent="." instance=ExtResource("5_mgs2n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.41728, 4.34876, 5.98766)
-boat = NodePath("../Boat")
-water = NodePath("../Water")
 
 [editable path="Boat"]
 [editable path="Boat/ShipHull/Mesh/Hull"]
