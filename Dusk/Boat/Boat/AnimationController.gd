@@ -32,6 +32,7 @@ var speed_gauge : Node3D
 
 @export_category("RPM")
 
+@export
 var rpm : float
 
 @export
@@ -50,6 +51,10 @@ var fuel_gauge : Node3D
 @export
 var compass : Node3D
 
+var heading : float
+
+var clutch_on : bool = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -60,9 +65,13 @@ func _process(delta):
 	throttle_node.throttle = throttle
 	
 	rudder_and_props.turn = wheel_turn
-	rudder_and_props.engine_rpm = rpm
+	
+	if (not clutch_on):
+		rudder_and_props.engine_rpm = rpm
+	else:
+		rudder_and_props.engine_rpm = 0
 	
 	speed_gauge.value = speed
 	rpm_gauge.value = rpm
 	fuel_gauge.value = fuel
-	compass.value = 50
+	compass.value = heading

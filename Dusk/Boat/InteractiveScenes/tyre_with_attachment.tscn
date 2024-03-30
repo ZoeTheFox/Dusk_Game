@@ -10,6 +10,7 @@ points = PackedVector3Array(0.0177639, -0.0346, 0.266625, -0.0191766, -0.0086402
 
 [node name="TyreRigidbody" parent="." instance=ExtResource("1_l6l2s")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.282664, -0.0807089)
+mass = 15.0
 
 [node name="PinJoint3D" type="PinJoint3D" parent="."]
 node_a = NodePath("../StaticBody3D")
