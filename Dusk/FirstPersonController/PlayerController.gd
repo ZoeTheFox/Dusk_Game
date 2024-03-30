@@ -63,7 +63,7 @@ var submerged := false
 var last_boat_pos : Vector3
 
 func _physics_process(delta):
-	if (Input.is_action_just_released("interact")):
+	if (Input.is_key_label_pressed(KEY_L)):
 		if (is_in_ship):
 			exit_ship()
 			boat.exit_boat()
@@ -123,8 +123,6 @@ func _physics_process(delta):
 		$Head/TwistPivot/PitchPivot/PlayerCamera/WaterEffect.visible = true
 	else:
 		$Head/TwistPivot/PitchPivot/PlayerCamera/WaterEffect.visible = false
-
-	print($Head/TwistPivot/PitchPivot/PlayerCamera/WaterEffect.visible)
 
 	move_and_slide()
 	

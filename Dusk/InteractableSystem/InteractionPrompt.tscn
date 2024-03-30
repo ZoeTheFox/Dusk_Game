@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnhfxurd87i8d"]
+
+[ext_resource type="Texture2D" uid="uid://dt18miw3ub71h" path="res://InteractableSystem/testImage.jpg" id="1_uq6n7"]
+
+[node name="InteractionPrompt" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+pixel_size = 0.001
+texture = ExtResource("1_uq6n7")
