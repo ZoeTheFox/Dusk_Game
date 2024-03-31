@@ -1,12 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpdaioj42j4hu"]
+[gd_scene load_steps=8 format=3 uid="uid://bpdaioj42j4hu"]
 
 [ext_resource type="Script" path="res://InteractableSystem/TestObject.gd" id="1_u2xlt"]
+[ext_resource type="PackedScene" uid="uid://bi8ebqsm3obsa" path="res://InteractableSystem/Interactable.tscn" id="2_ttr53"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_kvnb2"]
 size = Vector3(0.2, 0.2, 0.2)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_g6ksk"]
-size = Vector3(0.400757, 0.29422, 0.187271)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_g5k36"]
+points = PackedVector3Array(-0.1, -0.1, -0.1, 0.0999954, 0.1, 0.1, 0.0999954, 0.1, -0.1, 0.0999954, -0.1, 0.1, -0.1, 0.1, 0.1, 0.0999954, -0.1, -0.1, -0.1, 0.1, -0.1, -0.1, -0.1, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_343nd"]
+size = Vector3(0.246948, 0.27301, 0.255127)
 
 [sub_resource type="Animation" id="Animation_3ll7n"]
 resource_name = "Test"
@@ -25,25 +29,41 @@ _data = {
 }
 
 [node name="TestObject" type="Node3D"]
+script = ExtResource("1_u2xlt")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_kvnb2")
 
-[node name="TestObjectCollider" type="StaticBody3D" parent="MeshInstance3D"]
-transform = Transform3D(0.999995, -0.00235383, 0.00189822, 0.00236726, 0.999972, -0.00711367, -0.00188144, 0.00711813, 0.999973, 0, 0, 0)
-collision_layer = 16385
-collision_mask = 16385
-script = ExtResource("1_u2xlt")
+[node name="PromptContainer" type="Node3D" parent="MeshInstance3D"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/TestObjectCollider"]
-transform = Transform3D(0.999996, -7.44967e-09, 6.17001e-09, -9.92623e-09, 0.999996, 8.84756e-09, -2.91038e-09, -3.72529e-09, 0.999993, -1.45519e-11, -3.27418e-11, 0.00428012)
-shape = SubResource("BoxShape3D_g6ksk")
+[node name="Marker3D" type="Marker3D" parent="MeshInstance3D/PromptContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0952088, 0.0421472, 0.232115)
 
-[node name="Marker3D" type="Marker3D" parent="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.715501, 0, 0.715807)
+[node name="Marker3D2" type="Marker3D" parent="MeshInstance3D/PromptContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.240843, 0.0842943, -0.205222)
+
+[node name="Marker3D3" type="Marker3D" parent="MeshInstance3D/PromptContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.213611, 0.0842943, -0.0314207)
+
+[node name="Marker3D4" type="Marker3D" parent="MeshInstance3D/PromptContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.415894, 0.0842943, -0.0314207)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_g5k36")
+
+[node name="Interactable" parent="MeshInstance3D" node_paths=PackedStringArray("prompt_locations_container") instance=ExtResource("2_ttr53")]
+prompt_locations_container = NodePath("../PromptContainer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Interactable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00408936, -0.00747681, -0.00777024)
+shape = SubResource("BoxShape3D_343nd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_r4x0n")
 }
+
+[connection signal="interact" from="MeshInstance3D/Interactable" to="." method="_on_interactable_interact"]

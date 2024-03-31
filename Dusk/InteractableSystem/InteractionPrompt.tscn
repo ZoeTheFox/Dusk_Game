@@ -1,9 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://dnhfxurd87i8d"]
+[gd_scene load_steps=6 format=3 uid="uid://dnhfxurd87i8d"]
 
-[ext_resource type="Texture2D" uid="uid://dt18miw3ub71h" path="res://InteractableSystem/testImage.jpg" id="1_uq6n7"]
+[ext_resource type="Texture2D" uid="uid://c57go3puueqkx" path="res://InteractableSystem/AnimationFrames/interact_1.png" id="2_8l3mo"]
+[ext_resource type="Texture2D" uid="uid://btqkfkx6cy20c" path="res://InteractableSystem/AnimationFrames/interact_2.png" id="3_txwdu"]
+[ext_resource type="Texture2D" uid="uid://dmhabavov3vcb" path="res://InteractableSystem/AnimationFrames/interact_3.png" id="4_ht81b"]
+[ext_resource type="Texture2D" uid="uid://cjl21v7jatmkl" path="res://InteractableSystem/AnimationFrames/interact_4.png" id="5_2v6at"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l42yv"]
+animations = [{
+"frames": [{
+"duration": 0.2,
+"texture": ExtResource("2_8l3mo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_txwdu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ht81b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2v6at")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="InteractionPrompt" type="Node3D"]
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-pixel_size = 0.001
-texture = ExtResource("1_uq6n7")
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.505, 0, 0, 0, 0.505, 0, 0, 0, 0.505, 0, 0, 0)
+flip_h = true
+pixel_size = 0.0001
+sprite_frames = SubResource("SpriteFrames_l42yv")
+autoplay = "default"
+frame_progress = 0.0525152

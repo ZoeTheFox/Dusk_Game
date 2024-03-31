@@ -46,6 +46,7 @@ current = true
 
 [node name="WaterEffect" type="MeshInstance3D" parent="Head/TwistPivot/PitchPivot/PlayerCamera"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1.16654e-08, -0.0657659)
+visible = false
 material_override = SubResource("ShaderMaterial_oudi6")
 mesh = SubResource("PlaneMesh_uh78k")
 
@@ -56,4 +57,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.06999, 0)
 
 [node name="InteractableSystem" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("4_6asnr")]
 camera = NodePath("../Head/TwistPivot/PitchPivot/PlayerCamera")
-interaction_distance = 10.0
+interaction_distance = 0.8

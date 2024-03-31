@@ -238,7 +238,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.290274, 3.32153, 8.04181)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.46938, 3.59823, 7.32654)
 
 [node name="InteractionPrompt" parent="." instance=ExtResource("7_v82xq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.57109, 2.65735, 7.50726)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.57109, 2.89841, 7.50726)
 
 [editable path="Boat"]
 [editable path="Boat/ShipHull/Mesh/Hull"]
