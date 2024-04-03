@@ -63,14 +63,6 @@ var submerged := false
 var last_boat_pos : Vector3
 
 func _physics_process(delta):
-	if (Input.is_key_label_pressed(KEY_L)):
-		if (is_in_ship):
-			exit_ship()
-			boat.exit_boat()
-		else:
-			enter_ship()
-			boat.enter_boat()
-	
 	if (is_in_ship):
 		return
 		
@@ -141,13 +133,13 @@ func _on_body_entered(body):
 func _on_body_exited(body):
 	is_on_ship = false
 
-func enter_ship():
+func enter_boat():
 	camera.current = false
 	is_in_ship = true
 	
 	hide()
 
-func exit_ship():
+func exit_boat():
 	camera.current = true
 	is_in_ship = false
 	

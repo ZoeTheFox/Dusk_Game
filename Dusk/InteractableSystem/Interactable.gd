@@ -8,6 +8,9 @@ var ship_scale : bool = false
 @export
 var prompt_offset : float = 0.1
 
+@export
+var prompt_linger_time : float = 1
+
 signal interact
 
 var is_being_looked_at : bool
@@ -23,7 +26,7 @@ var interaction_prompt = $InteractionPrompt
 var interaction_shape : CollisionShape3D
 
 func _ready():
-	timer.wait_time = 1
+	timer.wait_time = prompt_linger_time
 	timer.one_shot = true
 	timer.connect("timeout", _on__timer_timeout)
 	add_child(timer)

@@ -46,6 +46,8 @@ var engine_on : bool = false
 var engine_off : bool = true
 var clutch_active : bool
 
+@onready
+var player = get_parent_node_3d().get_node("Player")
 var is_player_seated : bool = false
 
 # Called when the node enters the scene tree for the first time.
@@ -72,13 +74,6 @@ func _process(delta):
 		clutch_active = true
 	else:
 		clutch_active = false
-	
-	# Temporary Code
-	if (Input.is_key_pressed(KEY_R) and engine_off == true and is_player_seated):
-		start_engine()
-	
-	if (Input.is_key_pressed(KEY_T) and engine_off == false and engine_on == true and is_player_seated):
-		stop_engine()
 	
 	if (engine_on == true and engine_off == false):
 		engine_rpm = lerpf(engine_rpm, calculate_rpm_from_throttle(throttle), delta / 4)
@@ -152,8 +147,30 @@ func _on_throttle_deadzone_timer_timeout():
 
 func enter_boat():
 	$ShipHull/Camera/TwistPivot/PitchPivot/BoatCamera.current = true
+	$ShipHull/Mesh/Interior/seats/Interactable.hide()
+	$ShipHull/Mesh/Interior/seats/InteractableWhileSitting.show()
+	player.enter_boat()
 	is_player_seated = true
 
 func exit_boat():
 	$ShipHull/Camera/TwistPivot/PitchPivot/BoatCamera.current = false
+	$ShipHull/Mesh/Interior/seats/Interactable.show()
+	$ShipHull/Mesh/Interior/seats/InteractableWhileSitting.hide()
+	player.exit_boat()
 	is_player_seated = false
+
+
+func _on_start_stop_button_button_press():
+	if (engine_off == true and is_player_seated):
+		start_engine()
+		
+	if (engine_off == false and engine_on == true and is_player_seated):
+		stop_engine()
+
+
+func _on_interactable_enter_ship_interact():
+	enter_boat()
+
+
+func _on_interactable_exit_ship_interact():
+	exit_boat()
