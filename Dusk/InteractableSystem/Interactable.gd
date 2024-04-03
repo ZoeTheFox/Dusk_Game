@@ -32,14 +32,7 @@ func on_look(camera_looking_at : Camera3D):
 	
 	is_being_looked_at = true
 	
-	interaction_prompt.show()
-	
-	#var prompt_location = get_closest_prompt_marker(camera.global_position).global_position
-	
-	#interaction_prompt.global_position = prompt_location
-
-	
-	#print(calculate_midpoint_with_sideways_offset(global_position, camera.global_position, 0.1))
+	interaction_prompt.show_prompt()
 	
 	is_being_looked_at = false
 	
@@ -73,4 +66,4 @@ func calculate_midpoint_with_sideways_offset(pos1: Vector3, pos2: Vector3, offse
 
 func _on__timer_timeout():
 	if (!is_being_looked_at):
-		interaction_prompt.hide()
+		interaction_prompt.hide_prompt()

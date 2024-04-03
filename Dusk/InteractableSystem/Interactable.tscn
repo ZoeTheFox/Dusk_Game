@@ -9,4 +9,3 @@ collision_mask = 16384
 script = ExtResource("1_1dq5e")
 
 [node name="InteractionPrompt" parent="." instance=ExtResource("2_lapls")]
-visible = false
