@@ -53,8 +53,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.415894, 0.0842943, -0.03142
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_g5k36")
 
-[node name="Interactable" parent="MeshInstance3D" node_paths=PackedStringArray("prompt_locations_container") instance=ExtResource("2_ttr53")]
-prompt_locations_container = NodePath("../PromptContainer")
+[node name="Interactable" parent="MeshInstance3D" node_paths=PackedStringArray("interaction_shape") instance=ExtResource("2_ttr53")]
+interaction_shape = NodePath("CollisionShape3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Interactable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00408936, -0.00747681, -0.00777024)
