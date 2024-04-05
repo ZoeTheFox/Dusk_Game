@@ -161,10 +161,10 @@ func exit_boat():
 
 
 func _on_start_stop_button_button_press():
-	if (engine_off == true and is_player_seated):
+	if (engine_off == true):
 		start_engine()
 		
-	if (engine_off == false and engine_on == true and is_player_seated):
+	if (engine_off == false and engine_on == true):
 		stop_engine()
 
 
