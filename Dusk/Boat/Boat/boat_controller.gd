@@ -12,6 +12,9 @@ var throttle_dead_zone_timer : Timer = $Timers/ThrottleDeadzoneTimer
 @onready
 var player_spawn_location = $ShipHull/PlayerSpawn
 
+@onready
+var player_ladder_location = $ShipHull/PlayerLadderSpawn
+
 @export_category("Engine Parameters")
 
 @export_range(0, 10000)
@@ -109,6 +112,7 @@ func update_animations() -> void:
 	animation_controller.speed = boat_rigidbody.linear_velocity.length()
 	animation_controller.fuel = 50
 	animation_controller.heading = boat_rigidbody.rotation_degrees.y
+	animation_controller.clutch_on = clutch_active
 
 func calculate_rpm_from_throttle(throttle : float) -> float:
 	return lerpf(idle_rpm, max_engine_rpm, abs(throttle))
@@ -151,6 +155,7 @@ func enter_boat():
 	$ShipHull/Mesh/Interior/seats/InteractableWhileSitting.show()
 	player.enter_boat()
 	is_player_seated = true
+	$InteractableSystem.disabled = false
 
 func exit_boat():
 	$ShipHull/Camera/TwistPivot/PitchPivot/BoatCamera.current = false
@@ -158,6 +163,7 @@ func exit_boat():
 	$ShipHull/Mesh/Interior/seats/InteractableWhileSitting.hide()
 	player.exit_boat()
 	is_player_seated = false
+	$InteractableSystem.disabled = true
 
 
 func _on_start_stop_button_button_press():
@@ -174,3 +180,7 @@ func _on_interactable_enter_ship_interact():
 
 func _on_interactable_exit_ship_interact():
 	exit_boat()
+
+
+func _on_ladder_player_used_ladder():
+	player.global_position = player_ladder_location.global_position

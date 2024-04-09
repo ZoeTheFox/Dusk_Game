@@ -36,7 +36,7 @@ size = Vector3(14.4424, 2000.41, 1)
 size = Vector3(2.26489, 3.06543, 2.0481)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pe17k"]
-size = Vector3(1.04028, 2.95984, 1)
+size = Vector3(4.24548, 3.20573, 1.29575)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ovewn"]
 points = PackedVector3Array(24.4922, 1.89272, 6.50772, 29.6541, -0.172065, 3.06708, 28.9658, -0.172065, 3.41097, 25.1806, -0.172065, 6.50772, 29.9977, 1.89272, 3.7552, 27.5892, 1.89272, 4.0991, 24.837, -0.172065, 5.81891, 29.9977, -0.172065, 3.7552, 25.8689, 1.89272, 6.16315, 30.3425, 1.89272, 3.06708, 24.837, 1.89272, 5.81891, 29.6541, 1.89272, 3.06708, 25.8689, -0.172065, 5.13079, 24.4922, -0.172065, 6.16315, 30.3425, -0.172065, 3.41097, 24.4922, -0.172065, 6.50772, 25.1806, 1.89272, 6.50772, 30.3425, -0.172065, 3.06708, 27.5892, -0.172065, 4.0991, 25.8689, -0.172065, 6.16315, 25.8689, 1.89272, 5.13079, 24.4922, 1.89272, 6.16315, 30.3425, 1.89272, 3.41097)
@@ -188,6 +188,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.00628, -1.78966, 0)
 [node name="Probe18" type="Marker3D" parent="ShipHull/BuyoancyProbes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.09928, -1.78966, 0)
 
+[node name="Probe14" type="Marker3D" parent="ShipHull/BuyoancyProbes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0004, -1.78955, 0)
+
 [node name="TyreContainer" type="Node3D" parent="ShipHull"]
 
 [node name="TyreWithAttachment" parent="ShipHull/TyreContainer" instance=ExtResource("5_qem7n")]
@@ -263,7 +266,7 @@ prompt_linger_time = 0.1
 interaction_shape = NodePath("CollisionShape3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ShipHull/Mesh/Interior/seats/InteractableWhileSitting"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1313, 2.68258, -0.211897)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7135, 2.83118, 1.02975)
 shape = SubResource("BoxShape3D_pe17k")
 
 [node name="throttle" parent="ShipHull/Mesh/Interior" instance=ExtResource("10_w5cvo")]
@@ -279,9 +282,6 @@ transform = Transform3D(1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0, 1, 0, 0, 0)
 [node name="boxes" parent="ShipHull/Mesh/Interior" instance=ExtResource("16_0unde")]
 
 [node name="lamp" parent="ShipHull/Mesh/Interior" instance=ExtResource("17_oarsp")]
-
-[node name="AnchorButton" parent="ShipHull/Mesh/Interior" instance=ExtResource("18_6qaue")]
-transform = Transform3D(0.805111, 0.593124, 0, -0.593124, 0.805111, 0, 0, 0, 1, 9.27123, 1.67723, -3.18746)
 
 [node name="StartStopButton" parent="ShipHull/Mesh/Interior" instance=ExtResource("18_6qaue")]
 transform = Transform3D(0.838756, 0.544507, 0, -0.544507, 0.838756, 0, 0, 0, 1, 9.529, 1.486, -3.54969)
@@ -425,7 +425,7 @@ twist_pivot = NodePath("../..")
 pitch_pivot = NodePath("..")
 
 [node name="PlayerSpawn" type="Marker3D" parent="ShipHull"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26296, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0609, 1.19724, 0)
 
 [node name="BoatArea" type="Area3D" parent="ShipHull"]
 collision_layer = 8
@@ -434,6 +434,9 @@ collision_mask = 8
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ShipHull/BoatArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.662659, 0.830139, 0.0293579)
 shape = SubResource("BoxShape3D_ej6wl")
+
+[node name="PlayerLadderSpawn" type="Marker3D" parent="ShipHull"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.564534, 1.2325, 1.14618)
 
 [node name="AnimationController" type="Node3D" parent="." node_paths=PackedStringArray("wheel", "throttle_node", "rudder_and_props", "speed_gauge", "rpm_gauge", "fuel_gauge", "compass")]
 script = ExtResource("20_3h7vo")
@@ -454,7 +457,9 @@ one_shot = true
 [node name="InteractableSystem" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("24_lgcp2")]
 camera = NodePath("../ShipHull/Camera/TwistPivot/PitchPivot/BoatCamera")
 interaction_distance = 3.0
+disabled = true
 
+[connection signal="player_used_ladder" from="ShipHull/Mesh/Hull/ladder" to="." method="_on_ladder_player_used_ladder"]
 [connection signal="interact" from="ShipHull/Mesh/Interior/seats/Interactable" to="." method="_on_interactable_enter_ship_interact"]
 [connection signal="interact" from="ShipHull/Mesh/Interior/seats/InteractableWhileSitting" to="." method="_on_interactable_exit_ship_interact"]
 [connection signal="button_press" from="ShipHull/Mesh/Interior/StartStopButton" to="." method="_on_start_stop_button_button_press"]

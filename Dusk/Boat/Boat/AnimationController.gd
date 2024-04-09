@@ -66,7 +66,9 @@ func _process(delta):
 	
 	rudder_and_props.turn = wheel_turn
 	
-	if (not clutch_on):
+	print(clutch_on)
+	
+	if (!clutch_on):
 		rudder_and_props.engine_rpm = rpm
 	else:
 		rudder_and_props.engine_rpm = 0

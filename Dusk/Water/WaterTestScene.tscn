@@ -71,7 +71,7 @@ mesh = SubResource("PlaneMesh_pgnm1")
 script = ExtResource("2_onn1x")
 
 [node name="Boat" parent="." instance=ExtResource("3_a8to5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.065, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.08124, 0)
 
 [node name="ShipHull" parent="Boat" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0225558, 4.76837e-07, 0.00171566)
@@ -88,7 +88,7 @@ transform = Transform3D(5.96, 0, 0, 0, 5.96, 0, 0, 0, 5.96, -15.8653, 2.92479, -
 mesh = SubResource("BoxMesh_t8m8g")
 
 [node name="Floor" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -95.3817, 0.95972, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -95.3817, 2.57287, 0)
 mesh = SubResource("PlaneMesh_xc14k")
 surface_material_override/0 = SubResource("StandardMaterial3D_br75e")
 
@@ -98,7 +98,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_br75e")
 shape = SubResource("ConcavePolygonShape3D_3x7g4")
 
 [node name="TestingObjects" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -95.3817, 0.95972, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -95.3817, 2.57287, 0)
 
 [node name="MeshInstance3D9" type="MeshInstance3D" parent="TestingObjects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.589456, -5.59318)
@@ -229,7 +229,7 @@ transform = Transform3D(5.96, 0, 0, 0, 5.96, 0, 0, 0, 5.96, -46.6871, 2.92479, -
 mesh = SubResource("BoxMesh_t8m8g")
 
 [node name="Player" parent="." instance=ExtResource("5_mgs2n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.41728, 4.34876, 5.98766)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.371214, 3.29375, 0.338616)
 
 [node name="TestObject" parent="." instance=ExtResource("6_62oq7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.290274, 3.32153, 8.04181)

@@ -6,7 +6,8 @@ var camera : Camera3D
 @export
 var interaction_distance : float
 
-
+@export
+var disabled : bool = false
 
 #@onready
 #var interaction_prompt = interaction_prompt_instance.instantiate()
@@ -18,6 +19,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if (disabled):
+		return
+	
 	var space_state = get_world_3d().direct_space_state
 		
 	var from = camera.global_position
@@ -37,7 +41,7 @@ func _process(delta):
 	
 	interactable_object.on_look(camera)
 			
-	if (Input.is_action_just_pressed("interact")):
+	if (Input.is_action_just_released("interact")):
 		if (result.collider is Interactable):
 			result.collider.on_interact()
 	
