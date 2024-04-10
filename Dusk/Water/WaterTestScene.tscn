@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://62fvwrc7sch3"]
+[gd_scene load_steps=25 format=3 uid="uid://62fvwrc7sch3"]
 
 [ext_resource type="Material" uid="uid://bwratgro0x321" path="res://Water/water_mat.tres" id="1_mdwat"]
 [ext_resource type="Script" path="res://Water/Water.gd" id="2_onn1x"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bcvei67tq1050" path="res://Boat/InteractiveScenes/tyre_with_attachment.tscn" id="5_qvsjk"]
 [ext_resource type="PackedScene" uid="uid://bpdaioj42j4hu" path="res://InteractableSystem/TestObject.tscn" id="6_62oq7"]
 [ext_resource type="PackedScene" uid="uid://dnhfxurd87i8d" path="res://InteractableSystem/InteractionPrompt.tscn" id="7_v82xq"]
+[ext_resource type="PackedScene" uid="uid://dvf83e8j6bwji" path="res://InteractableSystem/TextBoxTestObject.tscn" id="8_hbot8"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_pgnm1"]
 material = ExtResource("1_mdwat")
@@ -229,7 +230,7 @@ transform = Transform3D(5.96, 0, 0, 0, 5.96, 0, 0, 0, 5.96, -46.6871, 2.92479, -
 mesh = SubResource("BoxMesh_t8m8g")
 
 [node name="Player" parent="." instance=ExtResource("5_mgs2n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.371214, 3.29375, 0.338616)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.371214, 6.10632, 6.17109)
 
 [node name="TestObject" parent="." instance=ExtResource("6_62oq7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.290274, 3.32153, 8.04181)
@@ -239,6 +240,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.46938, 3.59823, 7.32654)
 
 [node name="InteractionPrompt" parent="." instance=ExtResource("7_v82xq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.57109, 2.89841, 7.50726)
+
+[node name="TextBoxTestObject" parent="." instance=ExtResource("8_hbot8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.821183, 3.10757, 4.98879)
 
 [editable path="Boat"]
 [editable path="Boat/ShipHull/Mesh/Hull"]
