@@ -11,9 +11,11 @@ config_version=5
 [application]
 
 config/name="Dusk"
+config/description="A simple horror game"
 run/main_scene="res://Water/WaterTestScene.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/image="res://Artwork/SplashScreen.png"
+config/icon="res://Artwork/Dusk Logo White.svg"
 
 [filesystem]
 
