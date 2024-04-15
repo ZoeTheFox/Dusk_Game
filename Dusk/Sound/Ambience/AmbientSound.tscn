@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b047wo4ee5aku"]
+
+[ext_resource type="Script" path="res://Sound/Ambience/AmbientSound.gd" id="1_0xrdn"]
+[ext_resource type="AudioStream" uid="uid://dwop8v61ty3jq" path="res://Sound/Ambience/ocean-sea-soft-waves-121349.mp3" id="2_43v4q"]
+
+[node name="AmbientSound" type="Node3D"]
+script = ExtResource("1_0xrdn")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_43v4q")
+volume_db = -20.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://62fvwrc7sch3"]
+[gd_scene load_steps=26 format=3 uid="uid://62fvwrc7sch3"]
 
 [ext_resource type="Material" uid="uid://bwratgro0x321" path="res://Water/water_mat.tres" id="1_mdwat"]
 [ext_resource type="Script" path="res://Water/Water.gd" id="2_onn1x"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bpdaioj42j4hu" path="res://InteractableSystem/TestObject.tscn" id="6_62oq7"]
 [ext_resource type="PackedScene" uid="uid://dnhfxurd87i8d" path="res://InteractableSystem/InteractionPrompt.tscn" id="7_v82xq"]
 [ext_resource type="PackedScene" uid="uid://dvf83e8j6bwji" path="res://InteractableSystem/TextBoxTestObject.tscn" id="8_hbot8"]
+[ext_resource type="PackedScene" uid="uid://b047wo4ee5aku" path="res://Sound/Ambience/AmbientSound.tscn" id="9_xr6qc"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_pgnm1"]
 material = ExtResource("1_mdwat")
@@ -243,6 +244,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.57109, 2.89841, 7.50726)
 
 [node name="TextBoxTestObject" parent="." instance=ExtResource("8_hbot8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.821183, 3.10757, 4.98879)
+
+[node name="AmbientSound" parent="." instance=ExtResource("9_xr6qc")]
 
 [editable path="Boat"]
 [editable path="Boat/ShipHull/Mesh/Hull"]

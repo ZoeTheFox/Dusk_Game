@@ -44,7 +44,6 @@ func _process(delta):
 	if (Input.is_action_just_released("interact")):
 		if (result.collider is Interactable):
 			result.collider.on_interact()
-	
 
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://bmacr6agbv47a"]
+[gd_scene load_steps=58 format=3 uid="uid://bmacr6agbv47a"]
 
 [ext_resource type="PackedScene" uid="uid://bj6mu0xjx85gb" path="res://Boat/Scenes/Boat_hull.tscn" id="1_14b2p"]
 [ext_resource type="Script" path="res://Boat/Boat/boat_controller.gd" id="1_ihrm8"]
@@ -24,7 +24,9 @@
 [ext_resource type="PackedScene" uid="uid://cg5uc6505dq5i" path="res://Boat/Scenes/Interior/gauge.tscn" id="18_r5cse"]
 [ext_resource type="Script" path="res://Boat/Boat/AnimationController.gd" id="20_3h7vo"]
 [ext_resource type="Script" path="res://Boat/Boat/BoatCamera.gd" id="21_5s5if"]
+[ext_resource type="Script" path="res://Boat/Boat/CompassInteraction.gd" id="23_3kgcs"]
 [ext_resource type="PackedScene" uid="uid://by7gk77toq1l7" path="res://InteractableSystem/InteractableSystem.tscn" id="24_lgcp2"]
+[ext_resource type="PackedScene" uid="uid://boorry5kus31v" path="res://InteractableSystem/TextDisplay.tscn" id="26_3paug"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_a62bm"]
 points = PackedVector3Array(-11.2441, 1.3753, 6.47172, -1.14326, 1.32179, -6.73802, -4.02576, -2.6768, -5.6225, 32.8011, -1.12828, 1.7222, -7.41252, -4.31373, 3.77669, 23.1036, 2.37887, 6.8098, -26.1315, 2.5056, -1.11083, 24.9965, 2.40139, -6.37934, 19.3127, -4.98167, -5.01897, 22.2035, -4.01833, 5.57559, -18.2496, -3.05498, -3.09227, -26.922, -0.16569, 1.7222, -13.748, 2.3859, -6.35225, 26.0599, -0.16569, -6.94566, 31.981, 2.5019, -2.01816, -15.4262, 2.37008, 5.91696, 24.1287, 0.798412, 7.50229, 18.3531, -3.05498, -6.94566, -17.29, -3.05498, 3.6489, -15.3588, -4.01833, -2.12968, 29.1054, 2.48089, 4.30627, -7.72866, -0.308245, 6.36096, -25.9564, -0.16569, -2.12968, 30.8759, -2.09163, -1.16558, -12.776, -0.301556, -5.99418, 21.0841, 2.32796, -7.11698, -5.63344, -4.24729, -4.10142, 17.0233, -4.44286, 3.93808, -20.1808, -3.05498, 1.7222, 27.0195, -0.16569, 6.53819, 29.9103, -1.12828, -4.05788, -25.056, 2.48432, 1.60181)
@@ -37,6 +39,9 @@ size = Vector3(2.26489, 3.06543, 2.0481)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pe17k"]
 size = Vector3(4.24548, 3.20573, 1.29575)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wsa7m"]
+size = Vector3(0.528046, 0.226563, 0.709106)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ovewn"]
 points = PackedVector3Array(24.4922, 1.89272, 6.50772, 29.6541, -0.172065, 3.06708, 28.9658, -0.172065, 3.41097, 25.1806, -0.172065, 6.50772, 29.9977, 1.89272, 3.7552, 27.5892, 1.89272, 4.0991, 24.837, -0.172065, 5.81891, 29.9977, -0.172065, 3.7552, 25.8689, 1.89272, 6.16315, 30.3425, 1.89272, 3.06708, 24.837, 1.89272, 5.81891, 29.6541, 1.89272, 3.06708, 25.8689, -0.172065, 5.13079, 24.4922, -0.172065, 6.16315, 30.3425, -0.172065, 3.41097, 24.4922, -0.172065, 6.50772, 25.1806, 1.89272, 6.50772, 30.3425, -0.172065, 3.06708, 27.5892, -0.172065, 4.0991, 25.8689, -0.172065, 6.16315, 25.8689, 1.89272, 5.13079, 24.4922, 1.89272, 6.16315, 30.3425, 1.89272, 3.41097)
@@ -109,6 +114,9 @@ size = Vector3(0.353806, 0.483398, 1.9032)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ej6wl"]
 size = Vector3(15.2863, 2.66028, 3.82922)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h14mo"]
+size = Vector3(3.22676, 1, 2.10449)
 
 [node name="Boat" type="Node3D"]
 script = ExtResource("1_ihrm8")
@@ -303,6 +311,20 @@ max_value = 360.0
 zero_y_rotation = 0.0
 full_y_rotation = 360.0
 
+[node name="Interactable" parent="ShipHull/Mesh/Interior/Compass" node_paths=PackedStringArray("interaction_shape") instance=ExtResource("15_ly2dy")]
+ship_scale = true
+interaction_shape = NodePath("CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ShipHull/Mesh/Interior/Compass/Interactable"]
+transform = Transform3D(1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0, 1, 0.00545979, -0.0348248, -0.014245)
+shape = SubResource("BoxShape3D_wsa7m")
+
+[node name="Compass" type="Node3D" parent="ShipHull/Mesh/Interior/Compass"]
+script = ExtResource("23_3kgcs")
+
+[node name="TextDisplay" parent="ShipHull/Mesh/Interior/Compass/Compass" instance=ExtResource("26_3paug")]
+time_per_character = 0.05
+
 [node name="StaticColliders" type="Node3D" parent="ShipHull"]
 
 [node name="GuardRail" type="StaticBody3D" parent="ShipHull/StaticColliders"]
@@ -438,6 +460,14 @@ shape = SubResource("BoxShape3D_ej6wl")
 [node name="PlayerLadderSpawn" type="Marker3D" parent="ShipHull"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.564534, 1.2325, 1.14618)
 
+[node name="CabinArea" type="Area3D" parent="ShipHull"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ShipHull/CabinArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.62672, 0.981393, -0.0149003)
+shape = SubResource("BoxShape3D_h14mo")
+
 [node name="AnimationController" type="Node3D" parent="." node_paths=PackedStringArray("wheel", "throttle_node", "rudder_and_props", "speed_gauge", "rpm_gauge", "fuel_gauge", "compass")]
 script = ExtResource("20_3h7vo")
 wheel = NodePath("../ShipHull/Mesh/Interior/Wheel/wheel")
@@ -463,6 +493,11 @@ disabled = true
 [connection signal="interact" from="ShipHull/Mesh/Interior/seats/Interactable" to="." method="_on_interactable_enter_ship_interact"]
 [connection signal="interact" from="ShipHull/Mesh/Interior/seats/InteractableWhileSitting" to="." method="_on_interactable_exit_ship_interact"]
 [connection signal="button_press" from="ShipHull/Mesh/Interior/StartStopButton" to="." method="_on_start_stop_button_button_press"]
+[connection signal="interact" from="ShipHull/Mesh/Interior/Compass/Interactable" to="ShipHull/Mesh/Interior/Compass/Compass" method="_on_interactable_interact"]
+[connection signal="area_entered" from="ShipHull/CabinArea" to="." method="_on_cabin_area_area_entered"]
+[connection signal="area_exited" from="ShipHull/CabinArea" to="." method="_on_cabin_area_area_exited"]
+[connection signal="body_entered" from="ShipHull/CabinArea" to="." method="_on_cabin_area_body_entered"]
+[connection signal="body_exited" from="ShipHull/CabinArea" to="." method="_on_cabin_area_body_exited"]
 [connection signal="timeout" from="Timers/ThrottleDeadzoneTimer" to="." method="_on_throttle_deadzone_timer_timeout"]
 
 [editable path="ShipHull/Mesh/Hull"]

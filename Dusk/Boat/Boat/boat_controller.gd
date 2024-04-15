@@ -184,3 +184,14 @@ func _on_interactable_exit_ship_interact():
 
 func _on_ladder_player_used_ladder():
 	player.global_position = player_ladder_location.global_position
+
+
+
+func _on_cabin_area_body_entered(body):
+	var ambiant = get_parent_node_3d().get_node("AmbientSound")
+	ambiant.set_muffled(true)
+
+
+func _on_cabin_area_body_exited(body):
+	var ambiant = get_parent_node_3d().get_node("AmbientSound")
+	ambiant.set_muffled(false)

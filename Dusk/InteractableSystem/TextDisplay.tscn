@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://boorry5kus31v"]
+[gd_scene load_steps=7 format=3 uid="uid://boorry5kus31v"]
 
 [ext_resource type="Script" path="res://InteractableSystem/TextDisplay.gd" id="1_dja8m"]
+[ext_resource type="AudioStream" uid="uid://b2ik7db8vwfj0" path="res://InteractableSystem/character.wav" id="2_o26u4"]
 
 [sub_resource type="Theme" id="Theme_1toeu"]
 default_font_size = 25
@@ -61,7 +62,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -75,9 +75,12 @@ offset_bottom = 54.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_1toeu")
-text = "Avast ye scallywags and landlubbers alike! Ye be settin' sail on the high seas of lorem ipsum, where the waves be made of rum and the winds carry the scent of adventure. Hoist the lorem ipsum sails and plunder the treasure trove of gibberish text, arrr! But beware the dreaded lorem ipsum kraken, lurking in the depths to gobble up any stray words or phrases. Yo ho ho and a bottle of lorem ipsum, for we be pirates of the placeholder text, savvy?"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_16xmr")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_o26u4")
+volume_db = -20.0
