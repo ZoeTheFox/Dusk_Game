@@ -111,7 +111,14 @@ func update_animations() -> void:
 	animation_controller.wheel_turn = wheel_turn
 	animation_controller.speed = boat_rigidbody.linear_velocity.length()
 	animation_controller.fuel = 50
-	animation_controller.heading = boat_rigidbody.rotation_degrees.y
+	
+	var compass_heading = -boat_rigidbody.rotation_degrees.y
+
+	if (compass_heading < 0):
+		compass_heading = 360.0 + compass_heading
+	
+	animation_controller.heading = compass_heading
+	
 	animation_controller.clutch_on = clutch_active
 
 func calculate_rpm_from_throttle(throttle : float) -> float:

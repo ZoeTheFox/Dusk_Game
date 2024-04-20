@@ -1,7 +1,7 @@
 extends Control
 
 @export
-var time_per_character : float = 0.2
+var time_per_character : float = 0.05
 
 @export
 var fade_out_time : float = 2
@@ -10,10 +10,6 @@ var text_already_displaying : bool
 
 @onready
 var audio : AudioStreamPlayer = $AudioStreamPlayer
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 func show_text(text : String) -> void:
 	if (text_already_displaying):

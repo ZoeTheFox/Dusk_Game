@@ -19,12 +19,24 @@ func _on_interactable_interact():
 	$TextDisplay.show_text(text)
 
 # Function to determine direction based on angle
-func getDirection(angle_degrees: float) -> String:
-	if (angle_degrees >= 315 or angle_degrees < 45):
+func getDirection(angle: float) -> String:
+	if angle < 0:
+		angle += 360  # Convert negative angles to positive
+
+	if (angle >= 337.5 or angle < 22.5):
 		return "North"
-	elif angle_degrees < 135:
+	elif angle < 67.5:
+		return "Northeast"
+	elif angle < 112.5:
 		return "East"
-	elif angle_degrees < 225:
+	elif angle < 157.5:
+		return "Southeast"
+	elif angle < 202.5:
 		return "South"
-	else:
+	elif angle < 247.5:
+		return "Southwest"
+	elif angle < 292.5:
 		return "West"
+	else:
+		return "Northwest"
+

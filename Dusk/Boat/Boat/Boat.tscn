@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://bmacr6agbv47a"]
+[gd_scene load_steps=60 format=3 uid="uid://bmacr6agbv47a"]
 
 [ext_resource type="PackedScene" uid="uid://bj6mu0xjx85gb" path="res://Boat/Scenes/Boat_hull.tscn" id="1_14b2p"]
 [ext_resource type="Script" path="res://Boat/Boat/boat_controller.gd" id="1_ihrm8"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://wg7iy2tsusqi" path="res://Boat/Scenes/Interior/button.tscn" id="18_6qaue"]
 [ext_resource type="PackedScene" uid="uid://cg5uc6505dq5i" path="res://Boat/Scenes/Interior/gauge.tscn" id="18_r5cse"]
 [ext_resource type="Script" path="res://Boat/Boat/AnimationController.gd" id="20_3h7vo"]
+[ext_resource type="Script" path="res://Boat/Scenes/Interior/BoxesInteraction.gd" id="20_hh4gj"]
 [ext_resource type="Script" path="res://Boat/Boat/BoatCamera.gd" id="21_5s5if"]
 [ext_resource type="Script" path="res://Boat/Boat/CompassInteraction.gd" id="23_3kgcs"]
 [ext_resource type="PackedScene" uid="uid://by7gk77toq1l7" path="res://InteractableSystem/InteractableSystem.tscn" id="24_lgcp2"]
@@ -39,6 +40,9 @@ size = Vector3(2.26489, 3.06543, 2.0481)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pe17k"]
 size = Vector3(4.24548, 3.20573, 1.29575)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tp1mf"]
+size = Vector3(2.65771, 1.4043, 2.16895)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wsa7m"]
 size = Vector3(0.528046, 0.226563, 0.709106)
@@ -288,8 +292,27 @@ transform = Transform3D(1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0, 1, 0, 0, 0)
 [node name="radar_screen" parent="ShipHull/Mesh/Interior" instance=ExtResource("15_gi3it")]
 
 [node name="boxes" parent="ShipHull/Mesh/Interior" instance=ExtResource("16_0unde")]
+script = ExtResource("20_hh4gj")
+
+[node name="Interactable" parent="ShipHull/Mesh/Interior/boxes" node_paths=PackedStringArray("interaction_shape") instance=ExtResource("15_ly2dy")]
+ship_scale = true
+prompt_offset = 0.0
+prompt_linger_time = 0.5
+interaction_shape = NodePath("CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ShipHull/Mesh/Interior/boxes/Interactable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.8445, 1.75153, -1.98772)
+shape = SubResource("BoxShape3D_tp1mf")
+
+[node name="TextDisplay" parent="ShipHull/Mesh/Interior/boxes" instance=ExtResource("26_3paug")]
 
 [node name="lamp" parent="ShipHull/Mesh/Interior" instance=ExtResource("17_oarsp")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="ShipHull/Mesh/Interior/lamp"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 16.0976, 5.7784, 0.0992355)
+light_color = Color(1, 0.713726, 0.12549, 1)
+light_energy = 0.3
+shadow_enabled = true
 
 [node name="StartStopButton" parent="ShipHull/Mesh/Interior" instance=ExtResource("18_6qaue")]
 transform = Transform3D(0.838756, 0.544507, 0, -0.544507, 0.838756, 0, 0, 0, 1, 9.529, 1.486, -3.54969)
@@ -308,8 +331,8 @@ max_value = 10000.0
 [node name="Compass" parent="ShipHull/Mesh/Interior" instance=ExtResource("18_r5cse")]
 transform = Transform3D(0.817406, 0.576061, 0, -0.576061, 0.817406, 0, 0, 0, 1, 8.74895, 2.02319, -3.42151)
 max_value = 360.0
-zero_y_rotation = 0.0
-full_y_rotation = 360.0
+zero_y_rotation = 90.0
+full_y_rotation = -270.0
 
 [node name="Interactable" parent="ShipHull/Mesh/Interior/Compass" node_paths=PackedStringArray("interaction_shape") instance=ExtResource("15_ly2dy")]
 ship_scale = true
@@ -323,7 +346,6 @@ shape = SubResource("BoxShape3D_wsa7m")
 script = ExtResource("23_3kgcs")
 
 [node name="TextDisplay" parent="ShipHull/Mesh/Interior/Compass/Compass" instance=ExtResource("26_3paug")]
-time_per_character = 0.05
 
 [node name="StaticColliders" type="Node3D" parent="ShipHull"]
 
@@ -492,6 +514,7 @@ disabled = true
 [connection signal="player_used_ladder" from="ShipHull/Mesh/Hull/ladder" to="." method="_on_ladder_player_used_ladder"]
 [connection signal="interact" from="ShipHull/Mesh/Interior/seats/Interactable" to="." method="_on_interactable_enter_ship_interact"]
 [connection signal="interact" from="ShipHull/Mesh/Interior/seats/InteractableWhileSitting" to="." method="_on_interactable_exit_ship_interact"]
+[connection signal="interact" from="ShipHull/Mesh/Interior/boxes/Interactable" to="ShipHull/Mesh/Interior/boxes" method="_on_interactable_interact"]
 [connection signal="button_press" from="ShipHull/Mesh/Interior/StartStopButton" to="." method="_on_start_stop_button_button_press"]
 [connection signal="interact" from="ShipHull/Mesh/Interior/Compass/Interactable" to="ShipHull/Mesh/Interior/Compass/Compass" method="_on_interactable_interact"]
 [connection signal="area_entered" from="ShipHull/CabinArea" to="." method="_on_cabin_area_area_entered"]

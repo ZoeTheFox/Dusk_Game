@@ -74,4 +74,5 @@ func _process(delta):
 	speed_gauge.value = speed
 	rpm_gauge.value = rpm
 	fuel_gauge.value = fuel
+	
 	compass.value = heading
