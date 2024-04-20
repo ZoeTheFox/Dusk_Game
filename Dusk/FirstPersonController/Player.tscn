@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://brh07riyg1qv0"]
+[gd_scene load_steps=8 format=3 uid="uid://brh07riyg1qv0"]
 
 [ext_resource type="Script" path="res://FirstPersonController/PlayerController.gd" id="1_gxowu"]
 [ext_resource type="Script" path="res://FirstPersonController/ViewBob.gd" id="2_3llqn"]
 [ext_resource type="Shader" path="res://FirstPersonController/CameraUnderWaterShader.gdshader" id="3_ie4wj"]
+[ext_resource type="PackedScene" uid="uid://by7gk77toq1l7" path="res://InteractableSystem/InteractableSystem.tscn" id="4_6asnr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sy628"]
 radius = 0.09
@@ -45,6 +46,7 @@ current = true
 
 [node name="WaterEffect" type="MeshInstance3D" parent="Head/TwistPivot/PitchPivot/PlayerCamera"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1.16654e-08, -0.0657659)
+visible = false
 material_override = SubResource("ShaderMaterial_oudi6")
 mesh = SubResource("PlaneMesh_uh78k")
 
@@ -52,3 +54,7 @@ mesh = SubResource("PlaneMesh_uh78k")
 
 [node name="Marker3D" type="Marker3D" parent="BuyoancyProbes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.06999, 0)
+
+[node name="InteractableSystem" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("4_6asnr")]
+camera = NodePath("../Head/TwistPivot/PitchPivot/PlayerCamera")
+interaction_distance = 0.8

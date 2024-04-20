@@ -23,3 +23,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+func _on_interactable_interact():
+	use_door() # Replace with function body.

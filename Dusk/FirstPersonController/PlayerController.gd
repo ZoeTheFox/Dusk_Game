@@ -63,18 +63,6 @@ var submerged := false
 var last_boat_pos : Vector3
 
 func _physics_process(delta):
-	if (Input.is_action_just_released("interact")):
-		if (is_in_ship):
-			exit_ship()
-			boat.exit_boat()
-		else:
-			enter_ship()
-			boat.enter_boat()
-	
-	if (is_in_ship):
-		return
-		
-		
 	var speed = walking_speed
 	
 	if submerged:
@@ -98,6 +86,9 @@ func _physics_process(delta):
 	var direction = (transform.basis * twist_pivot.global_transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	var target_velocity = direction * speed
+	
+	if (is_in_ship):
+		target_velocity = Vector3.ZERO
 	
 	if (is_on_floor() or submerged):
 		velocity.x = lerp(velocity.x, target_velocity.x, delta * (acceleration if input_dir != Vector2.ZERO else decceleration))
@@ -123,9 +114,7 @@ func _physics_process(delta):
 		$Head/TwistPivot/PitchPivot/PlayerCamera/WaterEffect.visible = true
 	else:
 		$Head/TwistPivot/PitchPivot/PlayerCamera/WaterEffect.visible = false
-
-	print($Head/TwistPivot/PitchPivot/PlayerCamera/WaterEffect.visible)
-
+	
 	move_and_slide()
 	
 # Called when the node enters the scene tree for tshe first time.
@@ -143,17 +132,23 @@ func _on_body_entered(body):
 func _on_body_exited(body):
 	is_on_ship = false
 
-func enter_ship():
+func enter_boat():
 	camera.current = false
 	is_in_ship = true
 	
+	$InteractableSystem.disabled = true
+	
+	#global_position = Vector3.ZERO
+	
 	hide()
 
-func exit_ship():
+func exit_boat():
 	camera.current = true
 	is_in_ship = false
 	
-	global_position = boat.player_spawn_location.global_position
+	$InteractableSystem.disabled = false
+	
+	#global_position = boat.player_spawn_location.global_position
 	
 	show()
 
@@ -178,6 +173,7 @@ func _input(event):
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			twist_input = - event.relative.x * mouse_sensivity
 			pitch_input = - event.relative.y * mouse_sensivity
+
 
 
 
