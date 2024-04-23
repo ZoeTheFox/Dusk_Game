@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://q06cpfpqlerr"
-path.s3tc="res://.godot/imported/Insel1V2_sand.png-23ea833b0cae47cecab4a1123d1aab1a.s3tc.ctex"
+path.s3tc="res://.godot/imported/Insel1V2_sand.png-fb5eb517d3f574c4c16bc18f13fc50ee.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Environment/Island1/Terrain/Insel1V2_sand.png"
-dest_files=["res://.godot/imported/Insel1V2_sand.png-23ea833b0cae47cecab4a1123d1aab1a.s3tc.ctex"]
+source_file="res://Environment/Island1/Terrain/IslandAssets/Insel1V2_sand.png"
+dest_files=["res://.godot/imported/Insel1V2_sand.png-fb5eb517d3f574c4c16bc18f13fc50ee.s3tc.ctex"]
 
 [params]
 
