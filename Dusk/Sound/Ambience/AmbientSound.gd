@@ -14,4 +14,4 @@ func set_muffled(state : bool):
 	if (state):
 		$AudioStreamPlayer.bus = "Muffle"
 	else:
-		$AudioStreamPlayer.bus = "Master"
+		$AudioStreamPlayer.bus = "Environment"

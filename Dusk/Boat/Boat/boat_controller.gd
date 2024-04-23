@@ -197,8 +197,11 @@ func _on_ladder_player_used_ladder():
 func _on_cabin_area_body_entered(body):
 	var ambiant = get_parent_node_3d().get_node("AmbientSound")
 	ambiant.set_muffled(true)
+	
+	$ShipHull/HullSounds.set_muffled(true)
 
 
 func _on_cabin_area_body_exited(body):
 	var ambiant = get_parent_node_3d().get_node("AmbientSound")
 	ambiant.set_muffled(false)
+	$ShipHull/HullSounds.set_muffled(false)
