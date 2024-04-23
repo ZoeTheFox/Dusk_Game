@@ -83,4 +83,4 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_o26u4")
-volume_db = -20.0
+bus = &"UI"
