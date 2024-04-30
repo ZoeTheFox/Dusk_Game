@@ -1,11 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://cgcwuidlm66nx"]
+[gd_scene load_steps=14 format=3 uid="uid://cgcwuidlm66nx"]
 
 [ext_resource type="PackedScene" uid="uid://bv416dkmr8kkh" path="res://Boat/GLB_Exports/Door/door.glb" id="1_1w8ll"]
 [ext_resource type="Material" uid="uid://mvkocgcisxd1" path="res://Boat/Scenes/Materials/door_mat.tres" id="2_135lh"]
 [ext_resource type="Script" path="res://Boat/InteractiveScenes/Animations/DoorAnimation.gd" id="2_ytng8"]
 [ext_resource type="Material" uid="uid://y7nskv64io8j" path="res://Boat/Scenes/Materials/door_metal_parts.tres" id="3_mesnx"]
 [ext_resource type="PackedScene" uid="uid://bi8ebqsm3obsa" path="res://InteractableSystem/Interactable.tscn" id="6_hf7a0"]
+[ext_resource type="AudioStream" uid="uid://fmpl5sc2vusc" path="res://Sound/Props/Door/door_open.wav" id="7_37gx6"]
 [ext_resource type="Material" uid="uid://cumyd1eymbym" path="res://Boat/Scenes/Materials/glass_mat.tres" id="7_un6qr"]
+[ext_resource type="AudioStream" uid="uid://diqlea6hkikg4" path="res://Sound/Props/Door/door_close.wav" id="8_5vuay"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ql1e2"]
 points = PackedVector3Array(0.0331434, -0.0557733, 0.1097, -3.40853, -5.30023, -0.136134, -3.34454, -5.20273, 0.1097, -3.40853, 0.0417342, -0.136134, 0.0971327, -5.30023, -0.136134, 0.0971327, 0.0417342, -0.136134, 0.0331434, -5.20273, 0.1097, -3.34454, -0.0557733, 0.1097)
@@ -95,5 +97,12 @@ shape = SubResource("BoxShape3D_8bs31")
 libraries = {
 "": SubResource("AnimationLibrary_8qrrr")
 }
+
+[node name="OpenDoorSound" type="AudioStreamPlayer3D" parent="." index="2"]
+stream = ExtResource("7_37gx6")
+bus = &"Environment"
+
+[node name="CloseDoorSound" type="AudioStreamPlayer3D" parent="." index="3"]
+stream = ExtResource("8_5vuay")
 
 [connection signal="interact" from="Door/Interactable" to="." method="_on_interactable_interact"]

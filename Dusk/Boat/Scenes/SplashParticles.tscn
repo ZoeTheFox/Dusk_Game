@@ -1,0 +1,49 @@
+[gd_scene load_steps=11 format=3 uid="uid://dmk7qsr1sqwap"]
+
+[sub_resource type="Curve" id="Curve_vnh6s"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_apck1"]
+curve = SubResource("Curve_vnh6s")
+
+[sub_resource type="Gradient" id="Gradient_n1rc3"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7u72i"]
+gradient = SubResource("Gradient_n1rc3")
+
+[sub_resource type="CurveTexture" id="CurveTexture_7i46d"]
+
+[sub_resource type="Curve" id="Curve_aqdyc"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.212575, 0.977005), 0.0, 0.0, 0, 0, Vector2(0.658683, 0.923349), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.126547, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_xdgp8"]
+curve = SubResource("Curve_aqdyc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ewp6p"]
+direction = Vector3(0, 1, 1)
+spread = 10.0
+initial_velocity_min = 5.0
+initial_velocity_max = 30.0
+angular_velocity_min = -23.95
+angular_velocity_max = 159.12
+gravity = Vector3(0, 0, 0)
+linear_accel_curve = SubResource("CurveTexture_7i46d")
+scale_curve = SubResource("CurveTexture_xdgp8")
+color_ramp = SubResource("GradientTexture1D_7u72i")
+alpha_curve = SubResource("CurveTexture_apck1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ew5j5"]
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_q34bt"]
+material = SubResource("StandardMaterial3D_ew5j5")
+
+[node name="GPUParticles3D" type="GPUParticles3D"]
+amount = 1000
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_ewp6p")
+draw_pass_1 = SubResource("BoxMesh_q34bt")

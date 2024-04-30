@@ -11,9 +11,11 @@ func use_door():
 	
 	if (door_open):
 		animation.play("close_door")
+		$OpenDoorSound.play()
 		door_open = false
 	else:
 		animation.play("open_door")
+		$CloseDoorSound.play()
 		door_open = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
