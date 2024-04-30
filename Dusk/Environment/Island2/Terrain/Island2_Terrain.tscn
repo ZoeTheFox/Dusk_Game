@@ -441,3 +441,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.5591, 15.6965, -60.1937)
 
 [node name="Tree109" parent="." instance=ExtResource("3_vlw0k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.5225, 24.8191, 45.4569)
+
+[node name="Stone29" parent="." instance=ExtResource("5_8sovf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.4776, 28.9524, -15.5012)
+
+[node name="Stone30" parent="." instance=ExtResource("6_hgnks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.8805, 30.4545, -6.93281)
+
+[node name="Stone31" parent="." instance=ExtResource("6_hgnks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.329, 23.5528, 47.835)
+
+[node name="Stone32" parent="." instance=ExtResource("6_hgnks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.9089, 24.8525, 42.8736)
+
+[node name="Stone33" parent="." instance=ExtResource("6_hgnks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.0207, 31.1907, -34.0346)
+
+[node name="Tree110" parent="." instance=ExtResource("3_vlw0k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.6122, 31.8026, -15.4155)
