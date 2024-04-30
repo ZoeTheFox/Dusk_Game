@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://btgg6atjqi7ut"
-path.s3tc="res://.godot/imported/Startinsel_Ground Wood.png-08ee1332103d024dec1ddabc3df0eb2c.s3tc.ctex"
+path.s3tc="res://.godot/imported/Startinsel_Ground Wood.png-01c46253985aeb53e81522b16bd7cc52.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Environment/Island0/Terrain/Startinsel_Ground Wood.png"
-dest_files=["res://.godot/imported/Startinsel_Ground Wood.png-08ee1332103d024dec1ddabc3df0eb2c.s3tc.ctex"]
+source_file="res://Environment/Island0/Terrain/IslandAssets/Startinsel_Ground Wood.png"
+dest_files=["res://.godot/imported/Startinsel_Ground Wood.png-01c46253985aeb53e81522b16bd7cc52.s3tc.ctex"]
 
 [params]
 

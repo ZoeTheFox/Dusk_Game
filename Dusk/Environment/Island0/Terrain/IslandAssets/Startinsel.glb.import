@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cooox1tu1gm1"
-path="res://.godot/imported/Startinsel.glb-183e6d7b6cd8bbbd88862e74e7699b82.scn"
+path="res://.godot/imported/Startinsel.glb-bbe43f2b19fec2a20d4ec15035fa34c4.scn"
 
 [deps]
 
-source_file="res://Environment/Island0/Terrain/Startinsel.glb"
-dest_files=["res://.godot/imported/Startinsel.glb-183e6d7b6cd8bbbd88862e74e7699b82.scn"]
+source_file="res://Environment/Island0/Terrain/IslandAssets/Startinsel.glb"
+dest_files=["res://.godot/imported/Startinsel.glb-bbe43f2b19fec2a20d4ec15035fa34c4.scn"]
 
 [params]
 
