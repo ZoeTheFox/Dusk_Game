@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dmk7qsr1sqwap"]
+[gd_scene load_steps=12 format=3 uid="uid://dmk7qsr1sqwap"]
 
 [sub_resource type="Curve" id="Curve_vnh6s"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -13,7 +13,14 @@ colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_7u72i"]
 gradient = SubResource("Gradient_n1rc3")
 
+[sub_resource type="Curve" id="Curve_jn3m8"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="CurveTexture" id="CurveTexture_7i46d"]
+curve = SubResource("Curve_jn3m8")
 
 [sub_resource type="Curve" id="Curve_aqdyc"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.212575, 0.977005), 0.0, 0.0, 0, 0, Vector2(0.658683, 0.923349), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.126547, 0.0, 0, 0]
