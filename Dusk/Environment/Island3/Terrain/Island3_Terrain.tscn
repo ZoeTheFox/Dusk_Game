@@ -614,3 +614,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109.699, 15.5133, -32.0082)
 
 [node name="Stone34" parent="." instance=ExtResource("5_h1ajf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.0387, 14.4368, -162.953)
+
+[node name="Stone35" parent="." instance=ExtResource("6_7ticv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 183.725, 23.3531, -169.025)
+
+[node name="Stone36" parent="." instance=ExtResource("5_h1ajf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 218.643, 35.6686, -165.818)
+
+[node name="Stone37" parent="." instance=ExtResource("6_7ticv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 219.527, 31.672, -182.932)
