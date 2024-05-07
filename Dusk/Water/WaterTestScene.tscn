@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://62fvwrc7sch3"]
+[gd_scene load_steps=28 format=3 uid="uid://62fvwrc7sch3"]
 
 [ext_resource type="Material" uid="uid://bwratgro0x321" path="res://Water/water_mat.tres" id="1_mdwat"]
 [ext_resource type="Script" path="res://Water/Water.gd" id="2_onn1x"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://dnhfxurd87i8d" path="res://InteractableSystem/InteractionPrompt.tscn" id="7_v82xq"]
 [ext_resource type="PackedScene" uid="uid://dvf83e8j6bwji" path="res://InteractableSystem/TextBoxTestObject.tscn" id="8_hbot8"]
 [ext_resource type="PackedScene" uid="uid://b047wo4ee5aku" path="res://Sound/Ambience/AmbientSound.tscn" id="9_xr6qc"]
+[ext_resource type="PackedScene" uid="uid://c1r4qbbpw2bhi" path="res://misc/spinning_sphere.tscn" id="10_qpoj5"]
+[ext_resource type="PackedScene" uid="uid://bpoau7ueslq3g" path="res://misc/Fire.tscn" id="11_6px28"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_pgnm1"]
 material = ExtResource("1_mdwat")
@@ -75,9 +77,6 @@ script = ExtResource("2_onn1x")
 
 [node name="Boat" parent="." instance=ExtResource("3_a8to5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.08124, 0)
-
-[node name="ShipHull" parent="Boat" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0225558, 4.76837e-07, 0.00171566)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_7e1gl")
@@ -251,7 +250,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.821183, 3.10757, 4.98879)
 
 [node name="AmbientSound" parent="." instance=ExtResource("9_xr6qc")]
 
-[editable path="Boat"]
-[editable path="Boat/ShipHull/Mesh/Hull"]
-[editable path="Boat/ShipHull/Mesh/Hull/guard_rail"]
-[editable path="Boat/ShipHull/Mesh/cabin"]
+[node name="GPUParticles3D" parent="." instance=ExtResource("10_qpoj5")]
+
+[node name="Fire" parent="." instance=ExtResource("11_6px28")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.815189, 2.77147, 5.83075)
+visibility_aabb = AABB(-4, -3.12512, -4, 8, 8, 8)
