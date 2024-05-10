@@ -7,23 +7,36 @@ var animation_controller : Node3D
 @onready
 var splashes : Array = get_children()
 
+var splash_available : bool = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
 
-func _process(delta):
-	print(animation_controller.speed)
+func play_splash():
+	splash_available = false
 	
-	if animation_controller.speed > 1:
-		var random_index = randi() % splashes.size()
+	
+	var random_index = randi() % splashes.size()
 
-		# Play the animation for the selected splash
-		var splash_node = splashes[random_index]
-		splash_node.play_animation(animation_controller.speed)  # Replace with the actual method name
+	var splash_node = splashes[random_index]
+	
+	print(splash_node)
+		
+	if !splash_node.play_animation(animation_controller.speed):
+		play_splash()
+		
+	var delay = 60 / animation_controller.speed 
+	
+	await get_tree().create_timer(delay).timeout
 
-		# Adjust the frequency based on animation_controller.speed
-		var min_delay = 0.1  # Minimum delay between animations
-		var max_delay = 3.0  # Maximum delay between animations
-		var delay = lerp(min_delay, max_delay, animation_controller.speed / 6 )
-		await get_tree().create_timer(animation_controller.speed * 2 / 3).timeout
+	splash_available = true
+
+
+func _process(delta):
+	if animation_controller.speed > 1.5 and splash_available:
+		play_splash()
+	
+		
+
 

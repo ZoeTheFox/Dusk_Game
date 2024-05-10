@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://bmacr6agbv47a"]
+[gd_scene load_steps=66 format=3 uid="uid://bmacr6agbv47a"]
 
 [ext_resource type="PackedScene" uid="uid://bj6mu0xjx85gb" path="res://Boat/Scenes/Boat_hull.tscn" id="1_14b2p"]
 [ext_resource type="Script" path="res://Boat/Boat/boat_controller.gd" id="1_ihrm8"]
@@ -92,6 +92,12 @@ points = PackedVector3Array(-15.7711, -0.172065, 6.50785, 1.09132, 1.89272, 7.19
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gkf5o"]
 points = PackedVector3Array(-14.7368, -0.172065, -6.56944, 4.87485, 1.89272, -6.91323, 4.87485, 1.89272, -7.25753, 4.87485, -0.172065, -6.91323, -14.7368, 1.89272, -6.22514, -4.07095, 1.89272, -7.25753, -4.07095, -0.172065, -7.25753, -13.3604, 1.89272, -6.91323, -13.0148, -0.172065, -6.22514, 4.87485, -0.172065, -7.25753, -13.3604, -0.172065, -6.91323, -13.0148, 1.89272, -6.22514, -14.7368, -0.172065, -6.22514, -14.7368, 1.89272, -6.56944, -3.72732, -0.172065, -6.56944, -3.72732, 1.89272, -6.56944)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bt4x3"]
+size = Vector3(0.125488, 0.502686, 1.08681)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ljibj"]
+size = Vector3(0.288696, 0.331177, 0.390717)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_brakp"]
 size = Vector3(0.0913086, 1.56122, 2.09668)
@@ -313,7 +319,7 @@ shape = SubResource("BoxShape3D_tp1mf")
 [node name="lamp" parent="ShipHull/Mesh/Interior" instance=ExtResource("17_oarsp")]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="ShipHull/Mesh/Interior/lamp"]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 16.0976, 5.7784, 0.0992355)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0976, 5.7784, 0.0992355)
 light_color = Color(1, 0.713726, 0.12549, 1)
 light_energy = 0.3
 shadow_enabled = true
@@ -411,6 +417,14 @@ shape = SubResource("ConvexPolygonShape3D_t7ula")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ShipHull/StaticColliders/GuardRail"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.0068993, 0)
 shape = SubResource("ConvexPolygonShape3D_gkf5o")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="ShipHull/StaticColliders/GuardRail"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.43083, 0.261901, 0.0993438)
+shape = SubResource("BoxShape3D_bt4x3")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="ShipHull/StaticColliders/GuardRail"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.44171, 0.167297, -0.00587463)
+shape = SubResource("BoxShape3D_ljibj")
 
 [node name="Cabin" type="StaticBody3D" parent="ShipHull/StaticColliders"]
 
@@ -517,7 +531,7 @@ transform = Transform3D(0.932339, 0.322578, -0.16336, -0.294742, 0.939709, 0.173
 transform = Transform3D(-0.452655, -0.297127, 0.840726, -0.294742, 0.939709, 0.173418, -0.841565, -0.169299, -0.51294, -1.72516, -1.53795, 2.39235)
 
 [node name="WaterSplash4" parent="ShipHull/SplashParticles" instance=ExtResource("29_mexnu")]
-transform = Transform3D(0.694108, 0.0858081, 0.714739, -0.294743, 0.939709, 0.173418, -0.656766, -0.331034, 0.677551, 9.54455, -1.71425, -0.0253947)
+transform = Transform3D(-0.555482, -0.0208231, -0.831268, -0.294743, 0.939709, 0.173418, 0.777539, 0.34134, -0.528129, -5.73739, -1.71425, -2.7194)
 
 [node name="AnimationController" type="Node3D" parent="." node_paths=PackedStringArray("wheel", "throttle_node", "rudder_and_props", "speed_gauge", "rpm_gauge", "fuel_gauge", "compass")]
 script = ExtResource("20_3h7vo")
