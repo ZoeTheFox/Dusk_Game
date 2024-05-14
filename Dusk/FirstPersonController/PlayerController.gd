@@ -155,7 +155,7 @@ func exit_boat():
 	
 	$InteractableSystem.disabled = false
 	
-	#global_position = boat.player_spawn_location.global_position
+	global_position = boat.player_spawn_location.global_position
 	
 	show()
 

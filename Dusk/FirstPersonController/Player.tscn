@@ -20,6 +20,7 @@ shader = ExtResource("3_ie4wj")
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("twist_pivot", "pitch_pivot", "camera")]
 collision_layer = 9
 collision_mask = 9
+platform_on_leave = 2
 script = ExtResource("1_gxowu")
 jump_velocity = 3.0
 twist_pivot = NodePath("Head/TwistPivot")

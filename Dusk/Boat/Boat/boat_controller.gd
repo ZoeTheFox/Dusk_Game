@@ -203,5 +203,7 @@ func _on_cabin_area_body_entered(body):
 
 func _on_cabin_area_body_exited(body):
 	var ambiant = get_parent_node_3d().get_node("AmbientSound")
-	ambiant.set_muffled(false)
-	$ShipHull/HullSounds.set_muffled(false)
+
+	if (!is_player_seated):
+		ambiant.set_muffled(false)
+		$ShipHull/HullSounds.set_muffled(false)

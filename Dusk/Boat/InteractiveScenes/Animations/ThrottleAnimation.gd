@@ -24,9 +24,7 @@ func _process(delta):
 	
 	
 	last_throttle = throttle
-	
-	print(throttle_delta)
-	
+		
 	if (abs(throttle_delta) > 0.008):
 		start_throttle_audio()
 	else:
