@@ -9,3 +9,4 @@ script = ExtResource("1_0xrdn")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_43v4q")
 volume_db = -20.0
+bus = &"Environment"

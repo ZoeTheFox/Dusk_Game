@@ -27,6 +27,8 @@ var acceleration = 12
 @export
 var decceleration = 8.0
 
+var target_velocity 
+
 @export_category("Camera Pivots")
 
 @export
@@ -60,6 +62,8 @@ var water = get_parent_node_3d().get_node("Water")
 
 var submerged := false
 
+var is_running : bool = false
+
 var last_boat_pos : Vector3
 
 func _physics_process(delta):
@@ -82,10 +86,13 @@ func _physics_process(delta):
 	
 	if (Input.is_action_pressed("run")):
 		speed = running_speed
+		is_running = true
+	else:
+		is_running = false
 	
 	var direction = (transform.basis * twist_pivot.global_transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
-	var target_velocity = direction * speed
+	target_velocity = direction * speed
 	
 	if (is_in_ship):
 		target_velocity = Vector3.ZERO

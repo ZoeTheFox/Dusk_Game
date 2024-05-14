@@ -12,6 +12,8 @@ var water = get_parent_node_3d().get_parent_node_3d().get_node("Water")
 
 @onready var probes = $BuyoancyProbes.get_children()
 
+var footstep_sound = "res://Sound/Player/wood_foot_step.wav"
+
 var submerged := false
 
 func _physics_process(delta):

@@ -8,6 +8,7 @@ var animation : AnimationPlayer = $AnimationPlayer
 func on_press():
 	if !animation.is_playing():
 		animation.play("button_press")
+		$AudioStreamPlayer3D.play()
 		button_press.emit()
 
 func _on_interactable_interact():

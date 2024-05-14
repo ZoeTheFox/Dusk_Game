@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://brh07riyg1qv0"]
+[gd_scene load_steps=10 format=3 uid="uid://brh07riyg1qv0"]
 
 [ext_resource type="Script" path="res://FirstPersonController/PlayerController.gd" id="1_gxowu"]
 [ext_resource type="Script" path="res://FirstPersonController/ViewBob.gd" id="2_3llqn"]
 [ext_resource type="Shader" path="res://FirstPersonController/CameraUnderWaterShader.gdshader" id="3_ie4wj"]
 [ext_resource type="PackedScene" uid="uid://by7gk77toq1l7" path="res://InteractableSystem/InteractableSystem.tscn" id="4_6asnr"]
+[ext_resource type="AudioStream" uid="uid://fkkn7jqdho3c" path="res://Sound/Player/concrete_foot_step.wav" id="5_g2i1b"]
+[ext_resource type="Script" path="res://FirstPersonController/Footsteps.gd" id="6_4jqbu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sy628"]
 radius = 0.09
@@ -48,6 +50,7 @@ current = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1.16654e-08, -0.0657659)
 visible = false
 material_override = SubResource("ShaderMaterial_oudi6")
+transparency = 0.68
 mesh = SubResource("PlaneMesh_uh78k")
 
 [node name="BuyoancyProbes" type="Node3D" parent="."]
@@ -58,3 +61,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.06999, 0)
 [node name="InteractableSystem" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("4_6asnr")]
 camera = NodePath("../Head/TwistPivot/PitchPivot/PlayerCamera")
 interaction_distance = 0.8
+
+[node name="FootstepSounds" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.997412, 0)
+stream = ExtResource("5_g2i1b")
+script = ExtResource("6_4jqbu")
+
+[node name="StepTimer" type="Timer" parent="FootstepSounds"]
+wait_time = 0.4
+
+[connection signal="finished" from="FootstepSounds" to="FootstepSounds" method="_on_finished"]
+[connection signal="timeout" from="FootstepSounds/StepTimer" to="FootstepSounds" method="_on_step_timer_timeout"]

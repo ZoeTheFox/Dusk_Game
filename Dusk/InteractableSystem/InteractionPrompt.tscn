@@ -98,10 +98,12 @@ libraries = {
 
 [node name="SelectHide" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("6_5ae4s")
-volume_db = -32.0
+volume_db = -18.0
+bus = &"UI"
 
 [node name="SelectShow" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("7_ws40n")
-volume_db = -40.0
+volume_db = -20.0
 pitch_scale = 1.5
 max_polyphony = 2
+bus = &"UI"
