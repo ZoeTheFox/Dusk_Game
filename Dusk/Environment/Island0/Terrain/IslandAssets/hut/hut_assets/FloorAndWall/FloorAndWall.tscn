@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dfdhwb0b0g5fy"]
+[gd_scene load_steps=9 format=3 uid="uid://dfdhwb0b0g5fy"]
 
 [ext_resource type="PackedScene" uid="uid://bhyrd3a8ege74" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/FloorAndWall/WallAndFloor.glb" id="1_8vypm"]
 [ext_resource type="Texture2D" uid="uid://bqxqky5kd0e4r" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/FloorAndWall/Hütte_BaseColor.png" id="2_p1u6g"]
 [ext_resource type="Texture2D" uid="uid://4pjbc1qer0nd" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/FloorAndWall/Hütte_Metallic.png" id="3_ymfpq"]
 [ext_resource type="Texture2D" uid="uid://beuyddu2osvvv" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/FloorAndWall/Hütte_Normal.png" id="4_mnj06"]
 [ext_resource type="Texture2D" uid="uid://dbt017gmgpbnd" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/FloorAndWall/Hütte_Roughness.png" id="5_f3im2"]
+[ext_resource type="Script" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/FloorAndWall/StaticBody3D.gd" id="6_cwo68"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wb55o"]
 albedo_texture = ExtResource("2_p1u6g")
@@ -25,6 +26,7 @@ data = PackedVector3Array(-1, 0.9992, -0.83, -1.7455, 0.9992, -0.83, -1.5591, 0.
 surface_material_override/0 = SubResource("StandardMaterial3D_wb55o")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="WallAndFloor/HouseWallAndGround" index="0"]
+script = ExtResource("6_cwo68")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WallAndFloor/HouseWallAndGround/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_rti6w")
