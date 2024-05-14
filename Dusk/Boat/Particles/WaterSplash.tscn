@@ -56,6 +56,7 @@ particles_anim_loop = false
 material = SubResource("StandardMaterial3D_liaa4")
 
 [node name="WaterSplash" type="GPUParticles3D"]
+layers = 2
 emitting = false
 amount = 300
 lifetime = 4.0
