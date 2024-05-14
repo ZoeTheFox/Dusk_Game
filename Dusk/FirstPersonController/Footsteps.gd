@@ -40,7 +40,7 @@ func get_sound_file():
 	
 	var result = space_state.intersect_ray(raycast)
 	
-	if (result.collider == null):
+	if (result == null):
 		stream = load("res://Sound/Player/concrete_foot_step.wav")
 			
 	if "footstep_sound" in result.collider:
