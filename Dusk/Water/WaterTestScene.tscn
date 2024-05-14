@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://62fvwrc7sch3"]
+[gd_scene load_steps=29 format=3 uid="uid://62fvwrc7sch3"]
 
 [ext_resource type="Material" uid="uid://bwratgro0x321" path="res://Water/water_mat.tres" id="1_mdwat"]
 [ext_resource type="Script" path="res://Water/Water.gd" id="2_onn1x"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://dvf83e8j6bwji" path="res://InteractableSystem/TextBoxTestObject.tscn" id="8_hbot8"]
 [ext_resource type="PackedScene" uid="uid://b047wo4ee5aku" path="res://Sound/Ambience/AmbientSound.tscn" id="9_xr6qc"]
 [ext_resource type="PackedScene" uid="uid://dy6d3lmebk50q" path="res://Environment/Island1/Terrain/Island1_Terrain.tscn" id="10_fr7d5"]
+[ext_resource type="PackedScene" uid="uid://b4wyblhah757a" path="res://Environment/Island0/Terrain/Island0_Terrain.tscn" id="11_rfkxl"]
+[ext_resource type="PackedScene" uid="uid://dxqctjb8p0j6l" path="res://Environment/Island0/Terrain/IslandAssets/pier/pierpieces/Pier.tscn" id="12_7ywe5"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_pgnm1"]
 material = ExtResource("1_mdwat")
@@ -254,6 +256,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.821183, 3.10757, 4.98879)
 
 [node name="Island1Terrain" parent="." instance=ExtResource("10_fr7d5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.5854, -0.929579, -598.115)
+
+[node name="Island0Terrain" parent="." instance=ExtResource("11_rfkxl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -209.03, -2.30322, -18.9957)
+
+[node name="Pier" parent="." instance=ExtResource("12_7ywe5")]
+transform = Transform3D(0.835, 0, 0, 0, 0.835, 0, 0, 0, 0.835, -185.3, 1.3, 40.004)
 
 [editable path="Boat"]
 [editable path="Boat/ShipHull/Mesh/Hull"]
