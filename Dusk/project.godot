@@ -17,6 +17,10 @@ config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/image="res://Artwork/SplashScreen.png"
 config/icon="res://Artwork/Dusk Logo White.svg"
 
+[dotnet]
+
+project/assembly_name="Dusk"
+
 [filesystem]
 
 import/fbx/enabled=false

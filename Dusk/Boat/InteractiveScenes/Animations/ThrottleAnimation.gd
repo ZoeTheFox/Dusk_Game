@@ -18,14 +18,15 @@ var can_play_wheel_audio : bool
 func _process(delta):
 	var throttle_node = $ThrottleBase/ThrottleStick
 	
-	throttle_delta = last_throttle - throttle
+	throttle_delta = (last_throttle - throttle) * delta
 	
 	throttle_node.rotation.z = deg_to_rad(90 + 30 * -throttle)
 	
+	#print(throttle_delta)
 	
 	last_throttle = throttle
 		
-	if (abs(throttle_delta) > 0.008):
+	if (abs(throttle_delta) > 0.00004):
 		start_throttle_audio()
 	else:
 		stop_throttle_audio()

@@ -273,8 +273,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.5854, -0.929579, -598.115
 
 [node name="Island0Terrain" parent="." instance=ExtResource("11_rfkxl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -209.03, -2.30322, -18.9957)
-
-[editable path="Boat"]
-[editable path="Boat/ShipHull/Mesh/Hull"]
-[editable path="Boat/ShipHull/Mesh/Hull/guard_rail"]
-[editable path="Boat/ShipHull/Mesh/cabin"]

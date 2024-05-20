@@ -21,7 +21,7 @@ func play_splash():
 
 	var splash_node = splashes[random_index]
 	
-	print(splash_node)
+	#print(splash_node)
 		
 	if !splash_node.play_animation(animation_controller.speed):
 		play_splash()

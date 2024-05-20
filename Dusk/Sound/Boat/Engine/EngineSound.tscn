@@ -22,12 +22,13 @@ secondary_audio_pitch_scale_curve = SubResource("Curve_lkgkp")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_vc8kv")
 volume_db = 36.0
-max_distance = 100.0
+max_distance = 30.0
 bus = &"Engine"
 
 [node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_vfvxv")
 volume_db = 45.0
+max_distance = 30.0
 bus = &"Engine"
 
 [connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_audio_stream_player_3d_finished"]
