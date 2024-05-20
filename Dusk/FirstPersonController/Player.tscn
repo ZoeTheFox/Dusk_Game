@@ -66,7 +66,10 @@ interaction_distance = 0.8
 [node name="FootstepSounds" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.997412, 0)
 stream = ExtResource("5_g2i1b")
+volume_db = -25.0
 script = ExtResource("6_4jqbu")
+walking_footstep_delay = 0.5
+running_footstep_delay = 0.25
 
 [node name="StepTimer" type="Timer" parent="FootstepSounds"]
 wait_time = 0.4

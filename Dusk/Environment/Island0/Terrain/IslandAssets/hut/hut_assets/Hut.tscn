@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bbutqn22b1e4f"]
+[gd_scene load_steps=10 format=3 uid="uid://bbutqn22b1e4f"]
 
 [ext_resource type="PackedScene" uid="uid://dfdhwb0b0g5fy" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/FloorAndWall/FloorAndWall.tscn" id="1_5rplm"]
 [ext_resource type="PackedScene" uid="uid://c2ya1y17iitaa" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/Door/Door.tscn" id="2_kc6ga"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bpv5mbvt1s0ke" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/Table/Table.tscn" id="6_4mmg6"]
 [ext_resource type="PackedScene" uid="uid://cuykk1prfgeqa" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/WoodStickOne/WoodStickOne.tscn" id="7_0vlx7"]
 [ext_resource type="PackedScene" uid="uid://br7rlw4xbulhp" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/WoodStickTwo/WoodStickTwo.tscn" id="8_h82m8"]
+[ext_resource type="PackedScene" uid="uid://3e1ledb5js4b" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/Candle/Candle.tscn" id="9_7tcky"]
 
 [node name="Hut" type="Node3D"]
 
@@ -26,3 +27,6 @@
 [node name="WoodStickOne" parent="." instance=ExtResource("7_0vlx7")]
 
 [node name="WoodStickTwo" parent="." instance=ExtResource("8_h82m8")]
+
+[node name="Candle" parent="." instance=ExtResource("9_7tcky")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.79625, 0.686886, 1.36978)
