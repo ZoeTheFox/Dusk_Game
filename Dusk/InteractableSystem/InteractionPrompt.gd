@@ -13,14 +13,19 @@ var select_show_audio : AudioStreamPlayer3D = $SelectShow
 @onready
 var select_hide_audio : AudioStreamPlayer3D = $SelectHide
 
+func _ready():
+	hide()
+
 func show_prompt():
 	if (prompt_showing):
 		return
 	
 	if (ship_scale):
+		show()
 		animation_player.play("show_prompt_ship_scale")
 		select_show_audio.play()
 	else:
+		show()
 		animation_player.play("show_prompt")
 		select_show_audio.play()
 		
