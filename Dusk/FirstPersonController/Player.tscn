@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://brh07riyg1qv0"]
+[gd_scene load_steps=11 format=3 uid="uid://brh07riyg1qv0"]
 
 [ext_resource type="Script" path="res://FirstPersonController/PlayerController.gd" id="1_gxowu"]
 [ext_resource type="Script" path="res://FirstPersonController/ViewBob.gd" id="2_3llqn"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://by7gk77toq1l7" path="res://InteractableSystem/InteractableSystem.tscn" id="4_6asnr"]
 [ext_resource type="AudioStream" uid="uid://fkkn7jqdho3c" path="res://Sound/Player/concrete_foot_step.wav" id="5_g2i1b"]
 [ext_resource type="Script" path="res://FirstPersonController/Footsteps.gd" id="6_4jqbu"]
+[ext_resource type="PackedScene" uid="uid://cb860rrvk5fqg" path="res://Environment/Shared/rain_particles.tscn" id="7_pxikp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sy628"]
 radius = 0.09
@@ -73,6 +74,8 @@ running_footstep_delay = 0.25
 
 [node name="StepTimer" type="Timer" parent="FootstepSounds"]
 wait_time = 0.4
+
+[node name="RainParticles" parent="." instance=ExtResource("7_pxikp")]
 
 [connection signal="finished" from="FootstepSounds" to="FootstepSounds" method="_on_finished"]
 [connection signal="timeout" from="FootstepSounds/StepTimer" to="FootstepSounds" method="_on_step_timer_timeout"]

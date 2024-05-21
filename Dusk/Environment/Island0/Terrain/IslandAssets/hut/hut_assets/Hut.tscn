@@ -34,3 +34,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.79625, 0.686886, 1.36978)
 
 [node name="Note" parent="." instance=ExtResource("10_l2njn")]
 transform = Transform3D(-0.061846, 0.0486929, 0.996897, 0.00301504, 0.998814, -0.0485994, -0.998081, 2.32831e-09, -0.0619195, 1.17067, 1.08683, -2.20092)
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24564, 1.98971, -0.153297)
+size = Vector3(7.87885, 5, 5.1852)
