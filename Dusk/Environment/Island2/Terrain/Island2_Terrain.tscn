@@ -527,3 +527,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.4223, 25.6915, -10.8135)
 
 [node name="Grave10" parent="." instance=ExtResource("10_tnrwa")]
 transform = Transform3D(0.87169, 0.251461, -0.420622, -0.310307, 0.947545, -0.0766034, 0.379296, 0.197297, 0.903996, -28.7479, 25.4742, -22.109)
+
+[node name="Grave11" parent="." instance=ExtResource("9_2hfa8")]
+transform = Transform3D(0.700455, 0.0553034, -0.711551, -0.149258, 0.986298, -0.0702728, 0.697915, 0.155427, 0.699111, -34.4411, 28.6697, -34.1279)
+
+[node name="Grave12" parent="." instance=ExtResource("9_2hfa8")]
+transform = Transform3D(0.585217, 0.240611, -0.774356, -0.358954, 0.933168, 0.0186791, 0.727098, 0.267027, 0.632474, -17, 27, -38)
