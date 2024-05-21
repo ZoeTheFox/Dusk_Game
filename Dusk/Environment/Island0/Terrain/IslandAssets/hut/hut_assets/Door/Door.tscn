@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://d14swsmig0m3u" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/Door/Tür_Normal.png" id="4_bbtc8"]
 [ext_resource type="Texture2D" uid="uid://cejnrq4ec3sb6" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/Door/Tür_Roughness.png" id="5_3u0tr"]
 [ext_resource type="PackedScene" uid="uid://bi8ebqsm3obsa" path="res://InteractableSystem/Interactable.tscn" id="6_pjdyc"]
-[ext_resource type="AudioStream" uid="uid://fmpl5sc2vusc" path="res://Sound/Props/Door/door_open.wav" id="8_vb3l8"]
-[ext_resource type="AudioStream" uid="uid://diqlea6hkikg4" path="res://Sound/Props/Door/door_close.wav" id="9_e3pvq"]
+[ext_resource type="AudioStream" uid="uid://b06jsqonfvyy8" path="res://Sound/Props/Door/wooden_door_open.wav" id="8_3wplb"]
+[ext_resource type="AudioStream" uid="uid://djoa3juh8i6ch" path="res://Sound/Props/Door/wooden_door_close.wav" id="9_4apfw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocmr6"]
 albedo_texture = ExtResource("2_4nmdi")
@@ -23,7 +23,7 @@ data = PackedVector3Array(-1.1947, -0.004, 1.9999, -1.1947, 1.9935, 0, -1.1947, 
 
 [sub_resource type="Animation" id="Animation_ovuwb"]
 resource_name = "CloseDoor"
-length = 1.6
+length = 4.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -31,7 +31,7 @@ tracks/0/path = NodePath("Door/Cube_005:rotation")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.2, 1.5),
+"times": PackedFloat32Array(0, 3.9, 4.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 1.5708, 0), Vector3(0, -0.0872665, 0), Vector3(0, 0, 0)]
@@ -39,7 +39,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_p3l0d"]
 resource_name = "OpenDoor"
-length = 1.7
+length = 2.89
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -47,7 +47,7 @@ tracks/0/path = NodePath("Door/Cube_005:rotation")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.3, 1.6),
+"times": PackedFloat32Array(0, 2.6, 2.9),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 1.74533, 0), Vector3(0, 1.5708, 0)]
@@ -106,15 +106,13 @@ transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0.194759
 shape = SubResource("BoxShape3D_uwude")
 
 [node name="DoorOpen" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("8_vb3l8")
+stream = ExtResource("8_3wplb")
 volume_db = -15.0
-pitch_scale = 0.5
 bus = &"Environment"
 
 [node name="DoorClose" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("9_e3pvq")
+stream = ExtResource("9_4apfw")
 volume_db = -15.0
-pitch_scale = 0.5
 bus = &"Environment"
 
 [connection signal="interact" from="Interactable" to="Door" method="_on_interactable_interact"]

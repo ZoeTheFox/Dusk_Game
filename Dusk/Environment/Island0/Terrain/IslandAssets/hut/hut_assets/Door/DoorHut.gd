@@ -11,11 +11,11 @@ func use_door():
 	
 	if (door_open):
 		animation_player.play("CloseDoor")
-		get_parent_node_3d().get_node("DoorOpen").play()
+		get_parent_node_3d().get_node("DoorClose").play()
 		door_open = false
 	else:
 		animation_player.play("OpenDoor")
-		get_parent_node_3d().get_node("DoorClose").play()
+		get_parent_node_3d().get_node("DoorOpen").play()
 		door_open = true
 
 
