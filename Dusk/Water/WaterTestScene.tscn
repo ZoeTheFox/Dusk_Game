@@ -27,12 +27,12 @@ sun_disk_scale = 170.66
 ground_color = Color(0.713726, 0.192157, 0.172549, 1)
 energy_multiplier = 0.5
 
-[sub_resource type="Sky" id="Sky_6rhby"]
+[sub_resource type="Sky" id="Sky_gn8w0"]
 sky_material = SubResource("PhysicalSkyMaterial_yc4m6")
 
 [sub_resource type="Environment" id="Environment_7e1gl"]
 background_mode = 2
-sky = SubResource("Sky_6rhby")
+sky = SubResource("Sky_gn8w0")
 fog_enabled = true
 fog_light_color = Color(0.517647, 0.564706, 0.607843, 1)
 
