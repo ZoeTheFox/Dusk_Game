@@ -1,21 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpcndkcst4r2k"]
+[gd_scene load_steps=4 format=3 uid="uid://dpcndkcst4r2k"]
 
 [ext_resource type="Texture2D" uid="uid://vdv13473v8f6" path="res://Environment/Shared/Thunder/lightning.png" id="1_d7i2c"]
 [ext_resource type="Script" path="res://Environment/Shared/Thunder/Lightning.gd" id="1_g1xjh"]
 [ext_resource type="AudioStream" uid="uid://bsifn4l8g65hg" path="res://Environment/Shared/Thunder/thunder.wav" id="3_y405h"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fvj50"]
-emission_enabled = true
-emission = Color(1, 1, 1, 1)
-emission_energy_multiplier = 10.0
-emission_operator = 1
 
 [node name="LightningAndThunder" type="Node3D"]
 script = ExtResource("1_g1xjh")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 visible = false
-material_overlay = SubResource("StandardMaterial3D_fvj50")
 pixel_size = 0.7
 billboard = 1
 texture = ExtResource("1_d7i2c")
@@ -32,3 +25,8 @@ visible = false
 light_energy = 200.0
 light_size = 0.915
 omni_range = 200.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

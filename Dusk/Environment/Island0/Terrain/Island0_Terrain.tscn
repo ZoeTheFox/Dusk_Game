@@ -846,11 +846,7 @@ transform = Transform3D(0.996488, 0, 0.08373, 0, 1, 0, -0.08373, 0, 0.996488, -4
 [node name="ThunderActivator" parent="." instance=ExtResource("12_etoov")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.0147, 16.0616, 37.5227)
 
-[node name="LightningAndThunder" parent="ThunderActivator" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107.614, -0.093792, 43.7546)
-
 [connection signal="body_entered" from="Hut/Area3D" to="Hut" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Hut/Area3D" to="Hut" method="_on_area_3d_body_exited"]
 
 [editable path="ThunderActivator"]
-[editable path="ThunderActivator/LightningAndThunder"]
