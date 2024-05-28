@@ -1,6 +1,5 @@
-[gd_scene load_steps=17 format=3 uid="uid://sg4vkrll1j6"]
+[gd_scene load_steps=14 format=3 uid="uid://sg4vkrll1j6"]
 
-[ext_resource type="Script" path="res://UI/Main Menu/CameraPivot.gd" id="1_68vmb"]
 [ext_resource type="Material" uid="uid://bwratgro0x321" path="res://Water/water_mat.tres" id="1_73qt5"]
 [ext_resource type="Script" path="res://Water/Water.gd" id="2_0jcwu"]
 [ext_resource type="PackedScene" uid="uid://bmacr6agbv47a" path="res://Boat/Boat/Boat.tscn" id="3_453h2"]
@@ -33,25 +32,7 @@ fog_light_color = Color(0.517647, 0.564706, 0.607843, 1)
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_bnbnt"]
 
-[sub_resource type="Animation" id="Animation_mlqqc"]
-resource_name = "MainMenuStartAnimation"
-length = 15.0
-tracks/0/type = "rotation_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0.1, 1, -0.0253299, -0.813341, -0.0355112, 0.58015, 9.8, 1, -0.0253299, -0.813341, -0.0355112, 0.58015)
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_cxnkd"]
-_data = {
-"MainMenuStartAnimation": SubResource("Animation_mlqqc")
-}
-
 [node name="MainMenu" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 0, 0)
-script = ExtResource("1_68vmb")
 
 [node name="Water" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_iet3p")
@@ -78,6 +59,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03572, 4.04704, -0.770467)
 [node name="Island0Terrain" parent="." instance=ExtResource("6_c2k28")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -209.03, -2.30322, -18.9957)
 
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.325568, 0.0824074, -0.941921, 0, 0.996195, 0.0871557, 0.945519, 0.0283751, -0.324329, -198.055, 4.76, 36.91)
+current = true
+fov = 30.0
+
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 anchors_preset = 2
 anchor_top = 1.0
@@ -94,19 +80,9 @@ transparent_bg = true
 handle_input_locally = false
 render_target_update_mode = 4
 
-[node name="Sprite2D" type="Sprite2D" parent="SubViewportContainer/SubViewport"]
+[node name="Menu" parent="SubViewportContainer/SubViewport" instance=ExtResource("7_oexl6")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(241, 202)
 scale = Vector2(0.42, 0.42)
 texture = ExtResource("8_tegn7")
-
-[node name="Menu" parent="SubViewportContainer/SubViewport" instance=ExtResource("7_oexl6")]
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.325568, 0.0824074, -0.941921, -7.45058e-09, 0.996195, 0.0871557, 0.945519, 0.0283751, -0.324329, -193, 2, 50)
-current = true
-fov = 49.3
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_cxnkd")
-}
