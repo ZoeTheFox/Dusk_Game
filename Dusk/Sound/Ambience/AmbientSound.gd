@@ -23,6 +23,12 @@ var max_distance : float
 var ocean_distance : float
 var island_distance : float
 
+@export
+var set_muffled_toggle : bool :
+	set(value):
+		set_muffled(value)
+		
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	ocean_sounds.play()
@@ -48,7 +54,9 @@ func set_muffled(state : bool):
 		ocean_sounds.bus = "Muffle"
 		wind_sounds.bus = "Muffle"
 		rain_sounds.bus = "Muffle"
+		$LightningSpawner.muffled = true
 	else:
 		ocean_sounds.bus = "Environment"
 		wind_sounds.bus = "Environment"
 		rain_sounds.bus = "Environment"
+		$LightningSpawner.muffled = false
