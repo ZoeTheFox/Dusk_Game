@@ -19,7 +19,7 @@ var timer : Timer = $Timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	player = get_parent_node_3d().get_parent_node_3d().get_node("Player")
+	player = get_parent_node_3d().get_node("Player")
 	timer.start(get_random_time())
 
 func get_random_time() -> float:
