@@ -101,7 +101,12 @@ func _physics_process(delta):
 		else:
 			boat_rigidbody.apply_central_force(boat_rigidbody.transform.basis.x * force)
 	
-	boat_rigidbody.apply_torque_impulse(boat_rigidbody.transform.basis.y * -wheel_turn * max_turning_force * boat_rigidbody.linear_velocity.length())
+	var turn_reverse_multiplier = 1
+	
+	if (throttle < 0):
+		turn_reverse_multiplier = -1
+		
+	boat_rigidbody.apply_torque_impulse(boat_rigidbody.transform.basis.y * -wheel_turn * max_turning_force * boat_rigidbody.linear_velocity.length() * turn_reverse_multiplier)
 	
 	boat_rigidbody.rotation_degrees.x = lerpf(boat_rigidbody.rotation_degrees.x, wheel_turn * max_turning_force * 0.0003 * boat_rigidbody.linear_velocity.length(), delta / 2)
 
