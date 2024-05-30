@@ -144,7 +144,7 @@ engine_force = ExtResource("2_2fg5e")
 [node name="ShipHull" type="RigidBody3D" parent="."]
 mass = 10000.0
 script = ExtResource("1_pdhd7")
-float_force = 800.0
+float_force = 1000.0
 
 [node name="HullCollider" type="CollisionShape3D" parent="ShipHull"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.23151, -0.6264, -1.66893e-06)
@@ -168,7 +168,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.63561, -1.78955, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.71529, -1.78955, 0)
 
 [node name="Probe16" type="Marker3D" parent="ShipHull/BuyoancyProbes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.69521, -1.78966, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.01895, -1.78966, 0)
 
 [node name="Probe19" type="Marker3D" parent="ShipHull/BuyoancyProbes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.607, 1.6)
@@ -186,7 +186,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.63561, -1.607, 1.6)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.71529, -1.607, 1.6)
 
 [node name="Probe24" type="Marker3D" parent="ShipHull/BuyoancyProbes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.69521, -1.607, 1.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.01895, -1.607, 1.6)
 
 [node name="Probe25" type="Marker3D" parent="ShipHull/BuyoancyProbes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.607, -1.6)
@@ -204,16 +204,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.63561, -1.607, -1.6)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.71529, -1.607, -1.6)
 
 [node name="Probe30" type="Marker3D" parent="ShipHull/BuyoancyProbes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.69521, -1.607, -1.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.01895, -1.607, -1.6)
 
 [node name="Probe17" type="Marker3D" parent="ShipHull/BuyoancyProbes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.00628, -1.78966, 0)
 
 [node name="Probe18" type="Marker3D" parent="ShipHull/BuyoancyProbes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.09928, -1.78966, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.05553, -1.83977, 0)
 
 [node name="Probe14" type="Marker3D" parent="ShipHull/BuyoancyProbes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0004, -1.78955, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.66537, -1.78955, 0)
 
 [node name="TyreContainer" type="Node3D" parent="ShipHull"]
 
@@ -531,7 +531,7 @@ script = ExtResource("29_kl4px")
 animation_controller = NodePath("../../AnimationController")
 
 [node name="WaterSplash" parent="ShipHull/SplashParticles" instance=ExtResource("29_mexnu")]
-transform = Transform3D(0.781787, 0.270489, 0.561823, -0.32697, 0.945035, 0, -0.530943, -0.1837, 0.827257, -6.22744, -1.53795, 2.43297)
+transform = Transform3D(0.781787, 0.270489, 0.561823, -0.32697, 0.945035, 0, -0.530943, -0.1837, 0.827257, -6.55118, -1.53795, 2.43297)
 
 [node name="WaterSplash2" parent="ShipHull/SplashParticles" instance=ExtResource("29_mexnu")]
 transform = Transform3D(0.932339, 0.322578, -0.16336, -0.294742, 0.939709, 0.173418, 0.209452, -0.113535, 0.971205, -0.948837, -1.53795, -3.49413)
