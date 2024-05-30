@@ -27,6 +27,8 @@ var acceleration = 12
 @export
 var decceleration = 8.0
 
+var target_velocity 
+
 @export_category("Camera Pivots")
 
 @export
@@ -60,21 +62,11 @@ var water = get_parent_node_3d().get_node("Water")
 
 var submerged := false
 
+var is_running : bool = false
+
 var last_boat_pos : Vector3
 
 func _physics_process(delta):
-	if (Input.is_action_just_released("interact")):
-		if (is_in_ship):
-			exit_ship()
-			boat.exit_boat()
-		else:
-			enter_ship()
-			boat.enter_boat()
-	
-	if (is_in_ship):
-		return
-		
-		
 	var speed = walking_speed
 	
 	if submerged:
@@ -94,10 +86,16 @@ func _physics_process(delta):
 	
 	if (Input.is_action_pressed("run")):
 		speed = running_speed
+		is_running = true
+	else:
+		is_running = false
 	
 	var direction = (transform.basis * twist_pivot.global_transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
-	var target_velocity = direction * speed
+	target_velocity = direction * speed
+	
+	if (is_in_ship):
+		target_velocity = Vector3.ZERO
 	
 	if (is_on_floor() or submerged):
 		velocity.x = lerp(velocity.x, target_velocity.x, delta * (acceleration if input_dir != Vector2.ZERO else decceleration))
@@ -119,13 +117,20 @@ func _physics_process(delta):
 	if submerged:
 		velocity *=  1 - water_drag
 	
-	if (water.get_height(camera.global_position) - camera.global_position.y) >= -0.1:
-		$Head/TwistPivot/PitchPivot/PlayerCamera/WaterEffect.visible = true
-	else:
-		$Head/TwistPivot/PitchPivot/PlayerCamera/WaterEffect.visible = false
-
-	print($Head/TwistPivot/PitchPivot/PlayerCamera/WaterEffect.visible)
-
+	#print(water.get_height(camera.global_position) - camera.global_position.y)
+	
+	#$Head/TwistPivot/PitchPivot/PlayerCamera/FogVolume.global_position.y = water.global_position.y 
+	
+	#print($Head/TwistPivot/PitchPivot/PlayerCamera/FogVolume.global_position)
+	
+	#if (water.get_height(camera.global_position) - camera.global_position.y) >= -0.1:
+		#if ($Head/TwistPivot/PitchPivot/PlayerCamera/FogVolume.visible != true):
+			#$Head/TwistPivot/PitchPivot/PlayerCamera/FogVolume.visible = true
+			#print("fog")
+	#else:
+		#if ($Head/TwistPivot/PitchPivot/PlayerCamera/FogVolume.visible == true):
+			#$Head/TwistPivot/PitchPivot/PlayerCamera/FogVolume.visible = false
+	
 	move_and_slide()
 	
 # Called when the node enters the scene tree for tshe first time.
@@ -143,15 +148,21 @@ func _on_body_entered(body):
 func _on_body_exited(body):
 	is_on_ship = false
 
-func enter_ship():
+func enter_boat():
 	camera.current = false
 	is_in_ship = true
 	
+	$InteractableSystem.disabled = true
+	
+	#global_position = Vector3.ZERO
+	
 	hide()
 
-func exit_ship():
+func exit_boat():
 	camera.current = true
 	is_in_ship = false
+	
+	$InteractableSystem.disabled = false
 	
 	global_position = boat.player_spawn_location.global_position
 	
@@ -178,6 +189,7 @@ func _input(event):
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			twist_input = - event.relative.x * mouse_sensivity
 			pitch_input = - event.relative.y * mouse_sensivity
+
 
 
 

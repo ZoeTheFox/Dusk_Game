@@ -32,7 +32,7 @@ seamless = true
 noise = SubResource("FastNoiseLite_jbi1g")
 
 [resource]
-render_priority = 1
+render_priority = 0
 shader = ExtResource("1_4vbm3")
 shader_parameter/albedo = Color(0, 0.321569, 0.431373, 1)
 shader_parameter/albedo2 = Color(0, 0.47451, 0.764706, 1)

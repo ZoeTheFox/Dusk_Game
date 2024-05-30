@@ -66,7 +66,7 @@ func _process(delta):
 	
 	rudder_and_props.turn = wheel_turn
 	
-	if (not clutch_on):
+	if (!clutch_on):
 		rudder_and_props.engine_rpm = rpm
 	else:
 		rudder_and_props.engine_rpm = 0
@@ -74,4 +74,5 @@ func _process(delta):
 	speed_gauge.value = speed
 	rpm_gauge.value = rpm
 	fuel_gauge.value = fuel
+	
 	compass.value = heading

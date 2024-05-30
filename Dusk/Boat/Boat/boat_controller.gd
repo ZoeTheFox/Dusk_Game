@@ -12,6 +12,9 @@ var throttle_dead_zone_timer : Timer = $Timers/ThrottleDeadzoneTimer
 @onready
 var player_spawn_location = $ShipHull/PlayerSpawn
 
+@onready
+var player_ladder_location = $ShipHull/PlayerLadderSpawn
+
 @export_category("Engine Parameters")
 
 @export_range(0, 10000)
@@ -46,6 +49,8 @@ var engine_on : bool = false
 var engine_off : bool = true
 var clutch_active : bool
 
+@onready
+var player = get_parent_node_3d().get_node("Player")
 var is_player_seated : bool = false
 
 # Called when the node enters the scene tree for the first time.
@@ -73,13 +78,6 @@ func _process(delta):
 	else:
 		clutch_active = false
 	
-	# Temporary Code
-	if (Input.is_key_pressed(KEY_R) and engine_off == true and is_player_seated):
-		start_engine()
-	
-	if (Input.is_key_pressed(KEY_T) and engine_off == false and engine_on == true and is_player_seated):
-		stop_engine()
-	
 	if (engine_on == true and engine_off == false):
 		engine_rpm = lerpf(engine_rpm, calculate_rpm_from_throttle(throttle), delta / 4)
 		
@@ -103,7 +101,12 @@ func _physics_process(delta):
 		else:
 			boat_rigidbody.apply_central_force(boat_rigidbody.transform.basis.x * force)
 	
-	boat_rigidbody.apply_torque_impulse(boat_rigidbody.transform.basis.y * -wheel_turn * max_turning_force * boat_rigidbody.linear_velocity.length())
+	var turn_reverse_multiplier = 1
+	
+	if (throttle < 0):
+		turn_reverse_multiplier = -1
+		
+	boat_rigidbody.apply_torque_impulse(boat_rigidbody.transform.basis.y * -wheel_turn * max_turning_force * boat_rigidbody.linear_velocity.length() * turn_reverse_multiplier)
 	
 	boat_rigidbody.rotation_degrees.x = lerpf(boat_rigidbody.rotation_degrees.x, wheel_turn * max_turning_force * 0.0003 * boat_rigidbody.linear_velocity.length(), delta / 2)
 
@@ -113,7 +116,15 @@ func update_animations() -> void:
 	animation_controller.wheel_turn = wheel_turn
 	animation_controller.speed = boat_rigidbody.linear_velocity.length()
 	animation_controller.fuel = 50
-	animation_controller.heading = boat_rigidbody.rotation_degrees.y
+	
+	var compass_heading = -boat_rigidbody.rotation_degrees.y
+
+	if (compass_heading < 0):
+		compass_heading = 360.0 + compass_heading
+	
+	animation_controller.heading = compass_heading
+	
+	animation_controller.clutch_on = clutch_active
 
 func calculate_rpm_from_throttle(throttle : float) -> float:
 	return lerpf(idle_rpm, max_engine_rpm, abs(throttle))
@@ -152,8 +163,55 @@ func _on_throttle_deadzone_timer_timeout():
 
 func enter_boat():
 	$ShipHull/Camera/TwistPivot/PitchPivot/BoatCamera.current = true
+	$ShipHull/Mesh/Interior/seats/Interactable.hide()
+	$ShipHull/Mesh/Interior/seats/InteractableWhileSitting.show()
+	player.enter_boat()
 	is_player_seated = true
+	$InteractableSystem.disabled = false
+	$ShipHull/RainParticles.emitting = true
+	player.get_node("RainParticles").emitting = false
 
 func exit_boat():
 	$ShipHull/Camera/TwistPivot/PitchPivot/BoatCamera.current = false
+	$ShipHull/Mesh/Interior/seats/Interactable.show()
+	$ShipHull/Mesh/Interior/seats/InteractableWhileSitting.hide()
+	player.exit_boat()
 	is_player_seated = false
+	$InteractableSystem.disabled = true
+	$ShipHull/RainParticles.emitting = false
+	player.get_node("RainParticles").emitting = true
+
+func _on_start_stop_button_button_press():
+	if (engine_off == true):
+		start_engine()
+		
+	if (engine_off == false and engine_on == true):
+		stop_engine()
+
+
+func _on_interactable_enter_ship_interact():
+	enter_boat()
+
+
+func _on_interactable_exit_ship_interact():
+	exit_boat()
+
+
+func _on_ladder_player_used_ladder():
+	player.global_position = player_ladder_location.global_position
+
+
+
+func _on_cabin_area_body_entered(body):
+	var ambiant = get_parent_node_3d().get_node("AmbientSound")
+	ambiant.set_muffled(true)
+	
+	$ShipHull/HullSounds.set_muffled(true)
+
+
+func _on_cabin_area_body_exited(body):
+	var ambiant = get_parent_node_3d().get_node("AmbientSound")
+
+	if (!is_player_seated):
+		ambiant.set_muffled(false)
+		$ShipHull/HullSounds.set_muffled(false)

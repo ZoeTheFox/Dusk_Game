@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bm5mnh8u6adjg"]
+
+[ext_resource type="Script" path="res://Environment/Shared/IslandSoundController.gd" id="1_4vio8"]
+
+[node name="IslandSoundController" type="Node3D"]
+script = ExtResource("1_4vio8")
