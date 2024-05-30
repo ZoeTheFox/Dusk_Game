@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://62fvwrc7sch3"]
+[gd_scene load_steps=33 format=3 uid="uid://62fvwrc7sch3"]
 
 [ext_resource type="Material" uid="uid://bwratgro0x321" path="res://Water/water_mat.tres" id="1_mdwat"]
 [ext_resource type="Script" path="res://Water/Water.gd" id="2_onn1x"]
@@ -19,22 +19,29 @@
 material = ExtResource("1_mdwat")
 size = Vector2(5000, 5000)
 
+[sub_resource type="FogMaterial" id="FogMaterial_mub7n"]
+density = 5.0
+albedo = Color(0.299349, 0.644804, 1, 1)
+edge_fade = 1e-05
+
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_yc4m6"]
 rayleigh_coefficient = 4.4
 rayleigh_color = Color(0.235294, 0.458824, 0.372549, 1)
 mie_coefficient = 0.17
 sun_disk_scale = 170.66
-ground_color = Color(0.713726, 0.192157, 0.172549, 1)
-energy_multiplier = 0.5
+ground_color = Color(0, 0, 0, 1)
+energy_multiplier = 0.4
 
-[sub_resource type="Sky" id="Sky_6rhby"]
+[sub_resource type="Sky" id="Sky_gn8w0"]
 sky_material = SubResource("PhysicalSkyMaterial_yc4m6")
 
 [sub_resource type="Environment" id="Environment_7e1gl"]
 background_mode = 2
+
 sky = SubResource("Sky_6rhby")
-fog_enabled = true
 fog_light_color = Color(0.517647, 0.564706, 0.607843, 1)
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0755
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_rdlc4"]
 
@@ -79,10 +86,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0298843, 0, -0.00428009)
 
 [node name="Water" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_pgnm1")
+surface_material_override/0 = ExtResource("1_mdwat")
 script = ExtResource("2_onn1x")
 
+[node name="FogVolume" type="FogVolume" parent="Water"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -25, 0)
+size = Vector3(2000, 50, 2000)
+material = SubResource("FogMaterial_mub7n")
+
 [node name="Boat" parent="." instance=ExtResource("3_a8to5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.08124, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140.311, 2.08124, 12.5798)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_7e1gl")
@@ -246,7 +259,7 @@ transform = Transform3D(5.96, 0, 0, 0, 5.96, 0, 0, 0, 5.96, -46.6871, 2.92479, -
 mesh = SubResource("BoxMesh_t8m8g")
 
 [node name="Player" parent="." instance=ExtResource("5_mgs2n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03572, 4.04704, -0.770467)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -146.041, 10.0513, 41.1342)
 
 [node name="TestObject" parent="." instance=ExtResource("6_62oq7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.290274, 3.32153, 8.04181)
@@ -272,4 +285,4 @@ visibility_aabb = AABB(-4, -3.12512, -4, 8, 8, 8)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.5854, -0.929579, -598.115)
 
 [node name="Island0Terrain" parent="." instance=ExtResource("11_rfkxl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -209.03, -2.30322, -18.9957)
+transform = Transform3D(0.789234, 0, 0.614092, 0, 1, 0, -0.614092, 0, 0.789234, -209.03, -2.30322, -18.9957)

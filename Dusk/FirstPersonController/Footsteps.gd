@@ -42,9 +42,10 @@ func get_sound_file():
 	
 	if (result == null):
 		stream = load("res://Sound/Player/concrete_foot_step.wav")
-			
-	if "footstep_sound" in result.collider:
-		stream = load(result.collider.footstep_sound)
+	
+	if (result.has("collider")):
+		if "footstep_sound" in result.collider:
+			stream = load(result.collider.footstep_sound)
 	else:
 		stream = load("res://Sound/Player/concrete_foot_step.wav")
 

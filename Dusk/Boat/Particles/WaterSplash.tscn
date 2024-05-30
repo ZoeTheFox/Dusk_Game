@@ -1,6 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://bhxl7jmly4kri"]
+[gd_scene load_steps=11 format=3 uid="uid://bhxl7jmly4kri"]
 
-[ext_resource type="Texture2D" uid="uid://cukx5e5eu8pkq" path="res://Boat/Particles/WaterSplash.png" id="1_xw1xn"]
+[ext_resource type="QuadMesh" uid="uid://ytp5iphq5dhb" path="res://Boat/Particles/WaterSplashDrawPass.tres" id="1_yd7gh"]
 [ext_resource type="Script" path="res://Boat/Particles/WaterSplash.gd" id="2_7c20y"]
 [ext_resource type="AudioStream" uid="uid://cmky0oe6aljkf" path="res://Boat/Particles/splash.wav" id="3_6it1w"]
 
@@ -41,20 +41,6 @@ collision_mode = 1
 collision_friction = 0.0
 collision_bounce = 0.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_liaa4"]
-transparency = 1
-shading_mode = 0
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("1_xw1xn")
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="QuadMesh" id="QuadMesh_tm4kp"]
-material = SubResource("StandardMaterial3D_liaa4")
-
 [node name="WaterSplash" type="GPUParticles3D"]
 emitting = false
 amount = 300
@@ -65,7 +51,7 @@ randomness = 0.8
 visibility_aabb = AABB(-10, -10, -10, 20, 20, 20)
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_bfv2w")
-draw_pass_1 = SubResource("QuadMesh_tm4kp")
+draw_pass_1 = ExtResource("1_yd7gh")
 script = ExtResource("2_7c20y")
 min_dB = -30.0
 max_dB = -15.0
