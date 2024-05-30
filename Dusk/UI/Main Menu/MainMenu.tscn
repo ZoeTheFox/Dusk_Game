@@ -163,9 +163,6 @@ walking_speed = 0.0
 running_speed = 0.0
 jump_velocity = 0.0
 
-[node name="Collider" parent="Player" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.440132, 0)
-
 [node name="RainParticles" parent="Player" index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9293, 4.02552, -19.1234)
 emitting = false
@@ -205,7 +202,7 @@ render_target_update_mode = 4
 transform = Transform3D(-0.477159, 0.160152, -0.864101, 0, 0.983255, 0.182236, 0.878817, 0.0869553, -0.469169, -191.717, 26.7105, 42.2742)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.477159, 0.130845, -0.869022, 0, 0.988854, 0.148888, 0.878817, 0.0710433, -0.47184, -197.972, 5.28522, 40.6766)
+transform = Transform3D(-0.477159, 0.130845, -0.869022, 0, 0.988854, 0.148888, 0.878817, 0.0710431, -0.471841, -197.972, 5.28522, 40.6766)
 current = true
 fov = 49.7
 
