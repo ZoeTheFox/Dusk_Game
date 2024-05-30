@@ -117,10 +117,19 @@ func _physics_process(delta):
 	if submerged:
 		velocity *=  1 - water_drag
 	
-	if (water.get_height(camera.global_position) - camera.global_position.y) >= -0.1:
-		$Head/TwistPivot/PitchPivot/PlayerCamera/WaterEffect.visible = true
-	else:
-		$Head/TwistPivot/PitchPivot/PlayerCamera/WaterEffect.visible = false
+	#print(water.get_height(camera.global_position) - camera.global_position.y)
+	
+	#$Head/TwistPivot/PitchPivot/PlayerCamera/FogVolume.global_position.y = water.global_position.y 
+	
+	#print($Head/TwistPivot/PitchPivot/PlayerCamera/FogVolume.global_position)
+	
+	#if (water.get_height(camera.global_position) - camera.global_position.y) >= -0.1:
+		#if ($Head/TwistPivot/PitchPivot/PlayerCamera/FogVolume.visible != true):
+			#$Head/TwistPivot/PitchPivot/PlayerCamera/FogVolume.visible = true
+			#print("fog")
+	#else:
+		#if ($Head/TwistPivot/PitchPivot/PlayerCamera/FogVolume.visible == true):
+			#$Head/TwistPivot/PitchPivot/PlayerCamera/FogVolume.visible = false
 	
 	move_and_slide()
 	

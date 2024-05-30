@@ -163,6 +163,8 @@ func enter_boat():
 	player.enter_boat()
 	is_player_seated = true
 	$InteractableSystem.disabled = false
+	$ShipHull/RainParticles.emitting = true
+	player.get_node("RainParticles").emitting = false
 
 func exit_boat():
 	$ShipHull/Camera/TwistPivot/PitchPivot/BoatCamera.current = false
@@ -171,7 +173,8 @@ func exit_boat():
 	player.exit_boat()
 	is_player_seated = false
 	$InteractableSystem.disabled = true
-
+	$ShipHull/RainParticles.emitting = false
+	player.get_node("RainParticles").emitting = true
 
 func _on_start_stop_button_button_press():
 	if (engine_off == true):
