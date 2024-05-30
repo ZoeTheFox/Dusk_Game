@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://sg4vkrll1j6"]
+[gd_scene load_steps=24 format=3 uid="uid://sg4vkrll1j6"]
 
 [ext_resource type="Script" path="res://UI/Main Menu/CameraPivot.gd" id="1_68vmb"]
 [ext_resource type="Material" uid="uid://bwratgro0x321" path="res://Water/water_mat.tres" id="1_73qt5"]
@@ -9,35 +9,102 @@
 [ext_resource type="PackedScene" uid="uid://b4wyblhah757a" path="res://Environment/Island0/Terrain/Island0_Terrain.tscn" id="6_c2k28"]
 [ext_resource type="PackedScene" uid="uid://boq4u3boi7u4l" path="res://UI/Main Menu/menu.tscn" id="7_oexl6"]
 [ext_resource type="PackedScene" uid="uid://cb860rrvk5fqg" path="res://Environment/Shared/rain_particles.tscn" id="9_v03o5"]
-[ext_resource type="PackedScene" uid="uid://dbd4mqwh1jpp1" path="res://Environment/Shared/Thunder/LightningSpawner.tscn" id="11_hvv1n"]
 [ext_resource type="Texture2D" uid="uid://cqh1u4jxfttni" path="res://UI/Main Menu/Logo-1.png" id="11_kgt4p"]
 [ext_resource type="PackedScene" uid="uid://3e1ledb5js4b" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/Candle/Candle.tscn" id="12_va8jy"]
+[ext_resource type="AudioStream" uid="uid://d2am283hvyerx" path="res://UI/Main Menu/Dusk.wav" id="13_vfvap"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_iet3p"]
 material = ExtResource("1_73qt5")
 size = Vector2(5000, 5000)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_gm4fy"]
+size = Vector3(15, 15, 15)
+
 [sub_resource type="Animation" id="Animation_rk0yp"]
 resource_name = "MainMenuIntroAnimation"
-length = 10.0
+length = 15.0
 tracks/0/type = "position_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Camera3D")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, -214.048, 1.346, 42.05, 10, 1, -195.123, 5.801, 40.425)
+tracks/0/keys = PackedFloat32Array(0, 1, -215.313, -3.469, 42.05, 3.6, 1, -214.048, 2.4, 42.05, 4.5, 1, -214.048, 2.4, 42.05, 11.8, 1, -213.358, 2.5, 42.035, 15, 1, -195.123, 5.801, 40.425)
 tracks/1/type = "rotation_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("Camera3D")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0.00847717, -0.859288, 0.0142488, 0.511223, 10, 1, -0.0467841, -0.855801, -0.0786371, 0.509148)
+tracks/1/keys = PackedFloat32Array(0, 1, 0.536172, 0.477314, 0.49562, -0.488929, 3.3, 1, 0.536172, 0.477314, 0.49562, -0.488929, 4.4, 1, 0.00847717, -0.859288, 0.0142488, 0.511223, 11.8, 1, 0.00847717, -0.859288, 0.0142488, 0.511223, 15, 1, -0.0467841, -0.855801, -0.0786371, 0.509148)
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RainParticles:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 14.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SubViewportContainer:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(14.3, 15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 5.4, 15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-60.595, -25.0, -10.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AmbientSound:set_muffled_toggle")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 14.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_8wnwa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cxnkd"]
 _data = {
-"MainMenuIntroAnimation": SubResource("Animation_rk0yp")
+"MainMenuIntroAnimation": SubResource("Animation_rk0yp"),
+"RESET": SubResource("Animation_8wnwa")
 }
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_13wdb"]
@@ -90,7 +157,7 @@ light_energy = 0.1
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("4_5o06l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -260.311, 15.1193, 19.5639)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -260.311, 29.2388, 19.5639)
 mouse_sensivity = 0.0
 walking_speed = 0.0
 running_speed = 0.0
@@ -103,9 +170,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.440132, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9293, 4.02552, -19.1234)
 emitting = false
 
-[node name="LightningSpawner" parent="." instance=ExtResource("11_hvv1n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -222.064, 5.44841, 41.477)
-spawn_radius = 500.0
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -212.089, 2.57675, 43.345)
+audio_bus_override = true
+audio_bus_name = &"Muffle"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_gm4fy")
 
 [node name="AmbientSound" parent="." instance=ExtResource("5_yxus0")]
 
@@ -130,12 +201,13 @@ render_target_update_mode = 4
 
 [node name="Menu" parent="SubViewportContainer/SubViewport" instance=ExtResource("7_oexl6")]
 
+[node name="RainParticles" parent="." instance=ExtResource("9_v03o5")]
+transform = Transform3D(-0.477159, 0.160152, -0.864101, 0, 0.983255, 0.182236, 0.878817, 0.0869553, -0.469169, -191.717, 26.7105, 42.2742)
+
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.477159, 0.160152, -0.864101, 0, 0.983255, 0.182236, 0.878817, 0.0869553, -0.469169, -195.123, 5.801, 40.425)
+transform = Transform3D(-0.477159, 0.130845, -0.869022, 0, 0.988854, 0.148888, 0.878817, 0.0710433, -0.47184, -197.972, 5.28522, 40.6766)
 current = true
 fov = 49.7
-
-[node name="RainParticles" parent="Camera3D" instance=ExtResource("9_v03o5")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -143,7 +215,7 @@ libraries = {
 }
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(-0.576433, 0, -0.817145, 0, 1, 0, 0.817145, 0, -0.576432, -212.284, 1.541, 42.8)
+transform = Transform3D(-0.576433, 0, -0.817145, 0, 1, 0, 0.817145, 0, -0.576432, -212.089, 2.57675, 43.345)
 pixel_size = 0.0006
 shaded = true
 texture = ExtResource("11_kgt4p")
@@ -163,7 +235,11 @@ environment = SubResource("Environment_mgali")
 camera_attributes = SubResource("CameraAttributesPhysical_alkab")
 
 [node name="Candle" parent="." instance=ExtResource("12_va8jy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -212.44, 0.968255, 42.05)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -212.15, 1.92039, 42.8)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_vfvap")
+volume_db = -10.7813
 
 [editable path="Boat"]
 [editable path="Boat/ShipHull/Mesh/Hull"]
