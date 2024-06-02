@@ -283,10 +283,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1755, 2.15683, -1.77185)
 shape = SubResource("BoxShape3D_2maap")
 
 [node name="InteractableWhileSitting" parent="ShipHull/Mesh/Interior/seats" node_paths=PackedStringArray("interaction_shape") instance=ExtResource("15_ly2dy")]
-visible = false
 ship_scale = true
 prompt_offset = 0.0
 prompt_linger_time = 0.1
+active = false
 interaction_shape = NodePath("CollisionShape3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ShipHull/Mesh/Interior/seats/InteractableWhileSitting"]

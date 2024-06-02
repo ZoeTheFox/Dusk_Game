@@ -163,8 +163,8 @@ func _on_throttle_deadzone_timer_timeout():
 
 func enter_boat():
 	$ShipHull/Camera/TwistPivot/PitchPivot/BoatCamera.current = true
-	$ShipHull/Mesh/Interior/seats/Interactable.hide()
-	$ShipHull/Mesh/Interior/seats/InteractableWhileSitting.show()
+	$ShipHull/Mesh/Interior/seats/Interactable.active = false
+	$ShipHull/Mesh/Interior/seats/InteractableWhileSitting.active = true
 	player.enter_boat()
 	is_player_seated = true
 	$InteractableSystem.disabled = false
@@ -173,8 +173,8 @@ func enter_boat():
 
 func exit_boat():
 	$ShipHull/Camera/TwistPivot/PitchPivot/BoatCamera.current = false
-	$ShipHull/Mesh/Interior/seats/Interactable.show()
-	$ShipHull/Mesh/Interior/seats/InteractableWhileSitting.hide()
+	$ShipHull/Mesh/Interior/seats/Interactable.active = true
+	$ShipHull/Mesh/Interior/seats/InteractableWhileSitting.active = false
 	player.exit_boat()
 	is_player_seated = false
 	$InteractableSystem.disabled = true
