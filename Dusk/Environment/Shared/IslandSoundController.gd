@@ -1,7 +1,7 @@
 extends Node3D
 
 @onready
-var player : CharacterBody3D 
+var player : Node3D 
 
 @onready
 var ambiant_sound_player : AmbientSoundPlayer
@@ -17,5 +17,8 @@ func distance_to_player() -> float:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if (player == null):
+		player = get_parent_node_3d().get_parent_node_3d().get_node("Boat")
+	
 	ambiant_sound_player.island_distance = distance_to_player()
 	

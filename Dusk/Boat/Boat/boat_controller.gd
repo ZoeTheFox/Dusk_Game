@@ -172,6 +172,9 @@ func enter_boat():
 	player.get_node("RainParticles").emitting = false
 
 func exit_boat():
+
+	player.global_position = $ShipHull/PlayerSpawn.global_position
+	
 	$ShipHull/Camera/TwistPivot/PitchPivot/BoatCamera.current = false
 	$ShipHull/Mesh/Interior/seats/Interactable.active = true
 	$ShipHull/Mesh/Interior/seats/InteractableWhileSitting.active = false
