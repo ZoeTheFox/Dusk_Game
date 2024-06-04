@@ -19,10 +19,13 @@ var timer : Timer = $Timer
 
 var muffled : bool = false
 
+var lightning_scene : Resource
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_parent_node_3d().get_parent_node_3d().get_node("Player")
 	timer.start(get_random_time())
+	lightning_scene = preload(lightning_resource)
 
 func get_random_time() -> float:
 	return randf_range(min_spawn_time, max_spawn_time)
@@ -36,9 +39,6 @@ func spawn_lightning():
 		player_position = player.global_transform.origin
 	
 	var random_position : Vector3 = get_random_position(player_position)
-	
-	# Instance and position the lightning
-	var lightning_scene := preload(lightning_resource)
 	
 	var lightning_instance : Lightning = lightning_scene.instantiate()
 	

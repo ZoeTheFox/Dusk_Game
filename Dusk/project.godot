@@ -12,10 +12,14 @@ config_version=5
 
 config/name="Dusk"
 config/description="A simple horror game"
-run/main_scene="res://UI/Main Menu/MainMenu.tscn"
+run/main_scene="res://Water/WaterTestScene.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/image="res://Artwork/SplashScreen.png"
 config/icon="res://Artwork/Dusk Logo White.svg"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [dotnet]
 

@@ -8,7 +8,7 @@ extends RigidBody3D
 @onready var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @onready
-var water = get_parent_node_3d().get_parent_node_3d().get_node("Water")
+var water = get_parent_node_3d().get_parent_node_3d().get_node("WaterMover/Water")
 
 @onready var probes = $BuyoancyProbes.get_children()
 

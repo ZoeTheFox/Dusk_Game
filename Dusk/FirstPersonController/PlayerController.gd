@@ -56,7 +56,7 @@ var is_on_ship : bool = false
 @export var water_angular_drag := 0.05
 
 @onready
-var water = get_parent_node_3d().get_node("Water")
+var water = get_parent_node_3d().get_node("WaterMover/Water")
 
 @onready var probes = $BuyoancyProbes.get_children()
 
