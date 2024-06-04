@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b4wyblhah757a"]
+[gd_scene load_steps=13 format=3 uid="uid://b4wyblhah757a"]
 
 [ext_resource type="PackedScene" uid="uid://6l5g34j4ciul" path="res://Environment/Island0/Terrain/Island0.tscn" id="1_ogfej"]
 [ext_resource type="PackedScene" uid="uid://dkpxqtenhl8ps" path="res://Environment/Vegitation/Trees/Tree1.tscn" id="2_rp2lj"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://bbutqn22b1e4f" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/Hut.tscn" id="8_7x5ju"]
 [ext_resource type="PackedScene" uid="uid://dxqctjb8p0j6l" path="res://Environment/Island0/Terrain/IslandAssets/pier/pierpieces/Pier.tscn" id="9_0n0o5"]
 [ext_resource type="Script" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/HutSound.gd" id="9_gwfve"]
-[ext_resource type="PackedScene" uid="uid://bm5mnh8u6adjg" path="res://Environment/Shared/island_sound_controller.tscn" id="10_qcq77"]
 [ext_resource type="PackedScene" uid="uid://3e1ledb5js4b" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/Candle/Candle.tscn" id="13_ewa3n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kni6f"]
@@ -839,9 +838,6 @@ shape = SubResource("BoxShape3D_kni6f")
 
 [node name="Pier" parent="." instance=ExtResource("9_0n0o5")]
 transform = Transform3D(0.835, 0, 0, 0, 0.835, 0, 0, 0, 0.835, 25.0296, 3.8571, 70.7508)
-
-[node name="IslandSoundController" parent="." instance=ExtResource("10_qcq77")]
-transform = Transform3D(0.996488, 0, 0.08373, 0, 1, 0, -0.08373, 0, 0.996488, -40.027, 19.0991, -30.5892)
 
 [node name="Candle" parent="." instance=ExtResource("13_ewa3n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.4565, 4.8446, 72.7283)
