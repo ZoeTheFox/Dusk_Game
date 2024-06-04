@@ -431,7 +431,7 @@ full_y_rotation = -270.0
 
 [node name="Interactable" parent="ShipHull/Mesh/Interior/Compass" node_paths=PackedStringArray("interaction_shape") instance=ExtResource("15_ly2dy")]
 ship_scale = true
-prompt_offset = 0.0
+prompt_offset = 0.07
 prompt_linger_time = 0.6
 interaction_shape = NodePath("CollisionShape3D")
 
