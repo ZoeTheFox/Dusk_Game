@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://62fvwrc7sch3"]
+[gd_scene load_steps=12 format=3 uid="uid://62fvwrc7sch3"]
 
 [ext_resource type="PackedScene" uid="uid://bmacr6agbv47a" path="res://Boat/Boat/Boat.tscn" id="3_a8to5"]
 [ext_resource type="PackedScene" uid="uid://brh07riyg1qv0" path="res://FirstPersonController/Player.tscn" id="5_mgs2n"]
+[ext_resource type="PackedScene" uid="uid://bm5mnh8u6adjg" path="res://Environment/Shared/island_sound_controller.tscn" id="7_hjqpy"]
 [ext_resource type="PackedScene" uid="uid://b047wo4ee5aku" path="res://Sound/Ambience/AmbientSound.tscn" id="9_xr6qc"]
 [ext_resource type="PackedScene" uid="uid://dy6d3lmebk50q" path="res://Environment/Island1/Terrain/Island1_Terrain.tscn" id="10_fr7d5"]
 [ext_resource type="PackedScene" uid="uid://b4wyblhah757a" path="res://Environment/Island0/Terrain/Island0_Terrain.tscn" id="11_rfkxl"]
@@ -55,3 +56,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.477, -0.929579, -317.067)
 transform = Transform3D(0.789234, 0, 0.614092, 0, 1, 0, -0.614092, 0, 0.789234, -209.03, -2.30322, -18.9957)
 
 [node name="WaterMover" parent="." instance=ExtResource("14_vtpca")]
+
+[node name="IslandSoundController" parent="." instance=ExtResource("7_hjqpy")]
+transform = Transform3D(0.996488, 0, 0.08373, 0, 1, 0, -0.08373, 0, 0.996488, -40.027, 19.0991, -30.5892)
