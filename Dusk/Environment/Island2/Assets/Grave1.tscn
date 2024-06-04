@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://tqhrpajeyslo"]
+
+[ext_resource type="PackedScene" uid="uid://cxeaxxuvt34on" path="res://Environment/Island2/Assets/g1/GRAVE1.glb" id="1_jjcgd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_axu1b"]
+size = Vector3(4.04944, 9.62998, 3.69492)
+
+[node name="Grave1" type="Node3D"]
+
+[node name="GRAVE1" parent="." instance=ExtResource("1_jjcgd")]
+transform = Transform3D(0.565, 0, 0, 0, 0.565, 0, 0, 0, 0.565, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="GRAVE1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GRAVE1/StaticBody3D"]
+transform = Transform3D(0.565, 0, 0, 0, 0.565, 0, 0, 0, 0.565, 0.0457624, 2.08866, -0.0236284)
+shape = SubResource("BoxShape3D_axu1b")
