@@ -4,3 +4,5 @@
 
 [node name="IslandSoundController" type="Node3D"]
 script = ExtResource("1_4vio8")
+island_0_min_distance = 60.0
+island_0_max_distance = 80.0
