@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cbgia5gdnq22d"]
+[gd_scene load_steps=9 format=3 uid="uid://cbgia5gdnq22d"]
 
 [ext_resource type="PackedScene" uid="uid://b1k1niqr3l548" path="res://Environment/Island3/Terrain/Island3.tscn" id="1_qkjvt"]
 [ext_resource type="PackedScene" uid="uid://bavc8xejco52q" path="res://Environment/Vegitation/Trees/tree2.tscn" id="2_c2wtb"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bc0kyhd8grcaj" path="res://Environment/Vegitation/Stones/Stone1.tscn" id="5_h1ajf"]
 [ext_resource type="PackedScene" uid="uid://cyw2r3e4qesdo" path="res://Environment/Vegitation/Stones/Stone3.tscn" id="6_7ticv"]
 [ext_resource type="PackedScene" uid="uid://dvf2dy2brwg30" path="res://Environment/Vegitation/Grass/fans.tscn" id="7_aqjbh"]
+[ext_resource type="PackedScene" uid="uid://ca1aq2tdvsdfy" path="res://Environment/Island3/Terrain/IslandAssets/bunker/bunker.tscn" id="8_x7xe7"]
 
 [node name="Island3Terrain" type="Node3D"]
 
@@ -623,3 +624,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 218.643, 35.6686, -165.818)
 
 [node name="Stone37" parent="." instance=ExtResource("6_7ticv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 219.527, 31.672, -182.932)
+
+[node name="Bunker" parent="." instance=ExtResource("8_x7xe7")]
+transform = Transform3D(-0.809694, 0, -0.586853, 0, 1, 0, 0.586853, 0, -0.809694, 5.73385, 14.3968, -83.8146)
+
+[node name="Tree164" parent="." instance=ExtResource("4_givdg")]
+transform = Transform3D(0.298824, 0, -0.954308, 0, 1, 0, 0.954308, 0, 0.298824, 4.19941, 14.3995, -87.7391)
+
+[node name="Tree165" parent="." instance=ExtResource("4_givdg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.994, 14.4073, -83.781)
+
+[node name="Stone38" parent="." instance=ExtResource("5_h1ajf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.340323, 14.3946, -89.3283)
+
+[node name="Stone39" parent="." instance=ExtResource("6_7ticv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5864, 14.3992, -76.5077)
+
+[node name="Stone40" parent="." instance=ExtResource("5_h1ajf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.4309, 11.8799, -78.1364)
