@@ -1,9 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://62fvwrc7sch3"]
+[gd_scene load_steps=15 format=3 uid="uid://62fvwrc7sch3"]
 
 [ext_resource type="PackedScene" uid="uid://bmacr6agbv47a" path="res://Boat/Boat/Boat.tscn" id="3_a8to5"]
 [ext_resource type="PackedScene" uid="uid://brh07riyg1qv0" path="res://FirstPersonController/Player.tscn" id="5_mgs2n"]
 [ext_resource type="PackedScene" uid="uid://bm5mnh8u6adjg" path="res://Environment/Shared/island_sound_controller.tscn" id="7_hjqpy"]
+[ext_resource type="PackedScene" uid="uid://cbgia5gdnq22d" path="res://Environment/Island3/Terrain/Island3_Terrain.tscn" id="8_n0mbs"]
+[ext_resource type="PackedScene" uid="uid://b4dijxrpph0p" path="res://Environment/Island2/Terrain/Island2_Terrain.tscn" id="9_3wfv1"]
 [ext_resource type="PackedScene" uid="uid://b047wo4ee5aku" path="res://Sound/Ambience/AmbientSound.tscn" id="9_xr6qc"]
+[ext_resource type="PackedScene" uid="uid://b7v0dct4uokca" path="res://Environment/Island0/Terrain/IslandAssets/pier/pier.tscn" id="10_fj2tm"]
 [ext_resource type="PackedScene" uid="uid://dy6d3lmebk50q" path="res://Environment/Island1/Terrain/Island1_Terrain.tscn" id="10_fr7d5"]
 [ext_resource type="PackedScene" uid="uid://b4wyblhah757a" path="res://Environment/Island0/Terrain/Island0_Terrain.tscn" id="11_rfkxl"]
 [ext_resource type="PackedScene" uid="uid://bapmikalcjl6e" path="res://Water/WaterMover.tscn" id="14_vtpca"]
@@ -71,3 +74,15 @@ island_3_max_distance = 20.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.17, 0, 0)
 
 [node name="Island2Terrain" type="Node3D" parent="."]
+
+[node name="Island3Terrain2" parent="." instance=ExtResource("8_n0mbs")]
+transform = Transform3D(-0.69388, 0, -0.720091, 0, 1, 0, 0.720091, 0, -0.69388, 4.85693, 4.98232, 234.866)
+
+[node name="Island1Terrain2" parent="." instance=ExtResource("9_3wfv1")]
+transform = Transform3D(0.536578, 0, -0.843851, 0, 1, 0, 0.843851, 0, 0.536578, 10.3555, -13.8799, -160.275)
+
+[node name="Pier" parent="." instance=ExtResource("10_fj2tm")]
+transform = Transform3D(0.190706, 0, 0.981647, 0, 1, 0, -0.981647, 0, 0.190706, 98.1727, -0.155358, 196.526)
+
+[node name="Pier2" parent="." instance=ExtResource("10_fj2tm")]
+transform = Transform3D(0.219693, 0, -0.975569, 0, 1, 0, 0.975569, 0, 0.219693, -2.4762, 0.319163, -168.522)
