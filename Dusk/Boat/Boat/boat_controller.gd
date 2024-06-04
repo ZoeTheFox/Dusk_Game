@@ -50,7 +50,7 @@ var engine_off : bool = true
 var clutch_active : bool
 
 @onready
-var player = get_parent_node_3d().get_node("Player")
+var player : Node3D = get_parent_node_3d().get_node("Player")
 var is_player_seated : bool = false
 
 # Called when the node enters the scene tree for the first time.
@@ -170,6 +170,9 @@ func enter_boat():
 	$InteractableSystem.disabled = false
 	$ShipHull/RainParticles.emitting = true
 	player.get_node("RainParticles").emitting = false
+	
+	$ShipHull/Camera/TwistPivot.rotation = Vector3.ZERO
+	$ShipHull/Camera/TwistPivot/PitchPivot.rotation = Vector3.ZERO
 
 func exit_boat():
 
@@ -202,8 +205,10 @@ func _on_interactable_exit_ship_interact():
 
 func _on_ladder_player_used_ladder():
 	player.global_position = player_ladder_location.global_position
-
-
+	var twist_pivot : Node3D = player.get_node("Head/TwistPivot")
+	var pitch_pivot : Node3D = player.get_node("Head/TwistPivot/PitchPivot")
+	twist_pivot.rotation.y = $ShipHull/Mesh/Hull/ladder/Ladder.rotation.y
+	pitch_pivot.rotation.x = 0
 
 func _on_cabin_area_body_entered(body):
 	var ambiant = get_parent_node_3d().get_node("AmbientSound")
