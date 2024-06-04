@@ -42,7 +42,7 @@ func set_volume(player : AudioStreamPlayer, distance : float, min_distance : flo
 	
 	player.volume_db = lerpf(min_volume_db, max_volume_db, distance_normalized)
 
-	print("D: " + str(distance) + " N: " + str(distance_normalized) + "db: " + str(player.volume_db))
+	#print("D: " + str(distance) + " N: " + str(distance_normalized) + "db: " + str(player.volume_db))
 
 func set_ocean_volume(distance : float, min_distance : float, max_distance : float) -> void:
 	set_volume(ocean_sounds, distance, min_distance, max_distance)

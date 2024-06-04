@@ -15,4 +15,4 @@ func _ready():
 func _process(delta):
 	$Water.global_position.x = player.global_position.x
 	$Water.global_position.z = player.global_position.z
-	pass
+
