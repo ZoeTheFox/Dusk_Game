@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://sg4vkrll1j6"]
+[gd_scene load_steps=23 format=3 uid="uid://sg4vkrll1j6"]
 
 [ext_resource type="Script" path="res://UI/Main Menu/CameraPivot.gd" id="1_68vmb"]
 [ext_resource type="Material" uid="uid://bwratgro0x321" path="res://Water/water_mat.tres" id="1_73qt5"]
@@ -12,10 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://cqh1u4jxfttni" path="res://UI/Main Menu/Logo-1.png" id="11_kgt4p"]
 [ext_resource type="PackedScene" uid="uid://3e1ledb5js4b" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/Candle/Candle.tscn" id="12_va8jy"]
 [ext_resource type="AudioStream" uid="uid://d2am283hvyerx" path="res://UI/Main Menu/Dusk.wav" id="13_vfvap"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_iet3p"]
-material = ExtResource("1_73qt5")
-size = Vector2(5000, 5000)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gm4fy"]
 size = Vector3(15, 15, 15)
@@ -109,7 +105,7 @@ _data = {
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_13wdb"]
 material = ExtResource("1_73qt5")
-size = Vector2(5000, 5000)
+size = Vector2(400, 400)
 
 [sub_resource type="FogMaterial" id="FogMaterial_buioe"]
 density = 5.0
@@ -139,10 +135,6 @@ volumetric_fog_density = 0.0755
 [node name="MainMenu" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 0, 0)
 script = ExtResource("1_68vmb")
-
-[node name="Water" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_iet3p")
-script = ExtResource("2_0jcwu")
 
 [node name="Boat" parent="." instance=ExtResource("3_453h2")]
 transform = Transform3D(0.128259, 0, -0.991741, 0, 1, 0, 0.991741, 0, 0.128259, -174.753, 1.451, 48.8)
@@ -205,7 +197,7 @@ render_target_update_mode = 4
 transform = Transform3D(-0.477159, 0.160152, -0.864101, 0, 0.983255, 0.182236, 0.878817, 0.0869553, -0.469169, -191.717, 26.7105, 42.2742)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.477159, 0.130845, -0.869022, -7.45058e-09, 0.988854, 0.148888, 0.878817, 0.0710431, -0.471841, -197.972, 5.28522, 40.6766)
+transform = Transform3D(-0.477159, 0.130845, -0.869022, -2.23517e-08, 0.988854, 0.148888, 0.878817, 0.0710431, -0.471841, -197.972, 5.28522, 40.6766)
 current = true
 fov = 49.7
 
@@ -220,14 +212,15 @@ pixel_size = 0.0006
 shaded = true
 texture = ExtResource("11_kgt4p")
 
-[node name="Water2" type="MeshInstance3D" parent="."]
+[node name="Water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -183.079, 0, 0)
 mesh = SubResource("PlaneMesh_13wdb")
 surface_material_override/0 = ExtResource("1_73qt5")
 script = ExtResource("2_0jcwu")
 
-[node name="FogVolume" type="FogVolume" parent="Water2"]
+[node name="FogVolume" type="FogVolume" parent="Water"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -25, 0)
-size = Vector3(2000, 50, 2000)
+size = Vector3(400, 50, 400)
 material = SubResource("FogMaterial_buioe")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
