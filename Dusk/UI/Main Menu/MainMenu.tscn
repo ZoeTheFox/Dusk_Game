@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://sg4vkrll1j6"]
+[gd_scene load_steps=24 format=3 uid="uid://sg4vkrll1j6"]
 
 [ext_resource type="Script" path="res://UI/Main Menu/CameraPivot.gd" id="1_68vmb"]
 [ext_resource type="Material" uid="uid://bwratgro0x321" path="res://Water/water_mat.tres" id="1_73qt5"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cb860rrvk5fqg" path="res://Environment/Shared/rain_particles.tscn" id="9_v03o5"]
 [ext_resource type="Texture2D" uid="uid://cqh1u4jxfttni" path="res://UI/Main Menu/Logo-1.png" id="11_kgt4p"]
 [ext_resource type="PackedScene" uid="uid://3e1ledb5js4b" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/Candle/Candle.tscn" id="12_va8jy"]
+[ext_resource type="PackedScene" uid="uid://bapmikalcjl6e" path="res://Water/WaterMover.tscn" id="13_s4h3e"]
 [ext_resource type="AudioStream" uid="uid://d2am283hvyerx" path="res://UI/Main Menu/Dusk.wav" id="13_vfvap"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gm4fy"]
@@ -233,6 +234,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -212.15, 1.92039, 42.8)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_vfvap")
 volume_db = -10.7813
+
+[node name="WaterMover" parent="." instance=ExtResource("13_s4h3e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -143.052, 0, 0)
+visible = false
 
 [editable path="Boat"]
 [editable path="Boat/ShipHull/Mesh/Hull"]
