@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cbgia5gdnq22d"]
+[gd_scene load_steps=11 format=3 uid="uid://cbgia5gdnq22d"]
 
 [ext_resource type="PackedScene" uid="uid://b1k1niqr3l548" path="res://Environment/Island3/Terrain/Island3.tscn" id="1_qkjvt"]
 [ext_resource type="PackedScene" uid="uid://bavc8xejco52q" path="res://Environment/Vegitation/Trees/tree2.tscn" id="2_c2wtb"]
@@ -9,13 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://dvf2dy2brwg30" path="res://Environment/Vegitation/Grass/fans.tscn" id="7_aqjbh"]
 [ext_resource type="PackedScene" uid="uid://ca1aq2tdvsdfy" path="res://Environment/Island3/Terrain/IslandAssets/bunker/bunker.tscn" id="8_x7xe7"]
 [ext_resource type="PackedScene" uid="uid://dxqctjb8p0j6l" path="res://Environment/Island0/Terrain/IslandAssets/pier/pierpieces/Pier.tscn" id="9_pp0il"]
+[ext_resource type="PackedScene" uid="uid://3e1ledb5js4b" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/Candle/Candle.tscn" id="10_8r63b"]
 
 [node name="Island3Terrain" type="Node3D"]
 
 [node name="Island3" parent="." instance=ExtResource("1_qkjvt")]
 
 [node name="Bunker" parent="." instance=ExtResource("8_x7xe7")]
-transform = Transform3D(-0.809694, 0, -0.586853, 0, 1, 0, 0.586853, 0, -0.809694, 5.73385, 14.3968, -83.8146)
+transform = Transform3D(-0.875621, -0.0587837, -0.479408, -0.0884601, 0.995295, 0.0395287, 0.474829, 0.0770206, -0.876702, 131.814, 15.019, -182.263)
 
 [node name="Vegitation" type="Node3D" parent="."]
 
@@ -648,3 +649,56 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.4309, 11.8799, -78.1364)
 
 [node name="Pier" parent="." instance=ExtResource("9_pp0il")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -122.021, -3.41874, -125.123)
+
+[node name="Candle" parent="Pier" instance=ExtResource("10_8r63b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.75648, 1.18263, -2.38962)
+
+[node name="Candle2" parent="Pier" instance=ExtResource("10_8r63b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.29186, 0.54051, 1.6274)
+
+[node name="Candle3" parent="Pier" instance=ExtResource("10_8r63b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.34534, 1.18263, -2.47327)
+
+[node name="CandlePath" type="Node3D" parent="."]
+
+[node name="Candle2" parent="CandlePath" instance=ExtResource("10_8r63b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 3, -123)
+
+[node name="Candle" parent="CandlePath" instance=ExtResource("10_8r63b")]
+transform = Transform3D(0.914148, -0.405381, 0, 0.405381, 0.914148, 0, 0, 0, 1, -105.922, 0.88288, -128.124)
+
+[node name="Candle3" parent="CandlePath" instance=ExtResource("10_8r63b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.4548, 7.89107, -138.537)
+
+[node name="Candle4" parent="CandlePath" instance=ExtResource("10_8r63b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.8748, 13.5268, -147.565)
+
+[node name="Candle5" parent="CandlePath" instance=ExtResource("10_8r63b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.5537, 14.4301, -160.129)
+
+[node name="Candle6" parent="CandlePath" instance=ExtResource("10_8r63b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.14985, 14.4347, -171.598)
+
+[node name="Candle7" parent="CandlePath" instance=ExtResource("10_8r63b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1187, 14.4368, -182.668)
+
+[node name="Candle8" parent="CandlePath" instance=ExtResource("10_8r63b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.6332, 14.4368, -186.763)
+
+[node name="Candle9" parent="CandlePath" instance=ExtResource("10_8r63b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.5206, 14.4368, -179.262)
+
+[node name="Candle10" parent="CandlePath" instance=ExtResource("10_8r63b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.6344, 14.4573, -175.707)
+
+[node name="Candle11" parent="CandlePath" instance=ExtResource("10_8r63b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.264, 14.4503, -169.839)
+
+[node name="Candle12" parent="CandlePath" instance=ExtResource("10_8r63b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115.908, 14.5056, -172.625)
+
+[node name="Candle13" parent="CandlePath" instance=ExtResource("10_8r63b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 129.391, 15.0152, -182.249)
+
+[node name="Candle14" parent="CandlePath" instance=ExtResource("10_8r63b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.887, 15.1337, -181.886)

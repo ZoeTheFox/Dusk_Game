@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b4wyblhah757a"]
+[gd_scene load_steps=17 format=3 uid="uid://b4wyblhah757a"]
 
 [ext_resource type="PackedScene" uid="uid://6l5g34j4ciul" path="res://Environment/Island0/Terrain/Island0.tscn" id="1_ogfej"]
 [ext_resource type="PackedScene" uid="uid://dkpxqtenhl8ps" path="res://Environment/Vegitation/Trees/Tree1.tscn" id="2_rp2lj"]
@@ -10,10 +10,16 @@
 [ext_resource type="PackedScene" uid="uid://bbutqn22b1e4f" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/Hut.tscn" id="8_7x5ju"]
 [ext_resource type="PackedScene" uid="uid://dxqctjb8p0j6l" path="res://Environment/Island0/Terrain/IslandAssets/pier/pierpieces/Pier.tscn" id="9_0n0o5"]
 [ext_resource type="Script" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/HutSound.gd" id="9_gwfve"]
+[ext_resource type="Script" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/Candle/CandleInteractable.gd" id="12_t1o1a"]
+[ext_resource type="PackedScene" uid="uid://bi8ebqsm3obsa" path="res://InteractableSystem/Interactable.tscn" id="12_yom0c"]
 [ext_resource type="PackedScene" uid="uid://3e1ledb5js4b" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/Candle/Candle.tscn" id="13_ewa3n"]
+[ext_resource type="PackedScene" uid="uid://boorry5kus31v" path="res://InteractableSystem/TextDisplay.tscn" id="14_ky7de"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kni6f"]
 size = Vector3(4.53442, 3.11035, 4.51074)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bdf02"]
+size = Vector3(0.411682, 0.296326, 0.410278)
 
 [node name="Island0Terrain" type="Node3D"]
 
@@ -844,6 +850,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.4565, 4.8446, 72.7283)
 
 [node name="Candle2" parent="." instance=ExtResource("13_ewa3n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.057, 4.8446, 68.7288)
+script = ExtResource("12_t1o1a")
+
+[node name="Interactable" parent="Candle2" node_paths=PackedStringArray("interaction_shape") instance=ExtResource("12_yom0c")]
+interaction_shape = NodePath("CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Candle2/Interactable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0133362, 0.129059, -0.00823975)
+shape = SubResource("BoxShape3D_bdf02")
+
+[node name="TextDisplay" parent="Candle2" instance=ExtResource("14_ky7de")]
 
 [connection signal="body_entered" from="Hut/Area3D" to="Hut" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Hut/Area3D" to="Hut" method="_on_area_3d_body_exited"]
+[connection signal="interact" from="Candle2/Interactable" to="Candle2" method="_on_interactable_interact"]
