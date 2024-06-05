@@ -1,17 +1,37 @@
-[gd_scene load_steps=3 format=3 uid="uid://tqhrpajeyslo"]
+[gd_scene load_steps=7 format=3 uid="uid://tqhrpajeyslo"]
 
 [ext_resource type="PackedScene" uid="uid://cxeaxxuvt34on" path="res://Environment/Island2/Assets/g1/GRAVE1.glb" id="1_jjcgd"]
+[ext_resource type="Script" path="res://Environment/Island2/Assets/Grave.gd" id="1_nmpxr"]
+[ext_resource type="PackedScene" uid="uid://bi8ebqsm3obsa" path="res://InteractableSystem/Interactable.tscn" id="2_exwon"]
+[ext_resource type="PackedScene" uid="uid://boorry5kus31v" path="res://InteractableSystem/TextDisplay.tscn" id="4_u4pa6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_axu1b"]
 size = Vector3(4.04944, 9.62998, 3.69492)
 
-[node name="Grave1" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ij5e7"]
+size = Vector3(3.57544, 3.34192, 1)
 
-[node name="GRAVE1" parent="." instance=ExtResource("1_jjcgd")]
+[node name="Grave" type="Node3D"]
+script = ExtResource("1_nmpxr")
+
+[node name="Mesh" parent="." instance=ExtResource("1_jjcgd")]
 transform = Transform3D(0.565, 0, 0, 0, 0.565, 0, 0, 0, 0.565, 0, 0, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="GRAVE1"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Mesh"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GRAVE1/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/StaticBody3D"]
 transform = Transform3D(0.565, 0, 0, 0, 0.565, 0, 0, 0, 0.565, 0.0457624, 2.08866, -0.0236284)
 shape = SubResource("BoxShape3D_axu1b")
+
+[node name="Interactable" parent="." node_paths=PackedStringArray("interaction_shape") instance=ExtResource("2_exwon")]
+prompt_offset = 0.0
+interaction_shape = NodePath("CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28772, 1.17096, 0)
+shape = SubResource("BoxShape3D_ij5e7")
+
+[node name="TextDisplay" parent="." instance=ExtResource("4_u4pa6")]
+time_per_character = 0.1
+
+[connection signal="interact" from="Interactable" to="." method="_on_interactable_interact"]
