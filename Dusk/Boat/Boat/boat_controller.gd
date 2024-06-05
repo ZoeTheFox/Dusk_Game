@@ -223,3 +223,8 @@ func _on_cabin_area_body_exited(body):
 	if (!is_player_seated):
 		ambiant.set_muffled(false)
 		$ShipHull/HullSounds.set_muffled(false)
+
+
+func _on_ship_hull_body_entered(body):
+	if (body != player):
+		$ShipHull/HullSounds.collision(body.global_position)

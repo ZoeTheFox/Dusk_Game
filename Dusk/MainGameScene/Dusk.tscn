@@ -33,20 +33,20 @@ volumetric_fog_density = 0.0755
 [node name="Dusk" type="Node3D"]
 
 [node name="Boat" parent="." instance=ExtResource("1_0db3y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140.311, 2.08124, 12.5798)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 164.427, 4.02433, -47.0831)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_48ixh")
 camera_attributes = SubResource("CameraAttributesPhysical_vfr4p")
 
 [node name="Player" parent="." instance=ExtResource("2_sxd6g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5179, 14.7448, -192.792)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 164.323, 6.61047, -34.3188)
 
 [node name="AmbientSound" parent="." instance=ExtResource("3_22gf3")]
 max_distance = 80.0
 
 [node name="Island1Terrain" parent="." instance=ExtResource("4_xvs7q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1714.79, -0.929579, -394.355)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1300, -0.93, -394.355)
 
 [node name="Island0Terrain" parent="." instance=ExtResource("5_pc08f")]
 transform = Transform3D(0.123844, 0, 0.992301, 0, 1, 0, -0.992301, 0, 0.123844, 90.97, -2.30322, -18.9957)
@@ -58,14 +58,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -372)
 transform = Transform3D(0.996488, 0, 0.08373, 0, 1, 0, -0.08373, 0, 0.996488, -40.027, 19.0991, -30.5892)
 
 [node name="Island3Terrain" parent="." instance=ExtResource("8_g1xg2")]
-transform = Transform3D(0.995228, 0, 0.0975829, 0, 1, 0, -0.0975829, 0, 0.995228, 2724.89, 4.98232, -2572.25)
+transform = Transform3D(0.995228, 0, 0.0975829, 0, 1, 0, -0.0975829, 0, 0.995228, 2000, 4.982, -1500)
 
 [node name="Island2Terrain" parent="." instance=ExtResource("9_q47qq")]
-transform = Transform3D(0.536578, 0, -0.843851, 0, 1, 0, 0.843851, 0, 0.536578, 455.686, -13.8799, -2352.2)
+transform = Transform3D(0.536578, 0, -0.843851, 0, 1, 0, 0.843851, 0, 0.536578, 455.686, -13.88, -1300)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.345495, -0.93833, 0.0130532, 0, 0.0139098, 0.999903, -0.938421, 0.345461, -0.00480576, 523.629, 8.89441, -269.865)
 light_color = Color(0.980392, 0.941176, 1, 1)
 light_energy = 0.05
+light_volumetric_fog_energy = 0.3
 shadow_enabled = true
 shadow_bias = 0.5

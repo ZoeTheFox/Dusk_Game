@@ -137,12 +137,14 @@ size = Vector3(3.22676, 1, 2.10449)
 [node name="Boat" type="Node3D"]
 script = ExtResource("1_ihrm8")
 max_engine_rpm = 8000.0
-max_engine_force = 750000.0
+max_engine_force = 900000.0
 max_turning_force = 50000.0
 engine_force = ExtResource("2_2fg5e")
 
 [node name="ShipHull" type="RigidBody3D" parent="."]
 mass = 60000.0
+max_contacts_reported = 10
+contact_monitor = true
 script = ExtResource("1_pdhd7")
 float_force = 6000.0
 
@@ -665,6 +667,7 @@ camera = NodePath("../ShipHull/Camera/TwistPivot/PitchPivot/BoatCamera")
 interaction_distance = 3.0
 disabled = true
 
+[connection signal="body_entered" from="ShipHull" to="." method="_on_ship_hull_body_entered"]
 [connection signal="player_used_ladder" from="ShipHull/Mesh/Hull/ladder" to="." method="_on_ladder_player_used_ladder"]
 [connection signal="interact" from="ShipHull/Mesh/Interior/seats/Interactable" to="." method="_on_interactable_enter_ship_interact"]
 [connection signal="interact" from="ShipHull/Mesh/Interior/seats/InteractableWhileSitting" to="." method="_on_interactable_exit_ship_interact"]
