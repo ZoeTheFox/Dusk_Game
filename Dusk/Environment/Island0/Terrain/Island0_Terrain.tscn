@@ -861,6 +861,8 @@ shape = SubResource("BoxShape3D_bdf02")
 
 [node name="TextDisplay" parent="Candle2" instance=ExtResource("14_ky7de")]
 
+[node name="Center" type="Node3D" parent="."]
+
 [connection signal="body_entered" from="Hut/Area3D" to="Hut" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Hut/Area3D" to="Hut" method="_on_area_3d_body_exited"]
 [connection signal="interact" from="Candle2/Interactable" to="Candle2" method="_on_interactable_interact"]

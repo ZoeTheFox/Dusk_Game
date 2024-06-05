@@ -702,3 +702,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 129.391, 15.0152, -182.249)
 
 [node name="Candle14" parent="CandlePath" instance=ExtResource("10_8r63b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.887, 15.1337, -181.886)
+
+[node name="Center" type="Node3D" parent="."]
+transform = Transform3D(0.803, 0, 0, 0, 0.803, 0, 0, 0, 0.803, 84.3876, 0, -84.9874)

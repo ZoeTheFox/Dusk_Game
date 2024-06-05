@@ -39,40 +39,33 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140.311, 2.08124, 12.5798)
 environment = SubResource("Environment_48ixh")
 camera_attributes = SubResource("CameraAttributesPhysical_vfr4p")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.345495, -0.93833, 0.0130532, 0, 0.0139098, 0.999903, -0.938421, 0.345461, -0.00480576, 523.629, 8.89441, -269.865)
-light_color = Color(0.980392, 0.941176, 1, 1)
-light_energy = 0.1
-shadow_enabled = true
-
-[node name="Player" parent="." node_paths=PackedStringArray("twist_pivot", "pitch_pivot", "camera") instance=ExtResource("2_sxd6g")]
+[node name="Player" parent="." instance=ExtResource("2_sxd6g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5179, 14.7448, -192.792)
-twist_pivot = NodePath("")
-pitch_pivot = NodePath("")
-camera = NodePath("")
 
 [node name="AmbientSound" parent="." instance=ExtResource("3_22gf3")]
 max_distance = 80.0
 
 [node name="Island1Terrain" parent="." instance=ExtResource("4_xvs7q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 197.786, -0.929579, 5.64509)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1714.79, -0.929579, -394.355)
 
 [node name="Island0Terrain" parent="." instance=ExtResource("5_pc08f")]
-transform = Transform3D(0.789234, 0, 0.614092, 0, 1, 0, -0.614092, 0, 0.789234, -209.03, -2.30322, -18.9957)
+transform = Transform3D(0.123844, 0, 0.992301, 0, 1, 0, -0.992301, 0, 0.123844, 90.97, -2.30322, -18.9957)
 
 [node name="WaterMover" parent="." instance=ExtResource("6_uxq57")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -372)
 
 [node name="IslandSoundController" parent="." instance=ExtResource("7_3gxtv")]
 transform = Transform3D(0.996488, 0, 0.08373, 0, 1, 0, -0.08373, 0, 0.996488, -40.027, 19.0991, -30.5892)
-island_1_min_distance = 15.0
-island_1_max_distance = 60.0
-island_2_min_distance = 10.0
-island_2_max_distance = 20.0
-island_3_min_distance = 10.0
-island_3_max_distance = 20.0
 
 [node name="Island3Terrain" parent="." instance=ExtResource("8_g1xg2")]
-transform = Transform3D(-0.69388, 0, -0.720091, 0, 1, 0, 0.720091, 0, -0.69388, 4.85693, 4.98232, 234.866)
+transform = Transform3D(0.995228, 0, 0.0975829, 0, 1, 0, -0.0975829, 0, 0.995228, 2724.89, 4.98232, -2572.25)
 
 [node name="Island2Terrain" parent="." instance=ExtResource("9_q47qq")]
-transform = Transform3D(0.536578, 0, -0.843851, 0, 1, 0, 0.843851, 0, 0.536578, 10.3555, -13.8799, -160.275)
+transform = Transform3D(0.536578, 0, -0.843851, 0, 1, 0, 0.843851, 0, 0.536578, 455.686, -13.8799, -2352.2)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.345495, -0.93833, 0.0130532, 0, 0.0139098, 0.999903, -0.938421, 0.345461, -0.00480576, 523.629, 8.89441, -269.865)
+light_color = Color(0.980392, 0.941176, 1, 1)
+light_energy = 0.05
+shadow_enabled = true
+shadow_bias = 0.5

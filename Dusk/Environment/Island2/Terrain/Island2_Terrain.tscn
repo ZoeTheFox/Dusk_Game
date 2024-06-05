@@ -541,3 +541,6 @@ transform = Transform3D(0.585217, 0.240611, -0.774356, -0.358954, 0.933168, 0.01
 
 [node name="Pier" parent="." instance=ExtResource("11_wlexo")]
 transform = Transform3D(0.744521, 0, -0.667599, 0, 1, 0, 0.667599, 0, 0.744521, -13.0194, 15.8175, -1.73499)
+
+[node name="Center" type="Node3D" parent="."]
+transform = Transform3D(0.803, 0, 0, 0, 0.803, 0, 0, 0, 0.803, -32.2858, 20.9553, -42.5151)

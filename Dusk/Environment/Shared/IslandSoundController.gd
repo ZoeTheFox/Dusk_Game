@@ -72,15 +72,19 @@ func set_ocean_volume() -> void:
 	
 	if closest_distance == distance_island_0:
 		ambiant_sound_player.set_ocean_volume(closest_distance, island_0_min_distance, island_0_max_distance)
+		print("Using Island 0 : " + str(closest_distance))
 	elif closest_distance == distance_island_1:
 		ambiant_sound_player.set_ocean_volume(closest_distance, island_1_min_distance, island_1_max_distance)
+		print("Using Island 1 : " + str(closest_distance))
 	elif closest_distance == distance_island_2:
 		ambiant_sound_player.set_ocean_volume(closest_distance, island_2_min_distance, island_2_max_distance)
+		print("Using Island 2 : " + str(closest_distance))
 	elif closest_distance == distance_island_3:
 		ambiant_sound_player.set_ocean_volume(closest_distance, island_3_min_distance, island_3_max_distance)
-
+		print("Using Island 3 : " + str(closest_distance))
+	
 func distance_to_player(island : Node3D) -> float:
-	return (island.global_position - player.global_position).length()
+	return (island.get_node("Center").global_position - player.global_position).length()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
