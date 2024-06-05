@@ -47,7 +47,7 @@ light_energy = 0.1
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("5_mgs2n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -139.512, 6.0513, 12.1342)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5179, 14.7448, -192.792)
 
 [node name="AmbientSound" parent="." instance=ExtResource("9_xr6qc")]
 max_distance = 80.0
@@ -72,5 +72,5 @@ island_3_max_distance = 20.0
 [node name="Island3Terrain" parent="." instance=ExtResource("8_n0mbs")]
 transform = Transform3D(-0.69388, 0, -0.720091, 0, 1, 0, 0.720091, 0, -0.69388, 4.85693, 4.98232, 234.866)
 
-[node name="Island1Terrain2" parent="." instance=ExtResource("9_3wfv1")]
+[node name="Island2Terrain" parent="." instance=ExtResource("9_3wfv1")]
 transform = Transform3D(0.536578, 0, -0.843851, 0, 1, 0, 0.843851, 0, 0.536578, 10.3555, -13.8799, -160.275)

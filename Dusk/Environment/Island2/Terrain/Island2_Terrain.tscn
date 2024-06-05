@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b4dijxrpph0p"]
+[gd_scene load_steps=12 format=3 uid="uid://b4dijxrpph0p"]
 
 [ext_resource type="PackedScene" uid="uid://kqurb7apbyw4" path="res://Environment/Island2/Terrain/Island2.tscn" id="1_4lxtm"]
 [ext_resource type="PackedScene" uid="uid://dkpxqtenhl8ps" path="res://Environment/Vegitation/Trees/Tree1.tscn" id="2_4dh7p"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dvf2dy2brwg30" path="res://Environment/Vegitation/Grass/fans.tscn" id="8_4iiu0"]
 [ext_resource type="PackedScene" uid="uid://tqhrpajeyslo" path="res://Environment/Island2/Assets/Grave1.tscn" id="9_2hfa8"]
 [ext_resource type="PackedScene" uid="uid://bwp8ghrphw8am" path="res://Environment/Island2/Assets/Grave2.tscn" id="10_tnrwa"]
+[ext_resource type="PackedScene" uid="uid://dxqctjb8p0j6l" path="res://Environment/Island0/Terrain/IslandAssets/pier/pierpieces/Pier.tscn" id="11_wlexo"]
 
 [node name="Island2Terrain" type="Node3D"]
 
@@ -537,3 +538,6 @@ transform = Transform3D(0.700455, 0.0553034, -0.711551, -0.149258, 0.986298, -0.
 
 [node name="Grave12" parent="Graves" instance=ExtResource("9_2hfa8")]
 transform = Transform3D(0.585217, 0.240611, -0.774356, -0.358954, 0.933168, 0.0186791, 0.727098, 0.267027, 0.632474, -17, 27, -38)
+
+[node name="Pier" parent="." instance=ExtResource("11_wlexo")]
+transform = Transform3D(0.744521, 0, -0.667599, 0, 1, 0, 0.667599, 0, 0.744521, -13.0194, 15.8175, -1.73499)
