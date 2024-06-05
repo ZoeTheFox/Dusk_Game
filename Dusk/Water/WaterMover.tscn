@@ -9,8 +9,9 @@ material = ExtResource("2_71ivg")
 size = Vector2(100, 100)
 
 [sub_resource type="FogMaterial" id="FogMaterial_o3h50"]
-density = 5.0
+density = 10.0
 albedo = Color(0.299349, 0.644804, 1, 1)
+height_falloff = 2.46228e-05
 edge_fade = 1e-05
 
 [node name="WaterMover" type="Node3D"]

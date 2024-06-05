@@ -18,12 +18,12 @@ sun_disk_scale = 170.66
 ground_color = Color(0, 0, 0, 1)
 energy_multiplier = 0.4
 
-[sub_resource type="Sky" id="Sky_yfon7"]
+[sub_resource type="Sky" id="Sky_qwlpq"]
 sky_material = SubResource("PhysicalSkyMaterial_yc4m6")
 
 [sub_resource type="Environment" id="Environment_7e1gl"]
 background_mode = 2
-sky = SubResource("Sky_yfon7")
+sky = SubResource("Sky_qwlpq")
 fog_light_color = Color(0.517647, 0.564706, 0.607843, 1)
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.0755
