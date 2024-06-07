@@ -176,11 +176,12 @@ func enter_boat():
 	
 	$ShipHull/Camera/TwistPivot.rotation = Vector3.ZERO
 	$ShipHull/Camera/TwistPivot/PitchPivot.rotation = Vector3.ZERO
+	$ShipHull/MeshInstance3D/SpotLight3D.show()
 	
 	map.show()
 
 func exit_boat():
-
+	$ShipHull/MeshInstance3D/SpotLight3D.hide()
 	player.global_position = $ShipHull/PlayerSpawn.global_position
 	
 	$ShipHull/Camera/TwistPivot/PitchPivot/BoatCamera.current = false
@@ -222,6 +223,11 @@ func _on_cabin_area_body_entered(body):
 	ambiant.set_muffled(true)
 	
 	$ShipHull/HullSounds.set_muffled(true)
+	
+	await get_tree().create_timer(0.5).timeout
+	
+	$ShipHull/Mesh/Interior/lamp.show()
+	$ShipHull/Mesh/Interior/lamp_off.hide()
 
 
 func _on_cabin_area_body_exited(body):
@@ -230,6 +236,10 @@ func _on_cabin_area_body_exited(body):
 	if (!is_player_seated):
 		ambiant.set_muffled(false)
 		$ShipHull/HullSounds.set_muffled(false)
+	
+	await get_tree().create_timer(10).timeout
+	$ShipHull/Mesh/Interior/lamp.hide()
+	$ShipHull/Mesh/Interior/lamp_off.show()
 
 
 func _on_ship_hull_body_entered(body):
