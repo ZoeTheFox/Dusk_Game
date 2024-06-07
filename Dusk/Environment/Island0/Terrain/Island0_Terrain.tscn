@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b4wyblhah757a"]
+[gd_scene load_steps=19 format=3 uid="uid://b4wyblhah757a"]
 
 [ext_resource type="Script" path="res://Environment/Shared/IslandController.gd" id="1_0cj46"]
 [ext_resource type="PackedScene" uid="uid://6l5g34j4ciul" path="res://Environment/Island0/Terrain/Island0.tscn" id="1_ogfej"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bi8ebqsm3obsa" path="res://InteractableSystem/Interactable.tscn" id="12_yom0c"]
 [ext_resource type="PackedScene" uid="uid://3e1ledb5js4b" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/Candle/Candle.tscn" id="13_ewa3n"]
 [ext_resource type="PackedScene" uid="uid://boorry5kus31v" path="res://InteractableSystem/TextDisplay.tscn" id="14_ky7de"]
+[ext_resource type="PackedScene" uid="uid://cw18h75nlrojg" path="res://Map/MapPart.tscn" id="16_qbkpx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kni6f"]
 size = Vector3(4.53442, 3.11035, 4.51074)
@@ -865,6 +866,17 @@ shape = SubResource("BoxShape3D_bdf02")
 
 [node name="Center" type="Node3D" parent="."]
 
+[node name="MapPart" parent="." instance=ExtResource("16_qbkpx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.0063, 4.84902, 68.7924)
+
+[node name="MapPart0" parent="MapPart" index="2"]
+visible = false
+
+[node name="MapPart1" parent="MapPart" index="3"]
+visible = true
+
 [connection signal="body_entered" from="Hut/Area3D" to="Hut" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Hut/Area3D" to="Hut" method="_on_area_3d_body_exited"]
 [connection signal="interact" from="Pier/Candle2/Interactable" to="Pier/Candle2" method="_on_interactable_interact"]
+
+[editable path="MapPart"]

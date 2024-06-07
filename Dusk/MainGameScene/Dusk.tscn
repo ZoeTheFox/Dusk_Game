@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://wsmpltn0glt1"]
+[gd_scene load_steps=13 format=3 uid="uid://wsmpltn0glt1"]
 
 [ext_resource type="PackedScene" uid="uid://bmacr6agbv47a" path="res://Boat/Boat/Boat.tscn" id="1_0db3y"]
 [ext_resource type="PackedScene" uid="uid://brh07riyg1qv0" path="res://FirstPersonController/Player.tscn" id="2_sxd6g"]
@@ -10,34 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://cbgia5gdnq22d" path="res://Environment/Island3/Terrain/Island3_Terrain.tscn" id="8_g1xg2"]
 [ext_resource type="PackedScene" uid="uid://b4dijxrpph0p" path="res://Environment/Island2/Terrain/Island2_Terrain.tscn" id="9_q47qq"]
 [ext_resource type="Script" path="res://Game Manager/GameManager.gd" id="10_0gwdg"]
-
-[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_ypy41"]
-rayleigh_coefficient = 4.4
-rayleigh_color = Color(0.235294, 0.458824, 0.372549, 1)
-mie_coefficient = 0.17
-sun_disk_scale = 170.66
-ground_color = Color(0, 0, 0, 1)
-energy_multiplier = 0.4
-
-[sub_resource type="Sky" id="Sky_yfon7"]
-sky_material = SubResource("PhysicalSkyMaterial_ypy41")
-
-[sub_resource type="Environment" id="Environment_8di3y"]
-background_mode = 2
-sky = SubResource("Sky_yfon7")
-fog_light_color = Color(0.517647, 0.564706, 0.607843, 1)
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.0755
+[ext_resource type="Environment" uid="uid://nhyr7de6t3a" path="res://Environment/DuskWorldEnvironment.tres" id="10_1opmm"]
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_6p5pl"]
 
 [node name="Dusk" type="Node3D"]
 
-[node name="Boat" parent="." instance=ExtResource("1_0db3y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1427.35, 4.024, -1500)
-
 [node name="Player" parent="." instance=ExtResource("2_sxd6g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1424.68, 6.61047, -1500.81)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1360.44, 6.61047, -342.269)
 
 [node name="AmbientSound" parent="." instance=ExtResource("3_22gf3")]
 max_distance = 80.0
@@ -61,7 +41,7 @@ transform = Transform3D(0.995228, 0, 0.0975829, 0, 1, 0, -0.0975829, 0, 0.995228
 transform = Transform3D(0.536578, 0, -0.843851, 0, 1, 0, 0.843851, 0, 0.536578, 455.686, -13.88, -1300)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_8di3y")
+environment = ExtResource("10_1opmm")
 camera_attributes = SubResource("CameraAttributesPhysical_6p5pl")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -75,3 +55,6 @@ shadow_bias = 0.5
 script = ExtResource("10_0gwdg")
 player = NodePath("../Player")
 boat = NodePath("../Boat")
+
+[node name="Boat" parent="." instance=ExtResource("1_0db3y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1360.44, 1.86929, -342.269)

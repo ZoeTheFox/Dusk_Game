@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dy6d3lmebk50q"]
+[gd_scene load_steps=11 format=3 uid="uid://dy6d3lmebk50q"]
 
 [ext_resource type="Script" path="res://Environment/Shared/IslandController.gd" id="1_1nhwb"]
 [ext_resource type="PackedScene" uid="uid://dkpxqtenhl8ps" path="res://Environment/Vegitation/Trees/Tree1.tscn" id="2_53gln"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c0wwdwl1m4xx8" path="res://Environment/Vegitation/Stones/Stone2.tscn" id="7_mfxo8"]
 [ext_resource type="PackedScene" uid="uid://cyw2r3e4qesdo" path="res://Environment/Vegitation/Stones/Stone3.tscn" id="8_qmb4u"]
 [ext_resource type="PackedScene" uid="uid://cit5v68xgjxwv" path="res://Environment/Island1/Terrain/Insel1.tscn" id="8_wbwqo"]
+[ext_resource type="PackedScene" uid="uid://gm6l4imxfwt" path="res://Environment/Island1/Barrel/Barrel.tscn" id="10_lw2p5"]
 
 [node name="Island1Terrain" type="Node3D"]
 script = ExtResource("1_1nhwb")
@@ -369,3 +370,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1055, 10.0363, -23.464)
 
 [node name="Center" type="Node3D" parent="."]
 transform = Transform3D(0.803, 0, 0, 0, 0.803, 0, 0, 0, 0.803, 0, 0, 0)
+
+[node name="Barrel" parent="." instance=ExtResource("10_lw2p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.4782, 7.62217, 57.0495)

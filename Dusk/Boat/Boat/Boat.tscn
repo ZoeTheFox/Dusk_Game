@@ -155,7 +155,7 @@ mass = 60000.0
 max_contacts_reported = 10
 contact_monitor = true
 script = ExtResource("1_pdhd7")
-float_force = 6000.0
+float_force = 5800.0
 
 [node name="HullCollider" type="CollisionShape3D" parent="ShipHull"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.23151, -0.6264, -1.66893e-06)
@@ -651,7 +651,7 @@ light_energy = 15.0
 light_indirect_energy = 2.0
 light_volumetric_fog_energy = 3.0
 shadow_enabled = true
-spot_range = 100.0
+spot_range = 200.0
 spot_angle = 30.0
 script = ExtResource("32_q6p0s")
 

@@ -226,8 +226,9 @@ func _on_cabin_area_body_entered(body):
 	
 	await get_tree().create_timer(0.5).timeout
 	
-	$ShipHull/Mesh/Interior/lamp.show()
-	$ShipHull/Mesh/Interior/lamp_off.hide()
+	if (!$ShipHull/Mesh/Interior/lamp.visible):
+		$ShipHull/Mesh/Interior/lamp.show()
+		$ShipHull/Mesh/Interior/lamp_off.hide()
 
 
 func _on_cabin_area_body_exited(body):
@@ -238,8 +239,10 @@ func _on_cabin_area_body_exited(body):
 		$ShipHull/HullSounds.set_muffled(false)
 	
 	await get_tree().create_timer(10).timeout
-	$ShipHull/Mesh/Interior/lamp.hide()
-	$ShipHull/Mesh/Interior/lamp_off.show()
+	
+	if ($ShipHull/Mesh/Interior/lamp.visible):
+		$ShipHull/Mesh/Interior/lamp.hide()
+		$ShipHull/Mesh/Interior/lamp_off.show()
 
 
 func _on_ship_hull_body_entered(body):

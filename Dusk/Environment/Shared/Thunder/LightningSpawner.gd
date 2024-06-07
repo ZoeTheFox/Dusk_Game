@@ -78,7 +78,8 @@ func _thread_instantiate_lightning(lightning_scene : Resource) -> Lightning:
 	
 
 func _exit_tree():
-	thread.wait_to_finish()
+	if (thread != null):
+		thread.wait_to_finish()
 
 func _on_timer_timeout():
 	spawn_lightning()
