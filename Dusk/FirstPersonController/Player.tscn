@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://brh07riyg1qv0"]
+[gd_scene load_steps=11 format=3 uid="uid://brh07riyg1qv0"]
 
 [ext_resource type="Script" path="res://FirstPersonController/PlayerController.gd" id="1_gxowu"]
 [ext_resource type="Script" path="res://FirstPersonController/ViewBob.gd" id="2_3llqn"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://FirstPersonController/Footsteps.gd" id="6_4jqbu"]
 [ext_resource type="PackedScene" uid="uid://v5awb0pva7ab" path="res://UI/Crosshair/Crosshair.tscn" id="7_hsxkr"]
 [ext_resource type="PackedScene" uid="uid://cb860rrvk5fqg" path="res://Environment/Shared/rain_particles.tscn" id="7_pxikp"]
+[ext_resource type="PackedScene" uid="uid://c8wbssrt2ecno" path="res://Map/Map.tscn" id="8_bsrwh"]
+[ext_resource type="AudioStream" uid="uid://b2ik7db8vwfj0" path="res://InteractableSystem/character.wav" id="9_fg4pu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sy628"]
 radius = 0.09
@@ -42,6 +44,10 @@ player = NodePath("..")
 [node name="PlayerCamera" type="Camera3D" parent="Head/TwistPivot/PitchPivot"]
 current = true
 
+[node name="Map" parent="Head/TwistPivot" instance=ExtResource("8_bsrwh")]
+transform = Transform3D(0.25, 0, 0, 0, 0.234387, -0.086963, 0, 0.086963, 0.234387, 0, -0.27024, -0.163416)
+visible = false
+
 [node name="BuyoancyProbes" type="Node3D" parent="."]
 
 [node name="Marker3D" type="Marker3D" parent="BuyoancyProbes"]
@@ -65,6 +71,9 @@ wait_time = 0.4
 [node name="RainParticles" parent="." instance=ExtResource("7_pxikp")]
 
 [node name="Crosshair" parent="." instance=ExtResource("7_hsxkr")]
+
+[node name="MapSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("9_fg4pu")
 
 [connection signal="finished" from="FootstepSounds" to="FootstepSounds" method="_on_finished"]
 [connection signal="timeout" from="FootstepSounds/StepTimer" to="FootstepSounds" method="_on_step_timer_timeout"]
