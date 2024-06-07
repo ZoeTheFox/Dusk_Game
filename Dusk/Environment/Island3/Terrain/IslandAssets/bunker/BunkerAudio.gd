@@ -44,8 +44,6 @@ func set_volume(player : AudioStreamPlayer, distance : float, min_distance : flo
 	
 	player.volume_db = lerpf(min_volume_db, max_volume_db, distance_normalized)
 	audio_bus_pitch.pitch_scale = lerpf(0.5, 1, distance_normalized)
-	
-	print(player.volume_db)
 
 
 func _on_interactable_interact():

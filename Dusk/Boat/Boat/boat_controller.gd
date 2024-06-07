@@ -53,6 +53,9 @@ var clutch_active : bool
 var player : Node3D = get_parent_node_3d().get_node("Player")
 var is_player_seated : bool = false
 
+@onready
+var map = $ShipHull/Map
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$ShipHull/Mesh/Interior/RPM_Gauge.max_value = max_engine_rpm
@@ -173,6 +176,8 @@ func enter_boat():
 	
 	$ShipHull/Camera/TwistPivot.rotation = Vector3.ZERO
 	$ShipHull/Camera/TwistPivot/PitchPivot.rotation = Vector3.ZERO
+	
+	map.show()
 
 func exit_boat():
 
@@ -186,6 +191,8 @@ func exit_boat():
 	$InteractableSystem.disabled = true
 	$ShipHull/RainParticles.emitting = false
 	player.get_node("RainParticles").emitting = true
+	
+	map.hide()
 
 func _on_start_stop_button_button_press():
 	if (engine_off == true):

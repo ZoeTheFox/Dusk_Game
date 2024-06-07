@@ -66,6 +66,11 @@ var is_running : bool = false
 
 var last_boat_pos : Vector3
 
+var map_active : bool = false
+
+@onready
+var map = $Head/TwistPivot/Map
+
 func _physics_process(delta):
 	var speed = walking_speed
 	
@@ -93,6 +98,16 @@ func _physics_process(delta):
 	var direction = (transform.basis * twist_pivot.global_transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	target_velocity = direction * speed
+	
+	if (Input.is_action_just_released("open_map")):
+		if (map_active):
+			map.hide()
+			$MapSound.play()
+			map_active = false
+		else:
+			map.show()
+			$MapSound.play()
+			map_active = true
 	
 	if (is_in_ship):
 		target_velocity = Vector3.ZERO

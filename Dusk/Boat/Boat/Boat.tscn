@@ -1,10 +1,11 @@
-[gd_scene load_steps=68 format=3 uid="uid://bmacr6agbv47a"]
+[gd_scene load_steps=69 format=3 uid="uid://bmacr6agbv47a"]
 
 [ext_resource type="PackedScene" uid="uid://bj6mu0xjx85gb" path="res://Boat/Scenes/Boat_hull.tscn" id="1_14b2p"]
 [ext_resource type="Script" path="res://Boat/Boat/boat_controller.gd" id="1_ihrm8"]
 [ext_resource type="Script" path="res://Boat/Boat/WaterPhysics.gd" id="1_pdhd7"]
 [ext_resource type="PackedScene" uid="uid://dkgkyo8elywor" path="res://Boat/Scenes/propeller_rudder.tscn" id="2_0vbn7"]
 [ext_resource type="Curve" uid="uid://1cdahy3k0nxo" path="res://Boat/Boat/EngineCurve.tres" id="2_2fg5e"]
+[ext_resource type="PackedScene" uid="uid://c8wbssrt2ecno" path="res://Map/Map.tscn" id="3_o8o7n"]
 [ext_resource type="PackedScene" uid="uid://dkxfevxe5b4f1" path="res://Boat/Scenes/cabin.tscn" id="3_w7q7s"]
 [ext_resource type="PackedScene" uid="uid://byrwviljgstg" path="res://Boat/Scenes/windows.tscn" id="4_rmvyc"]
 [ext_resource type="PackedScene" uid="uid://cgcwuidlm66nx" path="res://Boat/Scenes/door.tscn" id="5_21bp5"]
@@ -645,6 +646,10 @@ script = ExtResource("32_q6p0s")
 
 [node name="Coordinates" type="Node3D" parent="ShipHull"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.64985, 0, 0)
+
+[node name="Map" parent="ShipHull" instance=ExtResource("3_o8o7n")]
+transform = Transform3D(0.249996, -0.0013046, -0.000254937, -0.000190497, 0.0122868, -0.249698, 0.00131553, 0.249694, 0.0122856, 2.67673, 0.529764, -0.977486)
+visible = false
 
 [node name="AnimationController" type="Node3D" parent="." node_paths=PackedStringArray("wheel", "throttle_node", "rudder_and_props", "speed_gauge", "rpm_gauge", "fuel_gauge", "compass")]
 script = ExtResource("20_3h7vo")
