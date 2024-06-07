@@ -1,5 +1,7 @@
 extends Node3D
 
+class_name LightningSpawner
+
 @onready
 var player : CharacterBody3D 
 
@@ -47,8 +49,6 @@ func spawn_lightning():
 	
 	var lightning_instance : Lightning = await thread.wait_to_finish()
 	
-	#var lightning_instance : Lightning = lightning_scene.instantiate()
-	
 	get_tree().current_scene.add_child(lightning_instance)
 	
 	lightning_instance.global_position = random_position
@@ -82,4 +82,5 @@ func _exit_tree():
 
 func _on_timer_timeout():
 	spawn_lightning()
-	timer.start(get_random_time())
+	var time = get_random_time()
+	timer.start(time)
