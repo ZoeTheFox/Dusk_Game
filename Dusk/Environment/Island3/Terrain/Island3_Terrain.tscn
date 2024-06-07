@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cbgia5gdnq22d"]
+[gd_scene load_steps=12 format=3 uid="uid://cbgia5gdnq22d"]
 
 [ext_resource type="PackedScene" uid="uid://b1k1niqr3l548" path="res://Environment/Island3/Terrain/Island3.tscn" id="1_qkjvt"]
+[ext_resource type="Script" path="res://Environment/Shared/IslandController.gd" id="1_tir53"]
 [ext_resource type="PackedScene" uid="uid://bavc8xejco52q" path="res://Environment/Vegitation/Trees/tree2.tscn" id="2_c2wtb"]
 [ext_resource type="PackedScene" uid="uid://dkpxqtenhl8ps" path="res://Environment/Vegitation/Trees/Tree1.tscn" id="3_tdvx1"]
 [ext_resource type="PackedScene" uid="uid://pymrrl7yk55d" path="res://Environment/Vegitation/Trees/tree3.tscn" id="4_givdg"]
@@ -12,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://3e1ledb5js4b" path="res://Environment/Island0/Terrain/IslandAssets/hut/hut_assets/Candle/Candle.tscn" id="10_8r63b"]
 
 [node name="Island3Terrain" type="Node3D"]
+script = ExtResource("1_tir53")
 
 [node name="Island3" parent="." instance=ExtResource("1_qkjvt")]
 

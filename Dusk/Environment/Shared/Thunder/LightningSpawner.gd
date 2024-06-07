@@ -21,6 +21,8 @@ var muffled : bool = false
 
 var lightning_scene : Resource
 
+var thread : Thread
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_parent_node_3d().get_parent_node_3d().get_node("Player")
@@ -40,7 +42,12 @@ func spawn_lightning():
 	
 	var random_position : Vector3 = get_random_position(player_position)
 	
-	var lightning_instance : Lightning = lightning_scene.instantiate()
+	thread = Thread.new()
+	thread.start(_thread_instantiate_lightning.bind(lightning_scene))
+	
+	var lightning_instance : Lightning = await thread.wait_to_finish()
+	
+	#var lightning_instance : Lightning = lightning_scene.instantiate()
 	
 	get_tree().current_scene.add_child(lightning_instance)
 	
@@ -66,7 +73,12 @@ func get_random_position(player_position : Vector3) -> Vector3:
 	
 	return Vector3(random_location.x, 30, random_location.y)
 
+func _thread_instantiate_lightning(lightning_scene : Resource) -> Lightning:
+	return lightning_scene.instantiate()
+	
 
+func _exit_tree():
+	thread.wait_to_finish()
 
 func _on_timer_timeout():
 	spawn_lightning()

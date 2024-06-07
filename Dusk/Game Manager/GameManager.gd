@@ -16,7 +16,5 @@ func _ready():
 	boat_map = boat.find_child("Map")
 
 func map_collected() -> void:
-	print("Map Collected : " + str(player_map.unlocked_parts))
-	
 	player_map.unlock_map_section()
 	boat_map.unlock_map_section()

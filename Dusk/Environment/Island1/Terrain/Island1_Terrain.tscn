@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://dy6d3lmebk50q"]
+[gd_scene load_steps=10 format=3 uid="uid://dy6d3lmebk50q"]
 
+[ext_resource type="Script" path="res://Environment/Shared/IslandController.gd" id="1_1nhwb"]
 [ext_resource type="PackedScene" uid="uid://dkpxqtenhl8ps" path="res://Environment/Vegitation/Trees/Tree1.tscn" id="2_53gln"]
 [ext_resource type="PackedScene" uid="uid://bavc8xejco52q" path="res://Environment/Vegitation/Trees/tree2.tscn" id="3_e01wi"]
 [ext_resource type="PackedScene" uid="uid://pymrrl7yk55d" path="res://Environment/Vegitation/Trees/tree3.tscn" id="4_061dd"]
@@ -10,8 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cit5v68xgjxwv" path="res://Environment/Island1/Terrain/Insel1.tscn" id="8_wbwqo"]
 
 [node name="Island1Terrain" type="Node3D"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+script = ExtResource("1_1nhwb")
 
 [node name="Insel1" parent="." instance=ExtResource("8_wbwqo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.723, 5.958, 13.503)

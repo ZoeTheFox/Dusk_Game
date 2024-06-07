@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://b4dijxrpph0p"]
+[gd_scene load_steps=13 format=3 uid="uid://b4dijxrpph0p"]
 
 [ext_resource type="PackedScene" uid="uid://kqurb7apbyw4" path="res://Environment/Island2/Terrain/Island2.tscn" id="1_4lxtm"]
+[ext_resource type="Script" path="res://Environment/Shared/IslandController.gd" id="1_b8rhi"]
 [ext_resource type="PackedScene" uid="uid://dkpxqtenhl8ps" path="res://Environment/Vegitation/Trees/Tree1.tscn" id="2_4dh7p"]
 [ext_resource type="PackedScene" uid="uid://bavc8xejco52q" path="res://Environment/Vegitation/Trees/tree2.tscn" id="3_vlw0k"]
 [ext_resource type="PackedScene" uid="uid://pymrrl7yk55d" path="res://Environment/Vegitation/Trees/tree3.tscn" id="4_h3iot"]
@@ -13,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dxqctjb8p0j6l" path="res://Environment/Island0/Terrain/IslandAssets/pier/pierpieces/Pier.tscn" id="11_wlexo"]
 
 [node name="Island2Terrain" type="Node3D"]
+script = ExtResource("1_b8rhi")
 
 [node name="Island2" parent="." instance=ExtResource("1_4lxtm")]
 
