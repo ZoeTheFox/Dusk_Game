@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8wbssrt2ecno"]
+
+[ext_resource type="Script" path="res://Map/Map.gd" id="1_t2jho"]
+[ext_resource type="Texture2D" uid="uid://caja7520bmgdo" path="res://Map/MapImageFiles/Map_Island_0.png" id="2_2pyk8"]
+[ext_resource type="Texture2D" uid="uid://ds41mc64ponh3" path="res://Map/MapImageFiles/Map_Island_1.png" id="3_hyo6h"]
+[ext_resource type="Texture2D" uid="uid://dhm3qhhr8ebrt" path="res://Map/MapImageFiles/Map_Island_2.png" id="4_yetcy"]
+[ext_resource type="Texture2D" uid="uid://blrmgt4csxepj" path="res://Map/MapImageFiles/Map_Island_3.png" id="5_8gah0"]
+
+[node name="Map" type="Node3D"]
+script = ExtResource("1_t2jho")
+
+[node name="MapPart0" type="Sprite3D" parent="."]
+visible = false
+texture = ExtResource("2_2pyk8")
+
+[node name="MapPart1" type="Sprite3D" parent="."]
+visible = false
+texture = ExtResource("3_hyo6h")
+
+[node name="MapPart2" type="Sprite3D" parent="."]
+visible = false
+texture = ExtResource("4_yetcy")
+
+[node name="MapPart3" type="Sprite3D" parent="."]
+visible = false
+texture = ExtResource("5_8gah0")

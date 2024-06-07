@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://cw18h75nlrojg"]
+
+[ext_resource type="Script" path="res://Map/MapPart.gd" id="1_mh3up"]
+[ext_resource type="Texture2D" uid="uid://ds41mc64ponh3" path="res://Map/MapImageFiles/Map_Island_1.png" id="2_hyopq"]
+[ext_resource type="PackedScene" uid="uid://bi8ebqsm3obsa" path="res://InteractableSystem/Interactable.tscn" id="3_5biqa"]
+[ext_resource type="AudioStream" uid="uid://chnusuurlow2u" path="res://Sound/Boat/Hull/hull_hit_1.wav" id="4_b4a3y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8sn5o"]
+size = Vector3(0.827026, 0.584473, 0.764709)
+
+[node name="MapPart" type="Node3D"]
+script = ExtResource("1_mh3up")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+texture = ExtResource("2_hyopq")
+
+[node name="Interactable" parent="." node_paths=PackedStringArray("interaction_shape") instance=ExtResource("3_5biqa")]
+interaction_shape = NodePath("CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.185486, 0.207764, 0.283783)
+shape = SubResource("BoxShape3D_8sn5o")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_b4a3y")
+
+[connection signal="interact" from="Interactable" to="." method="_on_interactable_interact"]
+[connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_audio_stream_player_3d_finished"]
