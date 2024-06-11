@@ -3,8 +3,8 @@ extends Node3D
 @onready
 var collision_sound_resource : Array = [preload("res://Sound/Boat/Hull/hull_hit_1.wav"), preload("res://Sound/Boat/Hull/hull_hit_2.wav"), preload("res://Sound/Boat/Hull/hull_hit_3.wav")]
 
-func collision(collision_position : Vector3):
-	if ($HitSound.playing):
+func collision(collision_position : Vector3, velocity : float):
+	if ($HitSound.playing or velocity < 1):
 		return
 	
 	var sound_resource = collision_sound_resource[randi_range(0, 2)]

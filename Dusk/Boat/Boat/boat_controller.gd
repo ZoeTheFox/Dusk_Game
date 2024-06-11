@@ -247,4 +247,4 @@ func _on_cabin_area_body_exited(body):
 
 func _on_ship_hull_body_entered(body):
 	if (body != player):
-		$ShipHull/HullSounds.collision(body.global_position)
+		$ShipHull/HullSounds.collision($ShipHull.local_collision_pos, $ShipHull.linear_velocity.length())

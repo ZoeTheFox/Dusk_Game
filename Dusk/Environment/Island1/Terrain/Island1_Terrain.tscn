@@ -373,3 +373,47 @@ transform = Transform3D(0.803, 0, 0, 0, 0.803, 0, 0, 0, 0.803, 0, 0, 0)
 
 [node name="Barrel" parent="." instance=ExtResource("10_lw2p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.4782, 7.62217, 57.0495)
+float_force = 1.2
+
+[node name="Candle" parent="Barrel" index="3"]
+visible = false
+
+[node name="MapPart" parent="Barrel" index="4"]
+visible = false
+
+[node name="Interactable" parent="Barrel/MapPart" index="0"]
+active = false
+
+[node name="Barrel2" parent="." instance=ExtResource("10_lw2p5")]
+transform = Transform3D(0.804023, -0.594598, 0, 0.594598, 0.804023, 0, 0, 0, 1, 45.0188, 7.96896, 48.3772)
+
+[node name="Candle" parent="Barrel2" index="3"]
+visible = false
+
+[node name="MapPart" parent="Barrel2" index="4"]
+visible = false
+
+[node name="Interactable" parent="Barrel2/MapPart" index="0"]
+active = false
+
+[node name="Barrel3" parent="." instance=ExtResource("10_lw2p5")]
+transform = Transform3D(0.125628, 0.992077, 0, -0.992077, 0.125628, 0, 0, 0, 1, 41.3575, 8.37202, 53.0942)
+
+[node name="Candle" parent="Barrel3" index="3"]
+visible = false
+
+[node name="MapPart" parent="Barrel3" index="4"]
+visible = false
+
+[node name="Interactable" parent="Barrel3/MapPart" index="0"]
+active = false
+
+[node name="Barrel4" parent="." instance=ExtResource("10_lw2p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.62783, 11.65, 27.2868)
+
+[editable path="Barrel"]
+[editable path="Barrel/MapPart"]
+[editable path="Barrel2"]
+[editable path="Barrel2/MapPart"]
+[editable path="Barrel3"]
+[editable path="Barrel3/MapPart"]

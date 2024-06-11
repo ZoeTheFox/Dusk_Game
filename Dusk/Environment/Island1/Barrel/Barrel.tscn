@@ -13,8 +13,10 @@ script = ExtResource("1_8pu7u")
 float_force = 2.0
 
 [node name="Barrel" parent="." instance=ExtResource("1_dulsw")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_bwibr")
 
 [node name="BuyoancyProbes" type="Node3D" parent="."]
@@ -23,10 +25,10 @@ shape = SubResource("ConvexPolygonShape3D_bwibr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.451031, 0)
 
 [node name="Candle" parent="." instance=ExtResource("3_4yol7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24272, 0.677177, 0.104744)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.116195, 0.403206, -0.0140821)
 
 [node name="MapPart" parent="." instance=ExtResource("4_rdq62")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.101037, 0.694313, -0.113113)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.101037, 0.405964, -0.0146819)
 
 [node name="MapPart0" parent="MapPart" index="2"]
 visible = false
