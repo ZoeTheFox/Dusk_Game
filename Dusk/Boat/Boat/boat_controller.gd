@@ -56,6 +56,10 @@ var is_player_seated : bool = false
 @onready
 var map = $ShipHull/Map
 
+var fuel = 100
+
+var _closest_distance : float = 5000
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$ShipHull/Mesh/Interior/RPM_Gauge.max_value = max_engine_rpm
@@ -114,11 +118,12 @@ func _physics_process(delta):
 	boat_rigidbody.rotation_degrees.x = lerpf(boat_rigidbody.rotation_degrees.x, wheel_turn * 8000 * 0.0003 * boat_rigidbody.linear_velocity.length(), delta / 2)
 
 func update_animations() -> void:
+	adjust_fuel()
 	animation_controller.throttle = throttle
 	animation_controller.rpm = engine_rpm
 	animation_controller.wheel_turn = wheel_turn
 	animation_controller.speed = boat_rigidbody.linear_velocity.length()
-	animation_controller.fuel = 50
+	animation_controller.fuel = fuel
 	
 	var compass_heading = -((-boat_rigidbody.rotation_degrees.y) - 90)
 
@@ -248,3 +253,32 @@ func _on_cabin_area_body_exited(body):
 func _on_ship_hull_body_entered(body):
 	if (body != player):
 		$ShipHull/HullSounds.collision($ShipHull.local_collision_pos, $ShipHull.linear_velocity.length())
+
+
+func leviathan_collision():
+	$ShipHull/HullSounds.collision($ShipHull/Mesh/Hull/Hull/RightEngine.global_position, 50)
+	
+	$ShipHull.apply_torque_impulse(Vector3(10000, 500000, 12400))
+	
+	max_engine_force = 670000
+	$ShipHull/Fire.amount_ratio = 1
+	$ShipHull/Fire/AudioStreamPlayer3D.play()
+	$ShipHull/Fire/OmniLight3D.show()
+	
+
+func adjust_fuel():
+	var island_3 : Node3D = get_parent_node_3d().get_node("Island3Terrain")
+
+	var distance : float = (global_position - island_3.global_position).length()
+	
+	if (distance > _closest_distance):
+		return
+	
+	if (distance < _closest_distance):
+		_closest_distance = distance
+		
+		var distance_normalized : float = distance * 100 / 2300 
+		
+		fuel = lerpf(0, 100, distance_normalized)
+		
+	print(fuel)

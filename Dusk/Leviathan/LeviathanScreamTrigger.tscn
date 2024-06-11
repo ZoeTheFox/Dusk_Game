@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://buwqjn6u2hmoe" path="res://Leviathan/Scream.wav" id="1_ul5av"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fsfst"]
-size = Vector3(17, 13, 10)
+size = Vector3(17, 13, 26.2246)
 
 [node name="LeviathanScreamTrigger" type="Node3D"]
 script = ExtResource("1_bkdff")
