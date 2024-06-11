@@ -17,7 +17,7 @@
 [node name="Dusk" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("2_sxd6g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1360.44, 6.61047, -342.269)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 429.828, 6.61047, -1288.73)
 
 [node name="AmbientSound" parent="." instance=ExtResource("3_22gf3")]
 max_distance = 80.0
@@ -57,4 +57,4 @@ player = NodePath("../Player")
 boat = NodePath("../Boat")
 
 [node name="Boat" parent="." instance=ExtResource("1_0db3y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1360.44, 1.86929, -342.269)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 429.828, 1.86929, -1288.73)
