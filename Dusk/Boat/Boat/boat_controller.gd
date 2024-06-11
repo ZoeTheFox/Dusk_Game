@@ -56,7 +56,7 @@ var is_player_seated : bool = false
 @onready
 var map = $ShipHull/Map
 
-var fuel = 100
+var fuel = 1
 
 var _closest_distance : float = 5000
 
@@ -269,7 +269,9 @@ func leviathan_collision():
 func adjust_fuel():
 	var island_3 : Node3D = get_parent_node_3d().get_node("Island3Terrain")
 
-	var distance : float = (global_position - island_3.global_position).length()
+	var distance : float = ($ShipHull.global_position - island_3.global_position).length()
+	
+	print(distance)
 	
 	if (distance > _closest_distance):
 		return
@@ -277,7 +279,7 @@ func adjust_fuel():
 	if (distance < _closest_distance):
 		_closest_distance = distance
 		
-		var distance_normalized : float = distance * 100 / 2300 
+		var distance_normalized : float = distance / 2300 
 		
 		fuel = lerpf(0, 100, distance_normalized)
 		
