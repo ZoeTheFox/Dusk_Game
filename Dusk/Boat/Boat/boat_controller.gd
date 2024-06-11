@@ -120,7 +120,7 @@ func update_animations() -> void:
 	animation_controller.speed = boat_rigidbody.linear_velocity.length()
 	animation_controller.fuel = 50
 	
-	var compass_heading = -boat_rigidbody.rotation_degrees.y
+	var compass_heading = -((-boat_rigidbody.rotation_degrees.y) - 90)
 
 	if (compass_heading < 0):
 		compass_heading = 360.0 + compass_heading
