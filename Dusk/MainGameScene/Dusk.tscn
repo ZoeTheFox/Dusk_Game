@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://wsmpltn0glt1"]
+[gd_scene load_steps=14 format=3 uid="uid://wsmpltn0glt1"]
 
 [ext_resource type="PackedScene" uid="uid://bmacr6agbv47a" path="res://Boat/Boat/Boat.tscn" id="1_0db3y"]
 [ext_resource type="PackedScene" uid="uid://brh07riyg1qv0" path="res://FirstPersonController/Player.tscn" id="2_sxd6g"]
@@ -11,13 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://b4dijxrpph0p" path="res://Environment/Island2/Terrain/Island2_Terrain.tscn" id="9_q47qq"]
 [ext_resource type="Script" path="res://Game Manager/GameManager.gd" id="10_0gwdg"]
 [ext_resource type="Environment" uid="uid://nhyr7de6t3a" path="res://Environment/DuskWorldEnvironment.tres" id="10_1opmm"]
+[ext_resource type="PackedScene" uid="uid://cxf5v42cyr8ga" path="res://Leviathan/LeviathanScreamTrigger.tscn" id="12_ii44y"]
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_6p5pl"]
 
 [node name="Dusk" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("2_sxd6g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 172.622, 6.61047, -48.6229)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1274.92, 20.6105, -376.025)
 
 [node name="AmbientSound" parent="." instance=ExtResource("3_22gf3")]
 max_distance = 80.0
@@ -36,6 +37,7 @@ transform = Transform3D(0.996488, 0, 0.08373, 0, 1, 0, -0.08373, 0, 0.996488, -4
 
 [node name="Island3Terrain" parent="." instance=ExtResource("8_g1xg2")]
 transform = Transform3D(0.995228, 0, 0.0975829, 0, 1, 0, -0.0975829, 0, 0.995228, 2000, 4.982, -1500)
+visible = false
 
 [node name="Island2Terrain" parent="." instance=ExtResource("9_q47qq")]
 transform = Transform3D(0.536578, 0, -0.843851, 0, 1, 0, 0.843851, 0, 0.536578, 455.686, -13.88, -1300)
@@ -58,4 +60,13 @@ player = NodePath("../Player")
 boat = NodePath("../Boat")
 
 [node name="Boat" parent="." instance=ExtResource("1_0db3y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 172.622, 1.86929, -48.6229)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1206.92, 1.86929, -376.025)
+
+[node name="LeviathanScreamTrigger" parent="." instance=ExtResource("12_ii44y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1299.82, 6.17836, -370.121)
+
+[node name="AudioStreamPlayer3D" parent="LeviathanScreamTrigger" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -173.47, 0, 41.7785)
+volume_db = 20.0
+
+[editable path="LeviathanScreamTrigger"]
