@@ -28,7 +28,7 @@ stream = ExtResource("3_02njh")
 
 [node name="MapPart0" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0903952, 0, -0.0968703)
-pixel_size = 0.0025
+pixel_size = 0.0005
 shaded = true
 texture_filter = 0
 texture = ExtResource("4_y2uig")
@@ -36,7 +36,7 @@ texture = ExtResource("4_y2uig")
 [node name="MapPart1" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0495146, 0, -0.0905927)
 visible = false
-pixel_size = 0.0025
+pixel_size = 0.0005
 shaded = true
 texture_filter = 0
 texture = ExtResource("2_hyopq")
@@ -44,7 +44,7 @@ texture = ExtResource("2_hyopq")
 [node name="MapPart2" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0743595, 0, 0.0342423)
 visible = false
-pixel_size = 0.0025
+pixel_size = 0.0005
 shaded = true
 texture_filter = 0
 texture = ExtResource("6_gy002")
@@ -52,7 +52,7 @@ texture = ExtResource("6_gy002")
 [node name="MapPart3" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0381322, 0, 0.0641794)
 visible = false
-pixel_size = 0.0025
+pixel_size = 0.0005
 shaded = true
 texture_filter = 0
 texture = ExtResource("7_4us1c")
