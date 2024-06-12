@@ -45,7 +45,7 @@ player = NodePath("..")
 current = true
 
 [node name="Map" parent="Head/TwistPivot" instance=ExtResource("8_bsrwh")]
-transform = Transform3D(0.25, 0, 0, 0, 0.234387, -0.086963, 0, 0.086963, 0.234387, 0, -0.27024, -0.163416)
+transform = Transform3D(0.05, 0, 0, 0, 0.0468775, -0.0173926, 0, 0.0173926, 0.0468775, 0, -0.27024, -0.163416)
 visible = false
 
 [node name="BuyoancyProbes" type="Node3D" parent="."]
