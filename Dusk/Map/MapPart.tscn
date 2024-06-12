@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Map/MapPart.gd" id="1_mh3up"]
 [ext_resource type="Texture2D" uid="uid://ddd4l7qsrx4ko" path="res://Map/MapImageFiles/Map_Island_1.png" id="2_hyopq"]
-[ext_resource type="AudioStream" path="res://Map/map_collect.wav" id="3_02njh"]
+[ext_resource type="AudioStream" uid="uid://qftuqchihyre" path="res://Map/map_collect.wav" id="3_02njh"]
 [ext_resource type="PackedScene" uid="uid://bi8ebqsm3obsa" path="res://InteractableSystem/Interactable.tscn" id="3_5biqa"]
 [ext_resource type="Texture2D" uid="uid://dcogs2fwisx48" path="res://Map/MapImageFiles/Map_Island_0.png" id="4_y2uig"]
 [ext_resource type="Texture2D" uid="uid://boula563s6f0h" path="res://Map/MapImageFiles/Map_Island_2.png" id="6_gy002"]

@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://v5awb0pva7ab" path="res://UI/Crosshair/Crosshair.tscn" id="7_hsxkr"]
 [ext_resource type="PackedScene" uid="uid://cb860rrvk5fqg" path="res://Environment/Shared/rain_particles.tscn" id="7_pxikp"]
 [ext_resource type="PackedScene" uid="uid://c8wbssrt2ecno" path="res://Map/Map.tscn" id="8_bsrwh"]
-[ext_resource type="AudioStream" path="res://Map/map.wav" id="9_f16dv"]
+[ext_resource type="AudioStream" uid="uid://0nhs8vw653i0" path="res://Map/map.wav" id="9_f16dv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sy628"]
 radius = 0.09

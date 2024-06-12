@@ -97,7 +97,7 @@ func _process(delta):
 	
 	wheel_turn = lerpf(wheel_turn, turn_input, delta * 2)
 	
-	if (Input.is_action_just_released("open_map")):
+	if (Input.is_action_just_released("open_map") and is_player_seated):
 		if (map.unlocked_parts > 0):
 			if (map_active):
 				map.hide()
@@ -212,6 +212,10 @@ func exit_boat():
 	$InteractableSystem.disabled = true
 	$ShipHull/RainParticles.emitting = false
 	player.get_node("RainParticles").emitting = true
+	
+	$ShipHull/Map2.hide()
+	
+	map_active = false
 	
 	map.hide()
 

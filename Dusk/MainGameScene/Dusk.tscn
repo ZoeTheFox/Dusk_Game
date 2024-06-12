@@ -23,10 +23,10 @@ size = Vector3(100, 100, 100)
 [node name="Dusk" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("2_sxd6g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 171.047, 20.6105, -46.7618)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 164.311, 5.03906, -43.8912)
 
 [node name="Boat" parent="." instance=ExtResource("1_0db3y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 176.344, 1.86929, -46.7618)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 165.041, 1.86929, -43.8912)
 
 [node name="AmbientSound" parent="." instance=ExtResource("3_22gf3")]
 max_distance = 80.0
