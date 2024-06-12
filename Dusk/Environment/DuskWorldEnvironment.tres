@@ -1,4 +1,4 @@
-[gd_resource type="Environment" load_steps=3 format=3 uid="uid://nhyr7de6t3a"]
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://cv0fxqar3taw4"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_yc4m6"]
 rayleigh_coefficient = 4.4

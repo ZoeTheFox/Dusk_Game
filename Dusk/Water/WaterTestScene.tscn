@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://62fvwrc7sch3"]
 
-[ext_resource type="Environment" uid="uid://nhyr7de6t3a" path="res://Environment/DuskWorldEnvironment.tres" id="2_rpt8l"]
+[ext_resource type="Environment" uid="uid://cv0fxqar3taw4" path="res://Environment/DuskWorldEnvironment.tres" id="2_rpt8l"]
 [ext_resource type="PackedScene" uid="uid://bmacr6agbv47a" path="res://Boat/Boat/Boat.tscn" id="3_a8to5"]
 [ext_resource type="PackedScene" uid="uid://brh07riyg1qv0" path="res://FirstPersonController/Player.tscn" id="5_mgs2n"]
 [ext_resource type="PackedScene" uid="uid://bm5mnh8u6adjg" path="res://Environment/Shared/island_sound_controller.tscn" id="7_hjqpy"]

@@ -19,6 +19,7 @@ config/icon="res://Artwork/Dusk Logo White.svg"
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [dotnet]

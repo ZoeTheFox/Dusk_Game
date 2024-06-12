@@ -14,5 +14,5 @@ max_distance = 15.0
 bus = &"Environment"
 
 [node name="HitSound" type="AudioStreamPlayer3D" parent="."]
-volume_db = 10.0
+volume_db = 25.0
 bus = &"Environment"

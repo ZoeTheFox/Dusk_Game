@@ -60,6 +60,8 @@ var fuel = 1
 
 var _closest_distance : float = 5000
 
+var map_active : bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$ShipHull/Mesh/Interior/RPM_Gauge.max_value = max_engine_rpm
@@ -94,6 +96,19 @@ func _process(delta):
 		turn_input = Input.get_axis("turn_left", "turn_right")
 	
 	wheel_turn = lerpf(wheel_turn, turn_input, delta * 2)
+	
+	if (Input.is_action_just_released("open_map")):
+		if (map.unlocked_parts > 0):
+			if (map_active):
+				map.hide()
+				$ShipHull/Map2.show()
+				$ShipHull/Map2/MapSound2.play()
+				map_active = false
+			else:
+				map.show()
+				$ShipHull/Map2.hide()
+				$ShipHull/Map2/MapSound.play()
+				map_active = true
 	
 	update_animations()
 
@@ -265,6 +280,8 @@ func leviathan_collision():
 	$ShipHull/Fire/AudioStreamPlayer3D.play()
 	$ShipHull/Fire/OmniLight3D.show()
 	
+
+
 
 func adjust_fuel():
 	var island_3 : Node3D = get_parent_node_3d().get_node("Island3Terrain")

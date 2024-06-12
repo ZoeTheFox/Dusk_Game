@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://wsmpltn0glt1"]
+[gd_scene load_steps=16 format=3 uid="uid://wsmpltn0glt1"]
 
 [ext_resource type="PackedScene" uid="uid://bmacr6agbv47a" path="res://Boat/Boat/Boat.tscn" id="1_0db3y"]
 [ext_resource type="PackedScene" uid="uid://brh07riyg1qv0" path="res://FirstPersonController/Player.tscn" id="2_sxd6g"]
@@ -13,7 +13,6 @@
 [ext_resource type="Environment" uid="uid://cv0fxqar3taw4" path="res://Environment/DuskWorldEnvironment.tres" id="10_1opmm"]
 [ext_resource type="PackedScene" uid="uid://cxf5v42cyr8ga" path="res://Leviathan/LeviathanScreamTrigger.tscn" id="12_ii44y"]
 [ext_resource type="PackedScene" uid="uid://dbjuupu5nn846" path="res://Leviathan/LeviathanBoatSmashTrigger.tscn" id="13_5jxyv"]
-[ext_resource type="PackedScene" uid="uid://cw18h75nlrojg" path="res://Map/MapPart.tscn" id="14_al7ck"]
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_6p5pl"]
 
@@ -37,6 +36,7 @@ visible = false
 
 [node name="Island0Terrain" parent="." instance=ExtResource("5_pc08f")]
 transform = Transform3D(0.123844, 0, 0.992301, 0, 1, 0, -0.992301, 0, 0.123844, 90.97, -2.30322, -18.9957)
+visible = false
 
 [node name="WaterMover" parent="." instance=ExtResource("6_uxq57")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -372)
@@ -133,15 +133,6 @@ shape = SubResource("BoxShape3D_xacxc")
 
 [node name="LeviathanBoatSmashTrigger" parent="." instance=ExtResource("13_5jxyv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1555.64, 0, -1512.25)
-
-[node name="MapPart" parent="." instance=ExtResource("14_al7ck")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 163.834, 2.06546, -35.3137)
-
-[node name="MapPart2" parent="." instance=ExtResource("14_al7ck")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 164.576, 2.06546, -33.4081)
-
-[node name="MapPart3" parent="." instance=ExtResource("14_al7ck")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 163.055, 2.06546, -33.8203)
 
 [editable path="LeviathanScreamTrigger"]
 [editable path="LeviathanScreamTrigger2"]

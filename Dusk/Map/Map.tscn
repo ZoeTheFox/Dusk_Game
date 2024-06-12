@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://2swkvl6komdo" path="res://Map/MapImageFiles/Map_Island_3.png" id="5_8gah0"]
 
 [node name="Map" type="Node3D"]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 script = ExtResource("1_t2jho")
 
 [node name="MapPart0" type="Sprite3D" parent="."]
