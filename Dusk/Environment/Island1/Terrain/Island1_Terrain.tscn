@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://dy6d3lmebk50q"]
+[gd_scene load_steps=11 format=3 uid="uid://dy6d3lmebk50q"]
 
+[ext_resource type="Script" path="res://Environment/Shared/IslandController.gd" id="1_1nhwb"]
 [ext_resource type="PackedScene" uid="uid://dkpxqtenhl8ps" path="res://Environment/Vegitation/Trees/Tree1.tscn" id="2_53gln"]
 [ext_resource type="PackedScene" uid="uid://bavc8xejco52q" path="res://Environment/Vegitation/Trees/tree2.tscn" id="3_e01wi"]
 [ext_resource type="PackedScene" uid="uid://pymrrl7yk55d" path="res://Environment/Vegitation/Trees/tree3.tscn" id="4_061dd"]
@@ -8,10 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://c0wwdwl1m4xx8" path="res://Environment/Vegitation/Stones/Stone2.tscn" id="7_mfxo8"]
 [ext_resource type="PackedScene" uid="uid://cyw2r3e4qesdo" path="res://Environment/Vegitation/Stones/Stone3.tscn" id="8_qmb4u"]
 [ext_resource type="PackedScene" uid="uid://cit5v68xgjxwv" path="res://Environment/Island1/Terrain/Insel1.tscn" id="8_wbwqo"]
+[ext_resource type="PackedScene" uid="uid://gm6l4imxfwt" path="res://Environment/Island1/Barrel/Barrel.tscn" id="10_lw2p5"]
 
 [node name="Island1Terrain" type="Node3D"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+script = ExtResource("1_1nhwb")
 
 [node name="Insel1" parent="." instance=ExtResource("8_wbwqo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.723, 5.958, 13.503)
@@ -369,3 +370,50 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1055, 10.0363, -23.464)
 
 [node name="Center" type="Node3D" parent="."]
 transform = Transform3D(0.803, 0, 0, 0, 0.803, 0, 0, 0, 0.803, 0, 0, 0)
+
+[node name="Barrel" parent="." instance=ExtResource("10_lw2p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.5281, 7.62217, 57.0495)
+float_force = 1.2
+
+[node name="Candle" parent="Barrel" index="3"]
+visible = false
+
+[node name="MapPart" parent="Barrel" index="4"]
+visible = false
+
+[node name="Interactable" parent="Barrel/MapPart" index="0"]
+active = false
+
+[node name="Barrel2" parent="." instance=ExtResource("10_lw2p5")]
+transform = Transform3D(0.804023, -0.594598, 0, 0.594598, 0.804023, 0, 0, 0, 1, -67.9875, 7.96896, 48.3772)
+
+[node name="Candle" parent="Barrel2" index="3"]
+visible = false
+
+[node name="MapPart" parent="Barrel2" index="4"]
+visible = false
+
+[node name="Interactable" parent="Barrel2/MapPart" index="0"]
+active = false
+
+[node name="Barrel3" parent="." instance=ExtResource("10_lw2p5")]
+transform = Transform3D(0.125628, 0.992077, 0, -0.992077, 0.125628, 0, 0, 0, 1, -71.6488, 8.37202, 53.0942)
+
+[node name="Candle" parent="Barrel3" index="3"]
+visible = false
+
+[node name="MapPart" parent="Barrel3" index="4"]
+visible = false
+
+[node name="Interactable" parent="Barrel3/MapPart" index="0"]
+active = false
+
+[node name="Barrel4" parent="." instance=ExtResource("10_lw2p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.62783, 11.65, 27.2868)
+
+[editable path="Barrel"]
+[editable path="Barrel/MapPart"]
+[editable path="Barrel2"]
+[editable path="Barrel2/MapPart"]
+[editable path="Barrel3"]
+[editable path="Barrel3/MapPart"]

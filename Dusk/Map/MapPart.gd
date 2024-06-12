@@ -6,8 +6,7 @@ class_name MapPart
 var game_manager : GameManager 
 
 func _ready():
-	game_manager = get_tree().root.get_node("/root/WaterTestScene/GameManager")
-	print(game_manager)
+	game_manager = get_tree().root.get_node("/root/Dusk/GameManager")
 
 func _on_interactable_interact():
 	game_manager.map_collected()

@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://62fvwrc7sch3"]
+[gd_scene load_steps=14 format=3 uid="uid://62fvwrc7sch3"]
 
+[ext_resource type="Environment" uid="uid://nhyr7de6t3a" path="res://Environment/DuskWorldEnvironment.tres" id="2_rpt8l"]
 [ext_resource type="PackedScene" uid="uid://bmacr6agbv47a" path="res://Boat/Boat/Boat.tscn" id="3_a8to5"]
 [ext_resource type="PackedScene" uid="uid://brh07riyg1qv0" path="res://FirstPersonController/Player.tscn" id="5_mgs2n"]
 [ext_resource type="PackedScene" uid="uid://bm5mnh8u6adjg" path="res://Environment/Shared/island_sound_controller.tscn" id="7_hjqpy"]
@@ -12,24 +13,6 @@
 [ext_resource type="Script" path="res://Game Manager/GameManager.gd" id="11_x5f7t"]
 [ext_resource type="PackedScene" uid="uid://bapmikalcjl6e" path="res://Water/WaterMover.tscn" id="14_vtpca"]
 
-[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_yc4m6"]
-rayleigh_coefficient = 4.4
-rayleigh_color = Color(0.235294, 0.458824, 0.372549, 1)
-mie_coefficient = 0.17
-sun_disk_scale = 170.66
-ground_color = Color(0, 0, 0, 1)
-energy_multiplier = 0.4
-
-[sub_resource type="Sky" id="Sky_qwlpq"]
-sky_material = SubResource("PhysicalSkyMaterial_yc4m6")
-
-[sub_resource type="Environment" id="Environment_7e1gl"]
-background_mode = 2
-sky = SubResource("Sky_qwlpq")
-fog_light_color = Color(0.517647, 0.564706, 0.607843, 1)
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.0755
-
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_rdlc4"]
 
 [node name="WaterTestScene" type="Node3D"]
@@ -39,7 +22,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0298843, 0, -0.00428009)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140.311, 2.08124, 12.5798)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_7e1gl")
+environment = ExtResource("2_rpt8l")
 camera_attributes = SubResource("CameraAttributesPhysical_rdlc4")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -57,7 +40,6 @@ max_distance = 80.0
 
 [node name="Island1Terrain" parent="." instance=ExtResource("10_fr7d5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 197.786, -0.929579, 5.64509)
-visible = false
 
 [node name="Island0Terrain" parent="." instance=ExtResource("11_rfkxl")]
 transform = Transform3D(0.789234, 0, 0.614092, 0, 1, 0, -0.614092, 0, 0.789234, -209.03, -2.30322, -18.9957)
@@ -74,11 +56,9 @@ island_3_max_distance = 20.0
 
 [node name="Island3Terrain" parent="." instance=ExtResource("8_n0mbs")]
 transform = Transform3D(-0.69388, 0, -0.720091, 0, 1, 0, 0.720091, 0, -0.69388, 4.85693, 4.98232, 234.866)
-visible = false
 
 [node name="Island2Terrain" parent="." instance=ExtResource("9_3wfv1")]
 transform = Transform3D(0.536578, 0, -0.843851, 0, 1, 0, 0.843851, 0, 0.536578, 10.3555, -13.8799, -160.275)
-visible = false
 
 [node name="MapPart" parent="." instance=ExtResource("10_wp4xr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -147.301, 2.16597, 22.8236)

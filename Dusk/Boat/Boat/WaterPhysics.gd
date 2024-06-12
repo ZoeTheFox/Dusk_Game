@@ -16,6 +16,8 @@ var footstep_sound = "res://Sound/Player/wood_foot_step.wav"
 
 var submerged := false
 
+var local_collision_pos : Vector3
+
 func _physics_process(delta):
 	submerged = false
 	for p in probes:
@@ -27,4 +29,7 @@ func _physics_process(delta):
 func _integrate_forces(state: PhysicsDirectBodyState3D):
 	if submerged:
 		state.linear_velocity *=  1 - water_drag
-		state.angular_velocity *= 1 - water_angular_drag 
+		state.angular_velocity *= 1 - water_angular_drag
+		
+	if(state.get_contact_count() >= 1):  #this check is needed or it will throw errors 
+		local_collision_pos = state.get_contact_local_position(0)

@@ -100,14 +100,15 @@ func _physics_process(delta):
 	target_velocity = direction * speed
 	
 	if (Input.is_action_just_released("open_map")):
-		if (map_active):
-			map.hide()
-			$MapSound.play()
-			map_active = false
-		else:
-			map.show()
-			$MapSound.play()
-			map_active = true
+		if (map.unlocked_parts > 0):
+			if (map_active):
+				map.hide()
+				$MapSound2.play()
+				map_active = false
+			else:
+				map.show()
+				$MapSound.play()
+				map_active = true
 	
 	if (is_in_ship):
 		target_velocity = Vector3.ZERO
