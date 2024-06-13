@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b4dijxrpph0p"]
+[gd_scene load_steps=14 format=3 uid="uid://b4dijxrpph0p"]
 
 [ext_resource type="PackedScene" uid="uid://kqurb7apbyw4" path="res://Environment/Island2/Terrain/Island2.tscn" id="1_4lxtm"]
 [ext_resource type="Script" path="res://Environment/Shared/IslandController.gd" id="1_b8rhi"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dvf2dy2brwg30" path="res://Environment/Vegitation/Grass/fans.tscn" id="8_4iiu0"]
 [ext_resource type="PackedScene" uid="uid://tqhrpajeyslo" path="res://Environment/Island2/Assets/Grave1.tscn" id="9_2hfa8"]
 [ext_resource type="PackedScene" uid="uid://bwp8ghrphw8am" path="res://Environment/Island2/Assets/Grave2.tscn" id="10_tnrwa"]
+[ext_resource type="PackedScene" uid="uid://cw18h75nlrojg" path="res://Map/MapPart.tscn" id="11_l1pwu"]
 [ext_resource type="PackedScene" uid="uid://dxqctjb8p0j6l" path="res://Environment/Island0/Terrain/IslandAssets/pier/pierpieces/Pier.tscn" id="11_wlexo"]
 
 [node name="Island2Terrain" type="Node3D"]
@@ -507,42 +508,82 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.4223, 25.6915, -10.8135)
 
 [node name="Grave1" parent="Graves" instance=ExtResource("9_2hfa8")]
 transform = Transform3D(0.560238, 0.212061, -0.800726, -0.358366, 0.933575, -0.00349065, 0.746798, 0.288909, 0.59902, -16.071, 23.9529, -29.136)
+name_on_grave = "Livia Gex"
+death_date = "August 25th 34"
+note = "Curiosity killed the cat"
 
 [node name="Grave2" parent="Graves" instance=ExtResource("9_2hfa8")]
 transform = Transform3D(0.943641, 0.33091, 0.00642267, -0.323848, 0.927159, -0.18841, -0.0683016, 0.175711, 0.982069, -28.3056, 23.6931, -14.7133)
+name_on_grave = "Torin Laskov"
+death_date = "December 1st, 34"
+note = "Became leviathan food."
 
 [node name="Grave3" parent="Graves" instance=ExtResource("9_2hfa8")]
 transform = Transform3D(0.985621, 0.168971, 0, -0.168193, 0.981085, -0.0958284, -0.0161922, 0.0944505, 0.995398, -36.4317, 27.7639, -26.6516)
+name_on_grave = "Lyra Vex"
+death_date = "December 25th, 34"
+note = "Merry Xmas Vex"
 
 [node name="Grave4" parent="Graves" instance=ExtResource("9_2hfa8")]
 transform = Transform3D(0.968834, 0.247709, 0, -0.244909, 0.95788, -0.14995, -0.0371439, 0.145276, 0.988694, -36.4605, 26.8563, -19.6912)
+name_on_grave = "Elara Minx"
+death_date = "January 8th, 35"
+note = "Even the cunning meet their end"
 
 [node name="Grave5" parent="Graves" instance=ExtResource("9_2hfa8")]
 transform = Transform3D(0.501929, 0.104599, -0.858561, -0.206082, 0.978534, -0.00126346, 0.839999, 0.177568, 0.51271, -26.0249, 27.9439, -36.4715)
+name_on_grave = "Mirabel Voss"
+death_date = "February 14th, 35"
+note = "Underestimated me"
 
 [node name="Grave6" parent="Graves" instance=ExtResource("9_2hfa8")]
 transform = Transform3D(0.726453, 0.181291, -0.662872, -0.27369, 0.961103, -0.0370876, 0.630364, 0.208364, 0.747814, -26.0513, 26.0885, -28.4857)
+name_on_grave = "Martin Pem"
+death_date = "August 3rd 34"
+note = "Your debt is paid"
 
 [node name="Grave7" parent="Graves" instance=ExtResource("9_2hfa8")]
 transform = Transform3D(0.974113, 0.214514, -0.0713293, -0.221665, 0.968303, -0.11513, 0.0443713, 0.127961, 0.990786, -36.137, 27.2272, -23.2763)
+name_on_grave = "Elara Whitlock"
+death_date = "March 3rd, 35"
+note = "Heart attack"
 
 [node name="Grave8" parent="Graves" instance=ExtResource("9_2hfa8")]
 transform = Transform3D(0.625568, 0.100263, -0.7737, -0.259694, 0.961915, -0.08532, 0.735679, 0.254299, 0.627781, -18.9362, 26.8968, -36.7933)
+name_on_grave = "Kira Rendarl"
+death_date = "May 15th, 35"
+note = "The protectorate will fall, one by one"
 
 [node name="Grave9" parent="Graves" instance=ExtResource("9_2hfa8")]
 transform = Transform3D(0.916086, 0.400978, 0.00178089, -0.397356, 0.908389, -0.130142, -0.0538018, 0.118514, 0.991494, -28.6993, 23.136, -10.9467)
+name_on_grave = "Rita Bengt"
+death_date = "April 7th, 35"
+note = "A fox can be outfoxed"
 
 [node name="Grave10" parent="Graves" instance=ExtResource("10_tnrwa")]
 transform = Transform3D(0.87169, 0.251461, -0.420622, -0.310307, 0.947545, -0.0766034, 0.379296, 0.197297, 0.903996, -28.7479, 25.4742, -22.109)
+story = true
+
+[node name="MapPart" parent="Graves/Grave10" instance=ExtResource("11_l1pwu")]
+transform = Transform3D(0.871691, -0.310307, 0.379296, 0.251461, 0.947542, 0.197296, -0.420622, -0.076604, 0.903996, 1.61151, 0.993214, -0.170203)
+
+[node name="MapPart0" parent="Graves/Grave10/MapPart" index="2"]
+visible = false
+
+[node name="MapPart3" parent="Graves/Grave10/MapPart" index="5"]
+transform = Transform3D(0.224679, -6.37988e-07, 0.974433, -0.974433, -5.77652e-08, 0.224679, -8.70543e-08, -1, -6.34655e-07, -0.0381317, 0, 0.0641785)
+visible = true
 
 [node name="Grave11" parent="Graves" instance=ExtResource("9_2hfa8")]
 transform = Transform3D(0.700455, 0.0553034, -0.711551, -0.149258, 0.986298, -0.0702728, 0.697915, 0.155427, 0.699111, -34.4411, 28.6697, -34.1279)
-
-[node name="Grave12" parent="Graves" instance=ExtResource("9_2hfa8")]
-transform = Transform3D(0.585217, 0.240611, -0.774356, -0.358954, 0.933168, 0.0186791, 0.727098, 0.267027, 0.632474, -17, 27, -38)
+name_on_grave = "Desmond Thorne"
+death_date = "November 10th, 34"
+note = "Cop"
 
 [node name="Pier" parent="." instance=ExtResource("11_wlexo")]
 transform = Transform3D(0.744521, 0, -0.667599, 0, 1, 0, 0.667599, 0, 0.744521, -13.0194, 15.8175, -1.73499)
 
 [node name="Center" type="Node3D" parent="."]
 transform = Transform3D(0.803, 0, 0, 0, 0.803, 0, 0, 0, 0.803, -32.2858, 20.9553, -42.5151)
+
+[editable path="Graves/Grave10/MapPart"]

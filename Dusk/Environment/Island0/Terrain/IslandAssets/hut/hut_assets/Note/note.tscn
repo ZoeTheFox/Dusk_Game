@@ -10,7 +10,7 @@ size = Vector3(0.194946, 0.635254, 0.409424)
 
 [node name="Note" instance=ExtResource("1_kb4uf")]
 script = ExtResource("2_4b754")
-note_text = "Placeholder"
+note_text = "[s]Martin Pem[/s], > [s]Livia Gex[/s], >> . >> . > Mira Dajin >> fuck."
 
 [node name="Plane" parent="." index="0"]
 transform = Transform3D(-1.18021e-08, 0.422, 0, -0.27, -1.84462e-08, 0, 0, 0, 0.173, 0, 0, 0)

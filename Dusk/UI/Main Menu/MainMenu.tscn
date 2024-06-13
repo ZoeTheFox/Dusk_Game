@@ -243,4 +243,6 @@ visible = false
 [editable path="Boat/ShipHull/Mesh/Hull"]
 [editable path="Boat/ShipHull/Mesh/Hull/guard_rail"]
 [editable path="Boat/ShipHull/Mesh/cabin"]
+[editable path="Boat/ShipHull/Mesh/Interior/lamp_off"]
+[editable path="Boat/ShipHull/Fire"]
 [editable path="Player"]

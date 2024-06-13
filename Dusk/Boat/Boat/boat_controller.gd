@@ -102,12 +102,12 @@ func _process(delta):
 			if (map_active):
 				map.hide()
 				$ShipHull/Map2.show()
-				$ShipHull/Map2/MapSound2.play()
+				$ShipHull/Map2/MapSound.play()
 				map_active = false
 			else:
 				map.show()
 				$ShipHull/Map2.hide()
-				$ShipHull/Map2/MapSound.play()
+				$ShipHull/Map2/MapSound2.play()
 				map_active = true
 	
 	update_animations()
@@ -284,15 +284,18 @@ func leviathan_collision():
 	$ShipHull/Fire/AudioStreamPlayer3D.play()
 	$ShipHull/Fire/OmniLight3D.show()
 	
-
+func leviathan_sink():
+	$ShipHull/HullSounds.collision($ShipHull/Mesh/Hull/Hull/RightEngine.global_position, 50)
+	
+	$ShipHull.apply_torque_impulse(Vector3(100000, 500000, 124000))
+	
+	$ShipHull.float_force = 600
 
 
 func adjust_fuel():
 	var island_3 : Node3D = get_parent_node_3d().get_node("Island3Terrain")
 
 	var distance : float = ($ShipHull.global_position - island_3.global_position).length()
-	
-	print(distance)
 	
 	if (distance > _closest_distance):
 		return
@@ -304,4 +307,3 @@ func adjust_fuel():
 		
 		fuel = lerpf(0, 100, distance_normalized)
 		
-	print(fuel)
