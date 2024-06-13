@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://buquvni6xftjo"]
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://d3erf0y5j1xow"]
 
 [ext_resource type="Texture2D" uid="uid://2mkc5hv410ir" path="res://Boat/GLB_Exports/Interior/Lamp/textures/Lamp On/lamp_mat_BaseColor.png" id="1_2w44q"]
 [ext_resource type="Texture2D" uid="uid://dks5f446yido1" path="res://Boat/GLB_Exports/Interior/Lamp/textures/lamp_mat_Displacement.png" id="2_tyxkm"]

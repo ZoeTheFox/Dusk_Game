@@ -10,8 +10,8 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_wh1h8"]
 size = Vector3(4.04944, 9.62998, 3.69492)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_wa12o"]
-size = Vector3(0.972962, 1.53036, 1.16776)
+[sub_resource type="BoxShape3D" id="BoxShape3D_bhuaj"]
+size = Vector3(3.57544, 2, 3.18579)
 
 [node name="Grave2" type="Node3D"]
 script = ExtResource("1_u2abl")
@@ -33,8 +33,8 @@ prompt_offset = 0.0
 interaction_shape = NodePath("CollisionShape3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00983816, 0.932454, -0.00225127)
-shape = SubResource("BoxShape3D_wa12o")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28772, 0.5, 0.158813)
+shape = SubResource("BoxShape3D_bhuaj")
 
 [node name="TextDisplay" parent="." instance=ExtResource("5_nhccp")]
 time_per_character = 0.08

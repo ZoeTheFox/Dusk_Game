@@ -10,7 +10,9 @@ var boat : Node3D
 
 var player_map : Map
 var boat_map : Map
+var boat_map2 : Map
 
+@onready
 var lightning_spawner : LightningSpawner
 
 var player_rain : GPUParticles3D
@@ -19,6 +21,7 @@ var boat_rain : GPUParticles3D
 func _ready():
 	player_map = player.find_child("Map")
 	boat_map = boat.find_child("Map")
+	boat_map2 = boat.find_child("Map2")
 	lightning_spawner = get_parent_node_3d().get_node("AmbientSound/LightningSpawner")
 	
 	player_rain = get_parent_node_3d().get_node("Player/RainParticles")
@@ -29,6 +32,7 @@ func _ready():
 func map_collected() -> void:
 	player_map.unlock_map_section()
 	boat_map.unlock_map_section()
+	boat_map2.unlock_map_section()
 	set_weather_intensity(player_map.unlocked_parts)
 	
 func set_weather_intensity(maps_collected : int) -> void:
