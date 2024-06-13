@@ -20,10 +20,13 @@ func show_text(text : String) -> void:
 	audio.pitch_scale = 1
 	
 	for c in text:
-		$ColorRect/RichTextLabel.text += c
-		audio.play()
-		set_random_pitch()
-		await get_tree().create_timer(time_per_character).timeout
+		if (c == ">"):
+			await get_tree().create_timer(1).timeout
+		else:
+			$ColorRect/RichTextLabel.text += c
+			audio.play()
+			set_random_pitch()
+			await get_tree().create_timer(time_per_character).timeout
 	
 	await get_tree().create_timer(fade_out_time).timeout
 	

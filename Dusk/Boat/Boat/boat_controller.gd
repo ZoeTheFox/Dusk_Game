@@ -50,8 +50,17 @@ var engine_off : bool = true
 var clutch_active : bool
 
 @onready
-var player = get_parent_node_3d().get_node("Player")
+var player : Node3D = get_parent_node_3d().get_node("Player")
 var is_player_seated : bool = false
+
+@onready
+var map = $ShipHull/Map
+
+var fuel = 1
+
+var _closest_distance : float = 5000
+
+var map_active : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -88,6 +97,19 @@ func _process(delta):
 	
 	wheel_turn = lerpf(wheel_turn, turn_input, delta * 2)
 	
+	if (Input.is_action_just_released("open_map") and is_player_seated):
+		if (map.unlocked_parts > 0):
+			if (map_active):
+				map.hide()
+				$ShipHull/Map2.show()
+				$ShipHull/Map2/MapSound.play()
+				map_active = false
+			else:
+				map.show()
+				$ShipHull/Map2.hide()
+				$ShipHull/Map2/MapSound2.play()
+				map_active = true
+	
 	update_animations()
 
 func _physics_process(delta):
@@ -108,16 +130,17 @@ func _physics_process(delta):
 		
 	boat_rigidbody.apply_torque_impulse(boat_rigidbody.transform.basis.y * -wheel_turn * max_turning_force * boat_rigidbody.linear_velocity.length() * turn_reverse_multiplier)
 	
-	boat_rigidbody.rotation_degrees.x = lerpf(boat_rigidbody.rotation_degrees.x, wheel_turn * max_turning_force * 0.0003 * boat_rigidbody.linear_velocity.length(), delta / 2)
+	boat_rigidbody.rotation_degrees.x = lerpf(boat_rigidbody.rotation_degrees.x, wheel_turn * 8000 * 0.0003 * boat_rigidbody.linear_velocity.length(), delta / 2)
 
 func update_animations() -> void:
+	adjust_fuel()
 	animation_controller.throttle = throttle
 	animation_controller.rpm = engine_rpm
 	animation_controller.wheel_turn = wheel_turn
 	animation_controller.speed = boat_rigidbody.linear_velocity.length()
-	animation_controller.fuel = 50
+	animation_controller.fuel = fuel
 	
-	var compass_heading = -boat_rigidbody.rotation_degrees.y
+	var compass_heading = -((-boat_rigidbody.rotation_degrees.y) - 90)
 
 	if (compass_heading < 0):
 		compass_heading = 360.0 + compass_heading
@@ -163,23 +186,38 @@ func _on_throttle_deadzone_timer_timeout():
 
 func enter_boat():
 	$ShipHull/Camera/TwistPivot/PitchPivot/BoatCamera.current = true
-	$ShipHull/Mesh/Interior/seats/Interactable.hide()
-	$ShipHull/Mesh/Interior/seats/InteractableWhileSitting.show()
+	$ShipHull/Mesh/Interior/seats/Interactable.active = false
+	$ShipHull/Mesh/Interior/seats/InteractableWhileSitting.active = true
 	player.enter_boat()
 	is_player_seated = true
 	$InteractableSystem.disabled = false
 	$ShipHull/RainParticles.emitting = true
 	player.get_node("RainParticles").emitting = false
+	
+	$ShipHull/Camera/TwistPivot.rotation = Vector3.ZERO
+	$ShipHull/Camera/TwistPivot/PitchPivot.rotation = Vector3.ZERO
+	$ShipHull/MeshInstance3D/SpotLight3D.show()
+	
+	map.show()
 
 func exit_boat():
+	$ShipHull/MeshInstance3D/SpotLight3D.hide()
+	player.global_position = $ShipHull/PlayerSpawn.global_position
+	
 	$ShipHull/Camera/TwistPivot/PitchPivot/BoatCamera.current = false
-	$ShipHull/Mesh/Interior/seats/Interactable.show()
-	$ShipHull/Mesh/Interior/seats/InteractableWhileSitting.hide()
+	$ShipHull/Mesh/Interior/seats/Interactable.active = true
+	$ShipHull/Mesh/Interior/seats/InteractableWhileSitting.active = false
 	player.exit_boat()
 	is_player_seated = false
 	$InteractableSystem.disabled = true
 	$ShipHull/RainParticles.emitting = false
 	player.get_node("RainParticles").emitting = true
+	
+	$ShipHull/Map2.hide()
+	
+	map_active = false
+	
+	map.hide()
 
 func _on_start_stop_button_button_press():
 	if (engine_off == true):
@@ -199,14 +237,22 @@ func _on_interactable_exit_ship_interact():
 
 func _on_ladder_player_used_ladder():
 	player.global_position = player_ladder_location.global_position
-
-
+	var twist_pivot : Node3D = player.get_node("Head/TwistPivot")
+	var pitch_pivot : Node3D = player.get_node("Head/TwistPivot/PitchPivot")
+	twist_pivot.rotation.y = $ShipHull/Mesh/Hull/ladder/Ladder.rotation.y
+	pitch_pivot.rotation.x = 0
 
 func _on_cabin_area_body_entered(body):
 	var ambiant = get_parent_node_3d().get_node("AmbientSound")
 	ambiant.set_muffled(true)
 	
 	$ShipHull/HullSounds.set_muffled(true)
+	
+	await get_tree().create_timer(0.5).timeout
+	
+	if (!$ShipHull/Mesh/Interior/lamp.visible):
+		$ShipHull/Mesh/Interior/lamp.show()
+		$ShipHull/Mesh/Interior/lamp_off.hide()
 
 
 func _on_cabin_area_body_exited(body):
@@ -215,3 +261,49 @@ func _on_cabin_area_body_exited(body):
 	if (!is_player_seated):
 		ambiant.set_muffled(false)
 		$ShipHull/HullSounds.set_muffled(false)
+	
+	await get_tree().create_timer(10).timeout
+	
+	if ($ShipHull/Mesh/Interior/lamp.visible):
+		$ShipHull/Mesh/Interior/lamp.hide()
+		$ShipHull/Mesh/Interior/lamp_off.show()
+
+
+func _on_ship_hull_body_entered(body):
+	if (body != player):
+		$ShipHull/HullSounds.collision($ShipHull.local_collision_pos, $ShipHull.linear_velocity.length())
+
+
+func leviathan_collision():
+	$ShipHull/HullSounds.collision($ShipHull/Mesh/Hull/Hull/RightEngine.global_position, 50)
+	
+	$ShipHull.apply_torque_impulse(Vector3(10000, 500000, 12400))
+	
+	max_engine_force = 670000
+	$ShipHull/Fire.amount_ratio = 1
+	$ShipHull/Fire/AudioStreamPlayer3D.play()
+	$ShipHull/Fire/OmniLight3D.show()
+	
+func leviathan_sink():
+	$ShipHull/HullSounds.collision($ShipHull/Mesh/Hull/Hull/RightEngine.global_position, 50)
+	
+	$ShipHull.apply_torque_impulse(Vector3(100000, 500000, 124000))
+	
+	$ShipHull.float_force = 600
+
+
+func adjust_fuel():
+	var island_3 : Node3D = get_parent_node_3d().get_node("Island3Terrain")
+
+	var distance : float = ($ShipHull.global_position - island_3.global_position).length()
+	
+	if (distance > _closest_distance):
+		return
+	
+	if (distance < _closest_distance):
+		_closest_distance = distance
+		
+		var distance_normalized : float = distance / 2300 
+		
+		fuel = lerpf(0, 100, distance_normalized)
+		

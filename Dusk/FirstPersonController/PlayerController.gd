@@ -56,7 +56,7 @@ var is_on_ship : bool = false
 @export var water_angular_drag := 0.05
 
 @onready
-var water = get_parent_node_3d().get_node("Water")
+var water = get_parent_node_3d().get_node("WaterMover/Water")
 
 @onready var probes = $BuyoancyProbes.get_children()
 
@@ -65,6 +65,11 @@ var submerged := false
 var is_running : bool = false
 
 var last_boat_pos : Vector3
+
+var map_active : bool = false
+
+@onready
+var map = $Head/TwistPivot/Map
 
 func _physics_process(delta):
 	var speed = walking_speed
@@ -94,6 +99,17 @@ func _physics_process(delta):
 	
 	target_velocity = direction * speed
 	
+	if (Input.is_action_just_released("open_map")):
+		if (map.unlocked_parts > 0):
+			if (map_active):
+				map.hide()
+				$MapSound2.play()
+				map_active = false
+			else:
+				map.show()
+				$MapSound.play()
+				map_active = true
+	
 	if (is_in_ship):
 		target_velocity = Vector3.ZERO
 	
@@ -117,21 +133,13 @@ func _physics_process(delta):
 	if submerged:
 		velocity *=  1 - water_drag
 	
-	#print(water.get_height(camera.global_position) - camera.global_position.y)
+	if (!is_on_ship):
+		boat.throttle = 0
 	
-	#$Head/TwistPivot/PitchPivot/PlayerCamera/FogVolume.global_position.y = water.global_position.y 
-	
-	#print($Head/TwistPivot/PitchPivot/PlayerCamera/FogVolume.global_position)
-	
-	#if (water.get_height(camera.global_position) - camera.global_position.y) >= -0.1:
-		#if ($Head/TwistPivot/PitchPivot/PlayerCamera/FogVolume.visible != true):
-			#$Head/TwistPivot/PitchPivot/PlayerCamera/FogVolume.visible = true
-			#print("fog")
-	#else:
-		#if ($Head/TwistPivot/PitchPivot/PlayerCamera/FogVolume.visible == true):
-			#$Head/TwistPivot/PitchPivot/PlayerCamera/FogVolume.visible = false
-	
-	move_and_slide()
+	if (is_in_ship):
+		global_position = boat.player_spawn_location.global_position
+	else:
+		move_and_slide()
 	
 # Called when the node enters the scene tree for tshe first time.
 func _ready():
@@ -153,6 +161,7 @@ func enter_boat():
 	is_in_ship = true
 	
 	$InteractableSystem.disabled = true
+
 	
 	#global_position = Vector3.ZERO
 	

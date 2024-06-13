@@ -13,6 +13,9 @@ var prompt_linger_time : float = 1
 
 signal interact
 
+@export
+var active : bool = true
+
 var is_being_looked_at : bool
 
 var timer : Timer = Timer.new()
@@ -34,11 +37,17 @@ func _ready():
 	interaction_prompt.ship_scale = ship_scale
 
 func _process(delta):
+	if (!active):
+		return
+	
 	if (camera != null):
 		interaction_prompt.global_position = calculate_midpoint_with_sideways_offset(interaction_shape.global_position, camera.global_position, prompt_offset)
 		interaction_prompt.look_at(camera.global_position)
 	
 func on_look(camera_looking_at : Camera3D):
+	if (!active):
+		return
+	
 	camera = camera_looking_at
 	
 	is_being_looked_at = true
@@ -50,6 +59,9 @@ func on_look(camera_looking_at : Camera3D):
 	timer.start()
 	
 func on_interact() -> void:
+	if (!active):
+		return
+	
 	interact.emit()
 
 func calculate_midpoint_with_sideways_offset(pos1: Vector3, pos2: Vector3, offset_distance: float) -> Vector3:
