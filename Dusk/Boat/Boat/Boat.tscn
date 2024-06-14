@@ -27,7 +27,7 @@
 [ext_resource type="Script" path="res://Boat/Scenes/Interior/BoxesInteraction.gd" id="20_hh4gj"]
 [ext_resource type="Script" path="res://Boat/Boat/BoatCamera.gd" id="21_5s5if"]
 [ext_resource type="Script" path="res://Boat/Boat/CompassInteraction.gd" id="23_3kgcs"]
-[ext_resource type="PackedScene" path="res://Boat/Scenes/Interior/LampFixed.tscn" id="23_sb0dn"]
+[ext_resource type="PackedScene" uid="uid://crd6f7n5kiqfj" path="res://Boat/Scenes/Interior/LampFixed.tscn" id="23_sb0dn"]
 [ext_resource type="PackedScene" uid="uid://by7gk77toq1l7" path="res://InteractableSystem/InteractableSystem.tscn" id="24_lgcp2"]
 [ext_resource type="PackedScene" uid="uid://boorry5kus31v" path="res://InteractableSystem/TextDisplay.tscn" id="26_3paug"]
 [ext_resource type="PackedScene" uid="uid://cfq8alnqvj3tj" path="res://Sound/Boat/Engine/EngineSound.tscn" id="27_q4hal"]
@@ -101,10 +101,10 @@ points = PackedVector3Array(-15.7711, -0.172065, 6.50785, 1.09132, 1.89272, 7.19
 points = PackedVector3Array(-14.7368, -0.172065, -6.56944, 4.87485, 1.89272, -6.91323, 4.87485, 1.89272, -7.25753, 4.87485, -0.172065, -6.91323, -14.7368, 1.89272, -6.22514, -4.07095, 1.89272, -7.25753, -4.07095, -0.172065, -7.25753, -13.3604, 1.89272, -6.91323, -13.0148, -0.172065, -6.22514, 4.87485, -0.172065, -7.25753, -13.3604, -0.172065, -6.91323, -13.0148, 1.89272, -6.22514, -14.7368, -0.172065, -6.22514, -14.7368, 1.89272, -6.56944, -3.72732, -0.172065, -6.56944, -3.72732, 1.89272, -6.56944)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bt4x3"]
-size = Vector3(0.125488, 0.502686, 1.08681)
+size = Vector3(0.68866, 0.502686, 1.60166)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ljibj"]
-size = Vector3(0.288696, 0.331177, 0.390717)
+size = Vector3(0.857727, 0.331177, 1.09353)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_brakp"]
 size = Vector3(0.0913086, 1.56122, 2.09668)
@@ -529,11 +529,11 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.0068993, 0)
 shape = SubResource("ConvexPolygonShape3D_gkf5o")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="ShipHull/StaticColliders/GuardRail"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.43083, 0.261901, 0.0993438)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.71242, 0.261901, 0.0451926)
 shape = SubResource("BoxShape3D_bt4x3")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="ShipHull/StaticColliders/GuardRail"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.44171, 0.167297, -0.00587463)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.72623, 0.167297, 0.0347633)
 shape = SubResource("BoxShape3D_ljibj")
 
 [node name="Cabin" type="StaticBody3D" parent="ShipHull/StaticColliders"]
