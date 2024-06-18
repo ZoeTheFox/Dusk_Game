@@ -32,7 +32,7 @@ size = Vector3(93.5762, 10, 10)
 [node name="Dusk" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("2_sxd6g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 261.471, 4.32889, -76.5252)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 122.236, 14.231, 37.9456)
 
 [node name="Boat" parent="." instance=ExtResource("1_0db3y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 260.334, 1.86929, -76.1134)
@@ -46,7 +46,6 @@ visible = false
 
 [node name="Island0Terrain" parent="." instance=ExtResource("5_pc08f")]
 transform = Transform3D(0.123844, 0, 0.992301, 0, 1, 0, -0.992301, 0, 0.123844, 90.97, -2.30322, -18.9957)
-visible = false
 
 [node name="WaterMover" parent="." instance=ExtResource("6_uxq57")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -372)
@@ -57,6 +56,7 @@ visible = false
 
 [node name="Island3Terrain" parent="." instance=ExtResource("8_g1xg2")]
 transform = Transform3D(0.995228, 0, 0.0975829, 0, 1, 0, -0.0975829, 0, 0.995228, 2000, 4.982, -1500)
+visible = false
 
 [node name="Island2Terrain" parent="." instance=ExtResource("9_q47qq")]
 transform = Transform3D(0.536578, 0, -0.843851, 0, 1, 0, 0.843851, 0, 0.536578, 455.686, -13.88, -1300)

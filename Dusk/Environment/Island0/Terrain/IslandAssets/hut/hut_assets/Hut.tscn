@@ -42,3 +42,4 @@ size = Vector3(7.87885, 5, 5.1852)
 
 [node name="MapPart" parent="." instance=ExtResource("11_teygr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.70204, 0.697194, 1.79649)
+is_first_map = true
