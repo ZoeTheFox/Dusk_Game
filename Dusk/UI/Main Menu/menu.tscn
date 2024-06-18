@@ -43,12 +43,8 @@ text = "Credits"
 layout_mode = 2
 text = "Quit"
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 623.0
-offset_right = 66.0
-offset_bottom = 646.0
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
 text = "Beta 1.1"
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
