@@ -99,7 +99,7 @@ func _process(delta):
 	
 	if (Input.is_action_just_released("open_map") and is_player_seated):
 		if (map.unlocked_parts > 0):
-			if (map_active):
+			if (!map_active):
 				map.hide()
 				$ShipHull/Map2.show()
 				$ShipHull/Map2/MapSound.play()
@@ -198,6 +198,10 @@ func enter_boat():
 	$ShipHull/Camera/TwistPivot/PitchPivot.rotation = Vector3.ZERO
 	$ShipHull/MeshInstance3D/SpotLight3D.show()
 	
+	if (!$ShipHull/Mesh/Interior/lamp.visible):
+		$ShipHull/Mesh/Interior/lamp.show()
+		$ShipHull/Mesh/Interior/lamp_off.hide()
+	
 	map.show()
 
 func exit_boat():
@@ -257,11 +261,14 @@ func _on_cabin_area_body_entered(body):
 
 func _on_cabin_area_body_exited(body):
 	var ambiant = get_parent_node_3d().get_node("AmbientSound")
-
+	
 	if (!is_player_seated):
 		ambiant.set_muffled(false)
 		$ShipHull/HullSounds.set_muffled(false)
 	
+	if (is_player_seated):
+		return
+		
 	await get_tree().create_timer(10).timeout
 	
 	if ($ShipHull/Mesh/Interior/lamp.visible):

@@ -665,7 +665,7 @@ script = ExtResource("32_q6p0s")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.64985, 0, 0)
 
 [node name="Map" parent="ShipHull" instance=ExtResource("3_o8o7n")]
-transform = Transform3D(0.069999, -0.000365283, -7.13767e-05, -5.33387e-05, 0.00344027, -0.0699154, 0.000368349, 0.0699145, 0.00343995, 2.83128, 0.472374, -0.977486)
+transform = Transform3D(0.069999, -0.000365283, -7.13767e-05, -5.33387e-05, 0.00344027, -0.0699154, 0.000368349, 0.0699145, 0.00343995, 2.83128, 0.472374, -0.973647)
 visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ShipHull"]
