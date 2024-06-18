@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://sg4vkrll1j6"]
+[gd_scene load_steps=26 format=3 uid="uid://sg4vkrll1j6"]
 
 [ext_resource type="Script" path="res://UI/Main Menu/CameraPivot.gd" id="1_68vmb"]
 [ext_resource type="Material" uid="uid://bwratgro0x321" path="res://Water/water_mat.tres" id="1_73qt5"]
@@ -16,6 +16,8 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gm4fy"]
 size = Vector3(15, 15, 15)
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ct525"]
 
 [sub_resource type="Animation" id="Animation_rk0yp"]
 resource_name = "MainMenuIntroAnimation"
@@ -82,6 +84,13 @@ tracks/5/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/6/type = "position_3d"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("RainParticles")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, -192.064, 0, 46.3515, 14.9, 1, -192.064, 0, 46.3515)
 
 [sub_resource type="Animation" id="Animation_8wnwa"]
 length = 0.001
@@ -97,10 +106,72 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:attributes:exposure_multiplier")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_jdyxe"]
+resource_name = "PlayAnimation"
+length = 12.0
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -195.123, 5.801, 40.425, 2.2, 1, -207.252, 10, 36.503, 11.6, 1, -243.765, 16.159, 22.539)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.047, -0.856, -0.079, 0.509, 11.6, 1, -0.0711603, 0.626005, 0.0575218, 0.774432)
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SubViewportContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D:attributes:exposure_multiplier")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 11.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/4/type = "position_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RainParticles")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0.1, 1, -192.064, 0, 46.3515, 2.2, 1, -207.252, 0, 36.503, 11.7, 1, -243.765, 0, 22.539)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cxnkd"]
 _data = {
 "MainMenuIntroAnimation": SubResource("Animation_rk0yp"),
+"PlayAnimation": SubResource("Animation_jdyxe"),
 "RESET": SubResource("Animation_8wnwa")
 }
 
@@ -193,18 +264,20 @@ handle_input_locally = false
 size = Vector2i(512, 572)
 render_target_update_mode = 4
 
-[node name="Menu" parent="SubViewportContainer/SubViewport" instance=ExtResource("7_oexl6")]
+[node name="Menu" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("IntroAnimations") instance=ExtResource("7_oexl6")]
 game_scene = "res://MainGameScene/Dusk.tscn"
+IntroAnimations = NodePath("../../../IntroAnimations")
 
 [node name="RainParticles" parent="." instance=ExtResource("9_v03o5")]
-transform = Transform3D(-0.477159, 0.160152, -0.864101, 0, 0.983255, 0.182236, 0.878817, 0.0869553, -0.469169, -191.717, 26.7105, 42.2742)
+transform = Transform3D(-0.477159, 0.160152, -0.864101, 0, 0.983255, 0.182236, 0.878817, 0.0869553, -0.469169, -243.765, 0, 22.539)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.477159, 0.130845, -0.869022, -2.23517e-08, 0.988854, 0.148888, 0.878817, 0.0710431, -0.471841, -197.972, 5.28522, 40.6766)
+transform = Transform3D(0.209618, -0.178187, 0.96141, -1.49012e-08, 0.983255, 0.182236, -0.977783, -0.0381999, 0.206108, -243.765, 16.159, 22.539)
+attributes = SubResource("CameraAttributesPractical_ct525")
 current = true
-fov = 49.7
+fov = 37.8493
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="IntroAnimations" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_cxnkd")
 }
@@ -235,11 +308,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -212.15, 1.92039, 42.8)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_vfvap")
-volume_db = -10.7813
+volume_db = -10.0
 
 [node name="WaterMover" parent="." instance=ExtResource("13_s4h3e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -143.052, 0, 0)
 visible = false
+
+[connection signal="animation_finished" from="IntroAnimations" to="SubViewportContainer/SubViewport/Menu" method="_on_intro_animations_animation_finished"]
 
 [editable path="Boat"]
 [editable path="Boat/ShipHull/Mesh/Hull"]
@@ -248,3 +323,4 @@ visible = false
 [editable path="Boat/ShipHull/Mesh/Interior/lamp_off"]
 [editable path="Boat/ShipHull/Fire"]
 [editable path="Player"]
+[editable path="AmbientSound"]
