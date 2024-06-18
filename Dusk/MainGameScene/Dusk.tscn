@@ -59,8 +59,7 @@ transform = Transform3D(0.995228, 0, 0.0975829, 0, 1, 0, -0.0975829, 0, 0.995228
 visible = false
 
 [node name="Island2Terrain" parent="." instance=ExtResource("9_q47qq")]
-transform = Transform3D(0.536578, 0, -0.843851, 0, 1, 0, 0.843851, 0, 0.536578, 455.686, -13.88, -1300)
-visible = false
+transform = Transform3D(0.536578, 0, -0.843851, 0, 1, 0, 0.843851, 0, 0.536578, 455.686, -13.88, -1200)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("10_1opmm")
@@ -107,6 +106,7 @@ volume_db = 20.0
 bus = &"Master"
 
 [node name="CollisionShape3D" parent="LeviathanScreamTrigger3/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 6, 205.031)
 shape = SubResource("BoxShape3D_xacxc")
 
 [node name="LeviathanScreamTrigger4" parent="." instance=ExtResource("12_ii44y")]
@@ -124,11 +124,12 @@ shape = SubResource("BoxShape3D_xacxc")
 transform = Transform3D(0.103626, 0, 0.994616, 0, 1, 0, -0.994616, 0, 0.103626, 1520.91, 6.17836, -1432.7)
 
 [node name="AudioStreamPlayer3D" parent="LeviathanScreamTrigger5" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -173.47, 0, 41.7785)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -163.748, 0, 40.7656)
 volume_db = 20.0
 bus = &"Master"
 
 [node name="CollisionShape3D" parent="LeviathanScreamTrigger5/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7216, 6, 3.48706)
 shape = SubResource("BoxShape3D_xacxc")
 
 [node name="LeviathanScreamTrigger6" parent="." instance=ExtResource("12_ii44y")]

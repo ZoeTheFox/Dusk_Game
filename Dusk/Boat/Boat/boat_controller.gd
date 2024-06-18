@@ -265,6 +265,8 @@ func _on_cabin_area_body_exited(body):
 	if (!is_player_seated):
 		ambiant.set_muffled(false)
 		$ShipHull/HullSounds.set_muffled(false)
+	
+	if (is_player_seated):
 		return
 		
 	await get_tree().create_timer(10).timeout
