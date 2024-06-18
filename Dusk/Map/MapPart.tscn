@@ -57,5 +57,16 @@ shaded = true
 texture_filter = 0
 texture = ExtResource("7_4us1c")
 
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.231201, 0)
+visible = false
+billboard = 1
+modulate = Color(1, 1, 1, 0.192157)
+text = "Press 'm' to open map"
+font_size = 10
+outline_size = 0
+uppercase = true
+
 [connection signal="interact" from="Interactable" to="." method="_on_interactable_interact"]
+[connection signal="looked_at" from="Interactable" to="." method="_on_interactable_looked_at"]
 [connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_audio_stream_player_3d_finished"]

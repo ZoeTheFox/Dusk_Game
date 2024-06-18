@@ -664,13 +664,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.34534, 1.18263, -2.47327)
 [node name="CandlePath" type="Node3D" parent="."]
 
 [node name="Candle2" parent="CandlePath" instance=ExtResource("10_8r63b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 3, -123)
+transform = Transform3D(0.914162, -0.405349, 0, 0.405349, 0.914162, 0, 0, 0, 1, -100, 2.6181, -123)
 
 [node name="Candle" parent="CandlePath" instance=ExtResource("10_8r63b")]
 transform = Transform3D(0.914148, -0.405381, 0, 0.405381, 0.914148, 0, 0, 0, 1, -105.922, 0.88288, -128.124)
 
 [node name="Candle3" parent="CandlePath" instance=ExtResource("10_8r63b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.4548, 7.89107, -138.537)
+transform = Transform3D(0.980601, -0.196015, 0, 0.196015, 0.980601, 0, 0, 0, 1, -86.4548, 7.90684, -138.537)
 
 [node name="Candle4" parent="CandlePath" instance=ExtResource("10_8r63b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.8748, 13.5268, -147.565)

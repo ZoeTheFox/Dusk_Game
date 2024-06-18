@@ -294,6 +294,9 @@ func leviathan_sink():
 
 func adjust_fuel():
 	var island_3 : Node3D = get_parent_node_3d().get_node("Island3Terrain")
+	
+	if (island_3 == null):
+		return
 
 	var distance : float = ($ShipHull.global_position - island_3.global_position).length()
 	
