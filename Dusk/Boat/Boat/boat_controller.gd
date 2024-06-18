@@ -99,14 +99,14 @@ func _process(delta):
 	
 	if (Input.is_action_just_released("open_map") and is_player_seated):
 		if (map.unlocked_parts > 0):
-			if (!map_active):
-				map.hide()
-				$ShipHull/Map2.show()
+			if (map_active):
+				map.show()
+				$ShipHull/Map2.hide()
 				$ShipHull/Map2/MapSound.play()
 				map_active = false
 			else:
-				map.show()
-				$ShipHull/Map2.hide()
+				map.hide()
+				$ShipHull/Map2.show()
 				$ShipHull/Map2/MapSound2.play()
 				map_active = true
 	
@@ -266,12 +266,9 @@ func _on_cabin_area_body_exited(body):
 		ambiant.set_muffled(false)
 		$ShipHull/HullSounds.set_muffled(false)
 	
-	if (is_player_seated):
-		return
-		
 	await get_tree().create_timer(10).timeout
 	
-	if ($ShipHull/Mesh/Interior/lamp.visible):
+	if ($ShipHull/Mesh/Interior/lamp.visible and !is_player_seated):
 		$ShipHull/Mesh/Interior/lamp.hide()
 		$ShipHull/Mesh/Interior/lamp_off.show()
 
