@@ -47,4 +47,5 @@ func set_volume(player : AudioStreamPlayer, distance : float, min_distance : flo
 
 
 func _on_interactable_interact():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 	get_tree().change_scene_to_file("res://UI/Credits/CreditScreen.tscn")

@@ -12,7 +12,9 @@ func _process(delta):
 
 
 func _on_interactable_interact():
-	var heading = round(get_parent_node_3d().value)
+	var heading = normalize_angle(360 - int(round(get_parent_node_3d().value)))
+
+	print(heading)
 	
 	var text = "Heading to " + str(heading) + "°. Facing " + getDirection(heading) + "."
 	
@@ -40,3 +42,9 @@ func getDirection(angle: float) -> String:
 	else:
 		return "Northwest"
 
+func normalize_angle(angle):
+	# Ensure the angle is within 0° to 360°
+	angle = angle % 360
+	if angle < 0:
+		angle += 360
+	return angle

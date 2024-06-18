@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://wsmpltn0glt1"]
+[gd_scene load_steps=20 format=3 uid="uid://wsmpltn0glt1"]
 
 [ext_resource type="PackedScene" uid="uid://bmacr6agbv47a" path="res://Boat/Boat/Boat.tscn" id="1_0db3y"]
 [ext_resource type="PackedScene" uid="uid://brh07riyg1qv0" path="res://FirstPersonController/Player.tscn" id="2_sxd6g"]
@@ -20,13 +20,22 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_xacxc"]
 size = Vector3(100, 100, 100)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_0uar8"]
+size = Vector3(139.956, 11.0728, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t2l2o"]
+size = Vector3(113.323, 10, 28.5474)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w42tl"]
+size = Vector3(93.5762, 10, 10)
+
 [node name="Dusk" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("2_sxd6g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.579, 14.2801, 36.8013)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.576, 14.1919, 37.274)
 
 [node name="Boat" parent="." instance=ExtResource("1_0db3y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 163.873, 1.86929, -43.1642)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 164.582, 1.86929, -43.7165)
 
 [node name="AmbientSound" parent="." instance=ExtResource("3_22gf3")]
 max_distance = 80.0
@@ -138,6 +147,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1555.64, 0, -1512.25)
 
 [node name="LeviathanBoatEndTrigger" parent="." instance=ExtResource("15_esrbx")]
 transform = Transform3D(0.279578, 0, -0.960123, 0, 1, 0, 0.960123, 0, 0.279578, 1875.26, 7.48755, -1615.22)
+
+[node name="CollisionShape3D" parent="LeviathanBoatEndTrigger/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.5065, 1.40961, 2.99902)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="LeviathanBoatEndTrigger/Area3D" index="1"]
+transform = Transform3D(0.93052, 0, 0.366242, 0, 1, 0, -0.366242, 0, 0.93052, 77.1963, -0.434414, -20.1646)
+shape = SubResource("BoxShape3D_0uar8")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="LeviathanBoatEndTrigger/Area3D" index="2"]
+transform = Transform3D(0.884394, 0, 0.466742, 0, 1, 0, -0.466742, 0, 0.884394, 192.01, 0, -81.502)
+shape = SubResource("BoxShape3D_t2l2o")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="LeviathanBoatEndTrigger/Area3D" index="3"]
+transform = Transform3D(0.387484, 0, 0.921877, 0, 1, 0, -0.921877, 0, 0.387484, 260.283, 4.40599, -155.212)
+shape = SubResource("BoxShape3D_w42tl")
 
 [node name="AudioStreamPlayer3D" parent="LeviathanBoatEndTrigger" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.05994, -0.754941, 27.9934)

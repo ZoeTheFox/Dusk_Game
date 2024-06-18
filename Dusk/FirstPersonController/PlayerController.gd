@@ -72,6 +72,9 @@ var map_active : bool = false
 var map = $Head/TwistPivot/Map
 
 func _physics_process(delta):
+	if (Input.is_anything_pressed() and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED and mouse_sensivity > 0):
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
 	var speed = walking_speed
 	
 	if submerged:

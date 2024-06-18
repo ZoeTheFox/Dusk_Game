@@ -567,6 +567,9 @@ story = true
 [node name="MapPart" parent="Graves/Grave10" instance=ExtResource("11_l1pwu")]
 transform = Transform3D(0.871691, -0.310307, 0.379296, 0.251461, 0.947542, 0.197296, -0.420622, -0.076604, 0.903996, 1.61151, 0.993214, -0.170203)
 
+[node name="CollisionShape3D" parent="Graves/Grave10/MapPart/Interactable" index="1"]
+transform = Transform3D(1, -1.83409e-13, 0, 3.10998e-15, 1, 0, 3.41061e-13, 0, 1, 0.00569344, -0.20348, -0.0277786)
+
 [node name="MapPart0" parent="Graves/Grave10/MapPart" index="2"]
 visible = false
 
