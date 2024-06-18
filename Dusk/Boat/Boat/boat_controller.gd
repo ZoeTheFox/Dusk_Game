@@ -99,7 +99,7 @@ func _process(delta):
 	
 	if (Input.is_action_just_released("open_map") and is_player_seated):
 		if (map.unlocked_parts > 0):
-			if (map_active):
+			if (!map_active):
 				map.hide()
 				$ShipHull/Map2.show()
 				$ShipHull/Map2/MapSound.play()

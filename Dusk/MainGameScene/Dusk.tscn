@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://wsmpltn0glt1"]
+[gd_scene load_steps=21 format=3 uid="uid://wsmpltn0glt1"]
 
 [ext_resource type="PackedScene" uid="uid://bmacr6agbv47a" path="res://Boat/Boat/Boat.tscn" id="1_0db3y"]
 [ext_resource type="PackedScene" uid="uid://brh07riyg1qv0" path="res://FirstPersonController/Player.tscn" id="2_sxd6g"]
@@ -29,6 +29,9 @@ size = Vector3(113.323, 10, 28.5474)
 [sub_resource type="BoxShape3D" id="BoxShape3D_w42tl"]
 size = Vector3(93.5762, 10, 10)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_6bect"]
+size = Vector3(70.2654, 17.2109, 13)
+
 [node name="Dusk" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("2_sxd6g")]
@@ -56,10 +59,10 @@ visible = false
 
 [node name="Island3Terrain" parent="." instance=ExtResource("8_g1xg2")]
 transform = Transform3D(0.995228, 0, 0.0975829, 0, 1, 0, -0.0975829, 0, 0.995228, 2000, 4.982, -1500)
-visible = false
 
 [node name="Island2Terrain" parent="." instance=ExtResource("9_q47qq")]
 transform = Transform3D(0.536578, 0, -0.843851, 0, 1, 0, 0.843851, 0, 0.536578, 455.686, -13.88, -1200)
+visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("10_1opmm")
@@ -163,6 +166,10 @@ shape = SubResource("BoxShape3D_t2l2o")
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="LeviathanBoatEndTrigger/Area3D" index="3"]
 transform = Transform3D(0.387484, 0, 0.921877, 0, 1, 0, -0.921877, 0, 0.387484, 260.283, 4.40599, -155.212)
 shape = SubResource("BoxShape3D_w42tl")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="LeviathanBoatEndTrigger/Area3D" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.0067, -1.19586, -9.23633)
+shape = SubResource("BoxShape3D_6bect")
 
 [node name="AudioStreamPlayer3D" parent="LeviathanBoatEndTrigger" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.05994, -0.754941, 27.9934)
