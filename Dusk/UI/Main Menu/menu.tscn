@@ -45,7 +45,7 @@ text = "Quit"
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Beta 1.1"
+text = "Beta 1.2 Release Candidate"
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
